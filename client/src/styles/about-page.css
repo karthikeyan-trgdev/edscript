@@ -1,0 +1,253 @@
+/* ==========================================================================
+   About page: Vision & Mission, Principles
+   ========================================================================== */
+.vm {
+  position: relative;
+  isolation: isolate;
+  padding-block: clamp(64px, 10vh, 120px);
+  background:
+    radial-gradient(45% 55% at 0% 50%, rgba(127, 214, 204, 0.22), rgba(127, 214, 204, 0) 70%),
+    #f4fbfa;
+}
+.vm__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2.4vw, 2rem);
+}
+/* round chip linking the two cards: vision -> mission */
+.vm__link {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(160deg, #19c2b0, #0b6f68);
+  box-shadow: 0 0 0 8px #f4fbfa, 0 16px 30px -12px rgba(13, 127, 118, 0.8);
+}
+
+.vm__card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.8rem, 3.6vw, 3rem);
+  border-radius: clamp(22px, 2.6vw, 32px);
+  transition: transform 0.6s var(--ease-out), box-shadow 0.6s var(--ease-out);
+}
+.vm__card:hover { transform: translateY(-6px); }
+.vm__card--vision { box-shadow: 0 34px 70px -40px rgba(6, 59, 57, 0.45); }
+.vm__card--vision .glass__fx::before {
+  background:
+    radial-gradient(70% 60% at 100% 0%, rgba(127, 214, 204, 0.3), rgba(127, 214, 204, 0) 70%),
+    linear-gradient(150deg, rgba(255, 255, 255, 0.9) 0%, rgba(226, 246, 243, 0.66) 100%);
+}
+.vm__card--mission {
+  color: #fff;
+  background:
+    radial-gradient(60% 80% at 100% 0%, rgba(25, 194, 176, 0.38), rgba(25, 194, 176, 0) 70%),
+    radial-gradient(50% 60% at 0% 100%, rgba(25, 194, 176, 0.16), rgba(25, 194, 176, 0) 70%),
+    linear-gradient(140deg, #063f3c 0%, #0a5650 60%, #0d6f67 100%);
+  box-shadow: 0 34px 70px -36px rgba(5, 54, 52, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+/* faint dot grid on the dark card */
+.vm__card--mission::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(127, 214, 204, 0.16) 1px, transparent 1.4px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(200deg, #000 0%, transparent 60%);
+}
+.vm__card > *:not(.glass__fx) { position: relative; z-index: 1; }
+
+/* big outline icon + number in the corner */
+.vm__card > .vm__watermark {
+  position: absolute;
+  z-index: 0;
+  right: -2.2rem;
+  bottom: -2.4rem;
+  width: clamp(160px, 16vw, 230px);
+  height: auto;
+  color: var(--teal-600);
+  opacity: 0.07;
+  rotate: -12deg;
+  transition: rotate 1s var(--ease-out), opacity 0.6s;
+  pointer-events: none;
+}
+.vm__card--mission > .vm__watermark { color: #7fd6cc; opacity: 0.09; }
+.vm__card:hover > .vm__watermark { rotate: 0deg; opacity: 0.12; }
+.vm__card > .vm__num {
+  position: absolute;
+  top: clamp(1.4rem, 3vw, 2.4rem);
+  right: clamp(1.6rem, 3.4vw, 2.8rem);
+  font-size: clamp(2.6rem, 4vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(13, 107, 101, 0.22);
+}
+.vm__card--mission > .vm__num { -webkit-text-stroke-color: rgba(127, 214, 204, 0.35); }
+
+.vm__top { display: flex; align-items: center; gap: 1.1rem; }
+.vm__icon {
+  position: relative;
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(160deg, #15a797, #0b6f68);
+  box-shadow: 0 16px 30px -14px rgba(13, 127, 118, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.vm__card--mission .vm__icon {
+  color: #063f3c;
+  background: linear-gradient(160deg, #a5ece3, #3fcfbe);
+  box-shadow: 0 16px 30px -14px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+/* dashed ring orbiting the badge, with a dot riding on it */
+.vm__orbit {
+  position: absolute;
+  inset: -9px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(20, 165, 150, 0.45);
+  animation: vm-orbit 14s linear infinite;
+}
+.vm__orbit::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  margin-left: -3.5px;
+  border-radius: 50%;
+  background: #19c2b0;
+  box-shadow: 0 0 10px #19c2b0;
+}
+.vm__card--mission .vm__orbit { border-color: rgba(127, 214, 204, 0.45); animation-direction: reverse; }
+@keyframes vm-orbit { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .vm__orbit { animation: none; } }
+
+.vm__label {
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--teal-700);
+}
+.vm__card--mission .vm__label { color: var(--teal-300); }
+.vm__kicker { margin-top: 0.2rem; font-size: 0.95rem; font-weight: 600; color: var(--muted); }
+.vm__card--mission .vm__kicker { color: rgba(255, 255, 255, 0.65); }
+
+.vm__text {
+  margin-top: clamp(1.4rem, 2.6vw, 2rem);
+  font-size: clamp(1.25rem, 1rem + 0.9vw, 1.55rem);
+  line-height: 1.32;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  max-width: 30ch;
+  margin-bottom: clamp(1.4rem, 2.6vw, 2rem);
+}
+.vm__card--mission .vm__text { color: #fff; }
+
+.vm__points {
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+  margin-top: auto;
+  padding-top: clamp(1.4rem, 2.6vw, 2rem);
+  border-top: 1px solid rgba(13, 107, 101, 0.12);
+}
+.vm__card--mission .vm__points { border-top-color: rgba(127, 214, 204, 0.2); }
+.vm__points li { display: flex; align-items: center; gap: 0.85rem; font-size: 0.97rem; line-height: 1.45; color: var(--ink-2); }
+.vm__card--mission .vm__points li { color: rgba(255, 255, 255, 0.86); }
+.vm__point-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  color: var(--teal-600);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: inset 0 0 0 1px rgba(13, 107, 101, 0.12);
+  transition: transform 0.4s var(--ease-out);
+}
+.vm__card--mission .vm__point-icon { color: #7fd6cc; background: rgba(255, 255, 255, 0.07); box-shadow: inset 0 0 0 1px rgba(127, 214, 204, 0.3); }
+.vm__points li:hover .vm__point-icon { transform: scale(1.1) rotate(-6deg); }
+
+/* ---- principles ---- */
+.principles {
+  /* sit above the next section so the cards' shadows fade out instead of being cut off in a line */
+  position: relative;
+  z-index: 1;
+  padding-block: clamp(48px, 8vh, 100px) clamp(24px, 4vh, 48px);
+  background: #f4fbfa;
+}
+.principles__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.9rem, 1.8vw, 1.5rem);
+}
+.principle {
+  position: relative;
+  padding: clamp(1.4rem, 2.4vw, 2rem);
+  border-radius: 24px;
+  transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+}
+.principle .glass__fx::before {
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.86) 0%, rgba(232, 248, 245, 0.6) 100%);
+}
+.principle:hover { transform: translateY(-6px); box-shadow: 0 30px 50px -30px rgba(6, 59, 57, 0.45); }
+.principle__num {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.4rem;
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  color: rgba(13, 107, 101, 0.1);
+}
+.principle__icon {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  color: #fff;
+  background: linear-gradient(160deg, #15a797, #0b6f68);
+  box-shadow: 0 14px 26px -14px rgba(13, 127, 118, 0.85);
+}
+.principle__title {
+  margin-top: 1.4rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.principle__text { margin-top: 0.55rem; font-size: 0.95rem; line-height: 1.6; color: var(--ink-2); }
+
+@media (max-width: 1100px) {
+  .principles__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .vm__grid { grid-template-columns: 1fr; }
+  .vm__link { rotate: 90deg; }
+  .vm__points { margin-top: 1.6rem; }
+}
+@media (max-width: 520px) {
+  .principles__grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,129 @@
+/* ==========================================================================
+   Inner-page hero (About, Programs, Contact, Apply)
+   ========================================================================== */
+.phero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: clamp(130px, 19vh, 190px) clamp(56px, 9vh, 100px);
+  background: #f4fbfa;
+}
+
+/* background photo + white overlay, fading into the next section */
+.phero__bg { position: absolute; inset: 0; z-index: -2; overflow: hidden; }
+.phero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.08);
+  transform-origin: 30% 30%; /* pushes the corner watermarks out of frame */
+}
+.phero__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(244, 251, 250, 0) 60%, #f4fbfa 100%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.93) 0%, rgba(255, 255, 255, 0.84) 45%, rgba(255, 255, 255, 0.66) 100%);
+}
+.phero__orb {
+  position: absolute;
+  z-index: -1;
+  width: min(46vw, 620px);
+  aspect-ratio: 1;
+  right: -6vw;
+  top: -10%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(20, 165, 150, 0.22), rgba(20, 165, 150, 0));
+  pointer-events: none;
+}
+
+/* ---- viewfinder frame ---- */
+.phero__frame {
+  position: relative;
+  padding: clamp(2.2rem, 4.5vw, 3.8rem) clamp(1.4rem, 4vw, 3.6rem);
+}
+.phero__corner {
+  position: absolute;
+  width: clamp(22px, 2.6vw, 36px);
+  aspect-ratio: 1;
+  border: 2.5px solid var(--teal-500);
+  opacity: 0.85;
+}
+.phero__corner--tl { top: 0; left: 0; border-right: 0; border-bottom: 0; border-top-left-radius: 10px; transform-origin: top left; }
+.phero__corner--tr { top: 0; right: 0; border-left: 0; border-bottom: 0; border-top-right-radius: 10px; transform-origin: top right; }
+.phero__corner--bl { bottom: 0; left: 0; border-right: 0; border-top: 0; border-bottom-left-radius: 10px; transform-origin: bottom left; }
+.phero__corner--br { bottom: 0; right: 0; border-left: 0; border-top: 0; border-bottom-right-radius: 10px; transform-origin: bottom right; }
+
+.phero__hud {
+  position: absolute;
+  top: clamp(0.9rem, 1.6vw, 1.3rem);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  color: var(--teal-700);
+}
+.phero__hud--rec { right: clamp(2.6rem, 4.6vw, 4.4rem); display: inline-flex; align-items: center; gap: 0.45rem; }
+.phero__hud--rec i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e0453f;
+  box-shadow: 0 0 0 4px rgba(224, 69, 63, 0.15);
+  animation: phero-rec 1.4s steps(2, jump-none) infinite;
+}
+.phero__hud--scene { right: clamp(2.6rem, 4.6vw, 4.4rem); top: auto; bottom: clamp(0.9rem, 1.6vw, 1.3rem); color: var(--muted); }
+@keyframes phero-rec { 50% { opacity: 0.2; } }
+
+/* ---- content ---- */
+.phero__crumbs {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: clamp(1.2rem, 2.2vw, 1.8rem);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.phero__crumbs a { color: var(--teal-700); transition: color 0.25s; }
+.phero__crumbs a:hover { color: var(--teal-500); }
+.phero__crumbs [aria-current] { color: var(--ink); }
+.phero__crumbs svg { color: var(--teal-500); }
+
+.phero__title {
+  margin-top: clamp(0.7rem, 1.2vw, 1rem);
+  font-size: clamp(2.5rem, 1.4rem + 3.6vw, 5rem);
+  line-height: 1.02;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  color: var(--ink);
+}
+.phero__line { display: block; overflow: hidden; padding-bottom: 0.08em; }
+.phero__line-inner { display: inline-block; transform-origin: 0% 100%; }
+.phero__desc {
+  margin-top: clamp(1rem, 1.8vw, 1.4rem);
+  max-width: 52ch;
+  text-wrap: pretty;
+  font-size: clamp(1rem, 0.92rem + 0.3vw, 1.18rem);
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+.phero__actions { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: clamp(1.4rem, 2.4vw, 2rem); }
+
+@media (max-width: 600px) {
+  .phero__frame { padding: 2.4rem 1.1rem 2.6rem; }
+  .phero__hud--rec { right: 2.4rem; }
+  .phero__hud--scene { right: 2.4rem; }
+  .phero__bg::after {
+    background:
+      linear-gradient(180deg, rgba(244, 251, 250, 0) 60%, #f4fbfa 100%),
+      rgba(255, 255, 255, 0.86);
+  }
+}
+
+/* shorter banner (Apply page) */
+.phero--compact { padding-bottom: clamp(16px, 3vh, 40px); }
+.phero--compact .phero__title { font-size: clamp(2.3rem, 1.4rem + 3vw, 4.4rem); }

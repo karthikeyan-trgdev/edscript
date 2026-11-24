@@ -1,0 +1,74 @@
+/* ==========================================================================
+   CTA band (inner pages)
+   ========================================================================== */
+.cta-band { padding-block: clamp(48px, 8vh, 100px); background: #f4fbfa; }
+.cta-band__card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem 3rem;
+  flex-wrap: wrap;
+  padding: clamp(2.2rem, 5vw, 4.4rem) clamp(1.6rem, 5vw, 4.4rem);
+  border-radius: clamp(24px, 3vw, 36px);
+  color: #fff;
+  background: linear-gradient(120deg, #063f3c 0%, #0a5650 55%, #0d6f67 100%);
+  box-shadow: 0 40px 80px -40px rgba(5, 54, 52, 0.75);
+}
+.cta-band__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.35;
+  mix-blend-mode: luminosity;
+}
+.cta-band__card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(100deg, rgba(4, 30, 29, 0.85) 0%, rgba(6, 63, 60, 0.55) 60%, rgba(13, 111, 103, 0.3) 100%);
+}
+.cta-band__ring {
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  border: 1.5px solid rgba(127, 214, 204, 0.25);
+  pointer-events: none;
+}
+.cta-band__ring--a { width: 420px; height: 420px; right: -120px; top: -220px; }
+.cta-band__ring--b { width: 260px; height: 260px; right: 60px; bottom: -200px; border-color: rgba(127, 214, 204, 0.18); }
+
+.cta-band__copy { max-width: 640px; }
+.cta-band__title {
+  font-size: clamp(1.9rem, 1.2rem + 2.2vw, 3.3rem);
+  line-height: 1.06;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+}
+.cta-band__title span { color: var(--teal-300); }
+.cta-band__text {
+  margin-top: 0.9rem;
+  font-size: clamp(0.98rem, 0.9rem + 0.25vw, 1.12rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.75);
+}
+.cta-band__actions { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+.cta-band__ghost {
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background 0.3s, border-color 0.3s;
+}
+.cta-band__ghost:hover { background: rgba(255, 255, 255, 0.16); border-color: rgba(255, 255, 255, 0.6); }
+
+@media (max-width: 600px) {
+  .cta-band__actions, .cta-band__actions .btn { width: 100%; }
+}

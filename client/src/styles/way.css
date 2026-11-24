@@ -1,0 +1,146 @@
+/* ==========================================================================
+   The EDSCRIPT Way: Learn. Create. Lead.
+   ========================================================================== */
+.way {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: clamp(24px, 4vh, 56px) clamp(80px, 12vh, 140px);
+  background: #f4fbfa;
+}
+
+/* soft teal waves the glass cards can blur */
+.way__bg { position: absolute; inset: 0; z-index: -1; pointer-events: none; display:none }
+.way__wave {
+  position: absolute;
+  bottom: 0;
+  width: min(48vw, 720px);
+  height: 62%;
+  filter: blur(2px);
+}
+.way__wave path { fill: rgba(127, 214, 204, 0.32); }
+.way__wave--left { left: 0; }
+.way__wave--right { right: 0; height: 80%; }
+.way__wave--right path { fill: rgba(127, 214, 204, 0.4); }
+.way__bg::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  width: min(70vw, 1000px);
+  height: 360px;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(20, 165, 150, 0.12), rgba(20, 165, 150, 0));
+}
+/* white fade at the bottom so the waves melt into the FAQ section */
+.way__bg::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 55%;
+  background: linear-gradient(180deg,
+    rgba(244, 251, 250, 0) 0%,
+    rgba(244, 251, 250, 0.55) 40%,
+    rgba(244, 251, 250, 0.9) 75%,
+    #f4fbfa 100%);
+}
+
+/* ---- heading ---- */
+.way__head { text-align: center; margin-bottom: clamp(2.2rem, 4.5vw, 3.6rem); }
+.way__title {
+  margin-top: clamp(0.6rem, 1.2vw, 0.9rem);
+  font-size: clamp(2.1rem, 1.3rem + 2.6vw, 3.8rem);
+  line-height: 1.06;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+}
+.way__word {
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+  vertical-align: top;
+}
+.way__word-inner { display: inline-block; transform-origin: 0% 100%; }
+
+/* ---- steps ---- */
+.way__steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(0.8rem, 2vw, 2rem);
+  max-width: 1320px;
+  margin-inline: auto;
+}
+.way__step {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(0.9rem, 1.4vw, 1.4rem);
+  height: 100%;
+  padding: clamp(1.4rem, 2.2vw, 2.1rem) clamp(1.3rem, 2.2vw, 2.2rem);
+  border-radius: 24px;
+  transition: transform 0.6s var(--ease-out), box-shadow 0.6s var(--ease-out);
+}
+.way__step .glass__fx::before {
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.5) 100%);
+}
+.way__step:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 36px 70px -34px rgba(6, 59, 57, 0.4), 0 2px 8px rgba(6, 59, 57, 0.05);
+}
+
+.way__icon {
+  flex: none;
+  width: clamp(38px, 3vw, 46px);
+  height: clamp(38px, 3vw, 46px);
+  display: grid;
+  place-items: center;
+  color: var(--teal-600);
+  transition: transform 0.6s var(--ease-out);
+}
+.way__icon svg { width: 100%; height: 100%; }
+.way__step:hover .way__icon { transform: rotate(-8deg) scale(1.08); }
+
+.way__step-title {
+  font-size: clamp(1.1rem, 0.98rem + 0.4vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.way__step-text {
+  margin-top: 0.45rem;
+  font-size: clamp(0.9rem, 0.85rem + 0.15vw, 1rem);
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 30ch;
+}
+
+.way__arrow {
+  display: grid;
+  place-items: center;
+  color: var(--teal-600);
+}
+.way__arrow svg { animation: way-nudge 2.4s ease-in-out infinite; }
+.way__arrow:nth-of-type(2) svg { animation-delay: 0.3s; }
+@keyframes way-nudge {
+  0%, 100% { transform: translateX(-3px); opacity: 0.65; }
+  50% { transform: translateX(4px); opacity: 1; }
+}
+
+/* ---- responsive: stack the path vertically ---- */
+@media (max-width: 960px) {
+  .way__steps {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 560px;
+    gap: 0.6rem;
+  }
+  .way__arrow { transform: rotate(90deg); padding-block: 0.1rem; }
+  .way__wave { width: 90vw; height: 40%; }
+  .way__wave--left { display: none; }
+}
+@media (max-width: 480px) {
+  .way__step { border-radius: 20px; }
+}

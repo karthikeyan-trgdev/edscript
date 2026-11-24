@@ -1,0 +1,156 @@
+/* ==========================================================================
+   Contact section
+   ========================================================================== */
+.contact {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: clamp(72px, 11vh, 130px);
+  background: linear-gradient(180deg, #f4fbfa 0%, #e6f6f4 100%);
+}
+.contact__blob {
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.contact__blob--a {
+  width: min(50vw, 680px);
+  aspect-ratio: 1;
+  right: 4%;
+  top: 50%;
+  translate: 0 -50%;
+  background: radial-gradient(closest-side, rgba(20, 165, 150, 0.28), rgba(20, 165, 150, 0));
+}
+.contact__blob--b {
+  width: min(36vw, 480px);
+  aspect-ratio: 1;
+  left: -8vw;
+  bottom: -20%;
+  background: radial-gradient(closest-side, rgba(127, 214, 204, 0.35), rgba(127, 214, 204, 0));
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr);
+  gap: clamp(2rem, 6vw, 7rem);
+  align-items: center;
+}
+
+/* ---- intro ---- */
+.contact__title {
+  margin-top: clamp(0.7rem, 1.2vw, 1rem);
+  font-size: clamp(2.4rem, 1.4rem + 3vw, 4.4rem);
+  line-height: 1.04;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+}
+.contact__title-inner { display: inline-block; transform-origin: 0% 100%; }
+.contact__desc {
+  margin-top: clamp(0.9rem, 1.6vw, 1.2rem);
+  max-width: 40ch;
+  font-size: clamp(0.98rem, 0.9rem + 0.25vw, 1.12rem);
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+.contact__topics {
+  list-style: none;
+  display: grid;
+  gap: 0.9rem;
+  margin-top: clamp(1.6rem, 3vw, 2.4rem);
+  max-width: 440px;
+}
+.contact__topic {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.contact__topic-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  color: var(--teal-600);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: inset 0 0 0 1px rgba(13, 107, 101, 0.12), 0 10px 22px -16px rgba(6, 59, 57, 0.45);
+}
+.contact__topic strong {
+  display: block;
+  font-size: 1rem;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.contact__topic span span {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* ---- form card ---- */
+.contact__card {
+  padding: clamp(1.5rem, 2.8vw, 2.5rem);
+  border-radius: 28px;
+}
+.contact__card .glass__fx::before {
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.82) 0%, rgba(226, 246, 243, 0.62) 100%);
+}
+.contact__card-title {
+  font-size: clamp(1.2rem, 1.05rem + 0.4vw, 1.45rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.contact__form { display: grid; gap: 0.75rem; margin-top: clamp(1rem, 1.6vw, 1.3rem); }
+.contact__row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+
+.contact__error {
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  font-size: 0.88rem;
+  color: #a12f2f;
+  background: rgba(214, 69, 69, 0.08);
+}
+.contact__submit {
+  --h: 56px;
+  width: 100%;
+  margin-top: 0.35rem;
+  font-size: 1rem;
+  background: linear-gradient(100deg, #0f8a80 0%, #0b5f5a 100%);
+}
+.contact__submit:disabled { opacity: 0.75; cursor: progress; }
+.contact__spin { animation: form-spin 0.9s linear infinite; }
+
+.contact__success {
+  display: grid;
+  justify-items: start;
+  gap: 0.6rem;
+  margin-top: 1.2rem;
+  padding: 1.6rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--ink-2);
+}
+.contact__success svg { color: var(--teal-600); }
+.contact__success h3 { font-size: 1.3rem; color: var(--ink); letter-spacing: -0.02em; }
+.contact__success .btn { margin-top: 0.4rem; --h: 44px; padding-inline: 1.2rem; font-size: 0.9rem; }
+
+/* ---- responsive ---- */
+@media (max-width: 960px) {
+  .contact__grid { grid-template-columns: 1fr; }
+  .contact__topics { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: none; }
+  .contact__topic { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+}
+@media (max-width: 600px) {
+  .contact__topics { grid-template-columns: 1fr; }
+  .contact__topic { flex-direction: row; align-items: center; }
+}
+@media (max-width: 480px) {
+  .contact__row { grid-template-columns: 1fr; }
+  .contact__card { border-radius: 22px; }
+}

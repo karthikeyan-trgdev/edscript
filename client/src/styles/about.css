@@ -1,0 +1,195 @@
+/* ==========================================================================
+   About
+   ========================================================================== */
+.about {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: clamp(72px, 12vh, 150px);
+  /* minimal: soft mint wash top-right, white body, settles into the Programs tone */
+  background:
+    radial-gradient(45% 45% at 100% 45%, rgba(127, 214, 204, 0.22) 0%, rgba(127, 214, 204, 0) 70%),
+    linear-gradient(180deg, #f4fbfa 0%, #ffffff 45%, #f4fbfa 100%);
+}
+.about__glow {
+  position: absolute;
+  z-index: -1;
+  width: min(60vw, 820px);
+  aspect-ratio: 1;
+  left: -12vw;
+  top: 50%;
+  translate: 0 -50%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(20, 165, 150, 0.18) 0%, rgba(20, 165, 150, 0) 65%);
+  pointer-events: none;
+}
+
+.about__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2.5rem, 5.5vw, 6rem);
+}
+
+/* ---- image card ---- */
+.about__media {
+  position: relative;
+  aspect-ratio: 12 / 9.6;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #062b2a;
+  box-shadow:
+    0 50px 90px -45px rgba(6, 59, 57, 0.6),
+    0 18px 36px -24px rgba(6, 59, 57, 0.35);
+}
+.about__img-wrap {
+  position: absolute;
+  inset: -5% 0; /* extra height for the parallax */
+}
+.about__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 40% 35%;
+  /* a slight zoom from the top-left keeps the watermark in the bottom-right corner cropped */
+  transform-origin: 0% 0%;
+  transform: scale(1.04);
+}
+/* rim light + soft bottom shade so the card sits on the page */
+.about__shade {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(2, 21, 20, 0) 55%, rgba(2, 21, 20, 0.35) 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+/* Small circle: frosted blur only. The refraction filter is not clipped to the
+   circle at this size and shows up as a square. */
+.about__play .glass__fx::before,
+.has-refraction .about__play .glass__fx::before {
+  inset: 0;
+  border-radius: 50%;
+  filter: none;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.12));
+}
+.about__play svg { margin-left: 4px; filter: drop-shadow(0 2px 6px rgba(2, 21, 20, 0.35)); }
+.about__play:hover { transform: scale(1.08); }
+.about__play-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  animation: about-pulse 2.6s var(--ease-out) infinite;
+  pointer-events: none;
+}
+.about__play-ring--2 { animation-delay: 1.3s; }
+@keyframes about-pulse {
+  from { transform: scale(1); opacity: 0.8; }
+  to { transform: scale(1.75); opacity: 0; }
+}
+
+/* ---- copy ---- */
+.about__title {
+  margin-top: clamp(0.8rem, 1.6vw, 1.2rem);
+  font-size: clamp(2.1rem, 1.3rem + 2.6vw, 3.9rem);
+  line-height: 1.04;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+}
+.about__line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+}
+.about__line-inner { display: inline-block; transform-origin: 0% 100%; }
+
+.about__lead {
+  margin-top: clamp(1.2rem, 2.4vw, 1.8rem);
+  font-size: clamp(1rem, 0.92rem + 0.3vw, 1.18rem);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--ink);
+  max-width: 52ch;
+}
+.about__text {
+  margin-top: 1rem;
+  font-size: clamp(0.92rem, 0.86rem + 0.18vw, 1.02rem);
+  line-height: 1.75;
+  color: var(--ink-2);
+  max-width: 60ch;
+}
+.about__cta {
+  margin-top: clamp(1.6rem, 3vw, 2.4rem);
+  --h: 50px;
+  padding-inline: 1.7rem;
+  font-size: 0.95rem;
+}
+.about__cta .btn__arrow { color: var(--teal-600); }
+
+/* ---- About page variant: more copy, square card that shows the whole image ---- */
+.about--page .about__grid { grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); }
+.about--page .about__media { aspect-ratio: 1 / 1; }
+.about--page .about__img-wrap { inset: -3% 0; }
+.about--page .about__img { object-position: 50% 50%; }
+
+.about__highlights {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin-top: clamp(1.4rem, 2.6vw, 2rem);
+}
+.about__hl {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 1rem 1rem 1.1rem;
+  border-radius: 18px;
+  transition: transform 0.45s var(--ease-out), box-shadow 0.45s var(--ease-out);
+}
+.about__hl .glass__fx::before {
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.88) 0%, rgba(232, 248, 245, 0.62) 100%);
+}
+.about__hl:hover { transform: translateY(-4px); box-shadow: 0 22px 40px -28px rgba(6, 59, 57, 0.5); }
+.about__hl-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  color: #fff;
+  background: linear-gradient(160deg, #15a797, #0b6f68);
+  box-shadow: 0 12px 22px -12px rgba(13, 127, 118, 0.85);
+}
+.about__hl-body { display: grid; gap: 0.1rem; }
+.about__hl-body strong { font-size: 0.98rem; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); }
+.about__hl-body span { font-size: 0.88rem; line-height: 1.45; color: var(--muted); }
+
+/* ---- responsive ---- */
+@media (max-width: 960px) {
+  .about__grid { grid-template-columns: 1fr; }
+  .about__content { max-width: 680px; }
+  .about__glow { left: 50%; top: 22%; translate: -50% -50%; width: 110vw; }
+}
+@media (max-width: 560px) {
+  .about__media { aspect-ratio: 4 / 3; border-radius: 22px; }
+  .about__img { object-position: 46% 25%; }
+  .about__play { left: 77%; top: 56%; }
+  .about__cta { width: 100%; }
+}
+@media (max-width: 960px) {
+  .about--page .about__grid { grid-template-columns: 1fr; }
+  .about--page .about__media { max-width: 640px; }
+}
+@media (max-width: 560px), (min-width: 961px) and (max-width: 1240px) {
+  .about__highlights { grid-template-columns: 1fr; }
+  .about__hl { flex-direction: row; align-items: center; padding: 0.85rem 1rem; }
+}

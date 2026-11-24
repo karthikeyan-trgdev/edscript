@@ -1,0 +1,505 @@
+{
+  "brand": {
+    "name": "EDScript",
+    "tagline": "AI Accelerator Academy"
+  },
+  "nav": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Programs",
+      "href": "/programs"
+    },
+        {
+      "label": "About",
+      "href": "/about"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact"
+    }
+  ],
+  "hero": {
+    "eyebrow": "AI Accelerator Academy",
+    "titleLines": [
+      "Turn Creativity",
+      "into Creative"
+    ],
+    "titleAccent": "Leadership.",
+    "description": "Industry-focused programs in filmmaking, design, podcasting, and marketing — built on story, craft, and AI.",
+    "primaryCta": {
+      "label": "Explore Programs",
+      "href": "#programs"
+    },
+    "secondaryCta": {
+      "label": "Watch Our Story",
+      "href": "#story"
+    }
+  },
+  "features": [
+    {
+      "icon": "clapper",
+      "title": "Hands-on Learning",
+      "text": "Real projects, not just theory."
+    },
+    {
+      "icon": "ai",
+      "title": "AI + Creative Craft",
+      "text": "Use AI as a creative accelerator."
+    },
+    {
+      "icon": "layers",
+      "title": "Industry Mentors",
+      "text": "Learn from working professionals."
+    },
+    {
+      "icon": "rocket",
+      "title": "Portfolio Ready",
+      "text": "Build work that gets you noticed."
+    }
+  ],
+  "about": {
+    "eyebrow": "About EDSCRIPT",
+    "titleLine": "More Than an",
+    "titleAccent": "AI Academy.",
+    "lead": "Anyone can open an AI tool. Almost no one knows what to do with it.",
+    "paragraphs": [
+      "That’s the gap we built EDSCRIPT to close. We take people who can press buttons and turn them into people who make the calls — the story decision, the frame, the cut, the brand move — that no model makes for you.",
+      "We don’t teach prompts. We teach the eye behind them. Every course we run, filmmaking, design, podcasting, marketing, is built on one rule: story and craft come first, AI comes second, always."
+    ],
+    "cta": {
+      "label": "Know More",
+      "href": "/about"
+    },
+    "vision": "A generation of creators who command AI the way a director commands a set. In charge of every shot, every call, every outcome.",
+    "mission": "Train directors, not operators. Hand people the judgment to lead AI, not the dependency to follow it."
+  },
+  "programs": {
+    "eyebrow": "Our Programs",
+    "titleLine": "Choose Your",
+    "titleAccent": "Creative Path.",
+    "description": "Specialized programs to help you learn, create, and lead with story and AI.",
+    "items": [
+      {
+        "title": "AI Filmmaking & Video Production",
+        "slug": "ai-filmmaking",
+        "icon": "video",
+        "image": "AI Filmmaking & Video Production.webp",
+        "summary": "Learn to think like a director. Write, shoot, generate and cut short films where every frame is a decision you made, and AI is the crew that helps you make it.",
+        "learn": [
+          "Story structure, scripting and shot design",
+          "Cinematography, lighting and composition basics",
+          "AI video, image and voice tools in a real pipeline",
+          "Editing, pacing, colour and sound"
+        ],
+        "outcome": "A finished short film and a director’s reel for your portfolio."
+      },
+      {
+        "title": "Digital Marketing with Generative AI",
+        "slug": "digital-marketing",
+        "icon": "megaphone",
+        "image": "Digital Marketing with Generative AI.webp",
+        "summary": "Plan campaigns that start with an insight, not a tool. Use generative AI to research, write, design and test faster, while you stay in charge of the strategy.",
+        "learn": [
+          "Audience research and positioning",
+          "Campaign planning across paid, owned and social",
+          "AI-assisted copy, creative and ad variations",
+          "Measuring results and making the next call"
+        ],
+        "outcome": "A complete campaign plan with live creative you built yourself."
+      },
+      {
+        "title": "Content Creation & Social Media",
+        "slug": "content-creation",
+        "icon": "smartphone",
+        "image": "Content Creation and Social Media.webp",
+        "summary": "Build a voice people come back for. Learn to plan, shoot and edit content for every platform, and use AI to keep a steady output without losing what makes it yours.",
+        "learn": [
+          "Finding your angle and content pillars",
+          "Short-form video: hooks, shooting and editing",
+          "Platform formats, algorithms and community",
+          "AI workflows for scripting, editing and repurposing"
+        ],
+        "outcome": "A content system and a month of published work."
+      },
+      {
+        "title": "Brand Storytelling & Creative Strategy",
+        "slug": "brand-storytelling",
+        "icon": "pen",
+        "image": "Brand Storytelling and Creative Strategy.webp",
+        "summary": "Turn what a brand stands for into stories people remember. Learn the strategy behind great brands and use AI to explore ideas, not to replace them.",
+        "learn": [
+          "Brand strategy, purpose and positioning",
+          "Narrative frameworks and messaging",
+          "Visual identity and tone of voice",
+          "Pitching creative ideas with confidence"
+        ],
+        "outcome": "A brand story and creative strategy deck for a real brief."
+      },
+      {
+        "title": "Podcasting, Hosting & Digital Media",
+        "slug": "podcasting",
+        "icon": "mic",
+        "image": "Podcasting, Hosting and Digital Media.webp",
+        "summary": "Find your voice and hold an audience. From the first idea to a published show, learn hosting, interviewing and production with AI tools that handle the heavy lifting.",
+        "learn": [
+          "Show format, research and episode planning",
+          "Hosting, interviewing and on-mic presence",
+          "Recording, editing and audio clean-up",
+          "Publishing, clips and growing a listenership"
+        ],
+        "outcome": "A launched podcast pilot with promotional clips."
+      },
+      {
+        "title": "Applied AI for Business",
+        "slug": "applied-ai-business",
+        "icon": "brain",
+        "image": "Futuristic AI Business Workspace.webp",
+        "summary": "Use AI where it actually moves the business. Learn to spot the right problems, design practical workflows and lead the people who use them.",
+        "learn": [
+          "Where AI helps, and where it doesn’t",
+          "Designing and automating everyday workflows",
+          "Data, prompts and evaluating outputs",
+          "Leading teams and change around AI"
+        ],
+        "outcome": "A working AI workflow for a real business process."
+      }
+    ]
+  },
+  "way": {
+    "eyebrow": "The EDSCRIPT Way",
+    "title": [
+      {
+        "text": "Learn."
+      },
+      {
+        "text": "Create.",
+        "accent": true
+      },
+      {
+        "text": "Lead."
+      }
+    ],
+    "steps": [
+      {
+        "icon": "learn",
+        "title": "Learn",
+        "text": "Build a strong foundation in story, craft, and modern tools."
+      },
+      {
+        "icon": "create",
+        "title": "Create",
+        "text": "Turn ideas into real projects with industry guidance."
+      },
+      {
+        "icon": "lead",
+        "title": "Lead",
+        "text": "Develop the judgment to direct, build, and make an impact."
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "FAQs",
+    "titleLines": [
+      "Frequently",
+      "Asked"
+    ],
+    "titleAccent": "Questions.",
+    "description": "Quick answers to help you know more about EDScript, our programs, and how to apply.",
+    "cta": {
+      "label": "Ask Us Anything",
+      "href": "/contact"
+    },
+    "items": [
+      {
+        "q": "What is EDScript?",
+        "a": "EDScript is an AI accelerator academy that trains creators in filmmaking, design, podcasting, and marketing — with a strong focus on story, craft, and creative judgment."
+      },
+      {
+        "q": "Who can join the programs?",
+        "a": "Anyone who wants to lead creative work with AI — students, early-career creators, working professionals, and business owners who want to direct the tools rather than just operate them."
+      },
+      {
+        "q": "Do I need prior experience?",
+        "a": "No. Every program starts with the fundamentals of story and craft before bringing in AI tools, so you can join as a beginner and still build portfolio-ready work."
+      },
+      {
+        "q": "How are the classes conducted?",
+        "a": "Classes are hands-on and project-based. You learn by making real work with guidance from industry mentors, not by sitting through theory."
+      },
+      {
+        "q": "Are there scholarships available?",
+        "a": "Yes. EDScript offers scholarships for promising learners. Send us a message below and our admissions team will walk you through eligibility and how to apply."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Get in Touch",
+    "title": "Let’s Talk.",
+    "description": "Have a question about our programs, scholarships, or admissions? Drop us a message.",
+    "submitLabel": "Send Message",
+    "successTitle": "Message sent!",
+    "successText": "Thanks for reaching out. Our team will get back to you shortly."
+  },
+  "footer": {
+    "tagline": "Learn the craft. Use AI.\nShow the work.",
+    "socials": [
+      {
+        "name": "Instagram",
+        "href": "#"
+      },
+      {
+        "name": "Facebook",
+        "href": "#"
+      },
+      {
+        "name": "LinkedIn",
+        "href": "#"
+      }
+    ],
+    "quickLinks": {
+      "title": "Quick Links",
+      "items": [
+        {
+          "label": "Home",
+          "href": "/"
+        },
+        {
+          "label": "About Us",
+          "href": "/about"
+        },
+        {
+          "label": "Programs",
+          "href": "/programs"
+        },
+        {
+          "label": "The Method",
+          "href": "/#way"
+        },
+        {
+          "label": "Contact Us",
+          "href": "/contact"
+        },
+        {
+          "label": "Apply Now",
+          "href": "/register"
+        }
+      ]
+    },
+    "programs": {
+      "title": "Programs",
+      "items": [
+        {
+          "label": "AI Filmmaking",
+          "href": "/programs#ai-filmmaking"
+        },
+        {
+          "label": "Content Creation",
+          "href": "/programs#content-creation"
+        },
+        {
+          "label": "Digital Marketing",
+          "href": "/programs#digital-marketing"
+        },
+        {
+          "label": "Creative Strategy",
+          "href": "/programs#brand-storytelling"
+        }
+      ]
+    },
+    "contact": {
+      "title": "Get in Touch",
+      "email": "hello@edscript.ai",
+      "phone": "+91 98765 43210",
+      "location": "Chennai, India"
+    },
+    "copyright": "EDScript. All Rights Reserved.",
+    "legal": [
+      {
+        "label": "Privacy Policy",
+        "href": "#"
+      },
+      {
+        "label": "Terms of Service",
+        "href": "#"
+      },
+      {
+        "label": "Cookie Policy",
+        "href": "#"
+      }
+    ]
+  },
+  "pages": {
+    "about": {
+      "title": "About Us",
+      "hero": {
+        "eyebrow": "About Us",
+        "titleLine": "Story first.",
+        "titleAccent": "AI second.",
+        "description": "We train creators to lead AI with judgment, taste and craft, not follow it."
+      },
+      "story": {
+        "paragraphs": [
+          "Our classrooms run like studios. You learn by making real work: short films, brand campaigns, podcast episodes and visual identities, reviewed the way a creative director would review them."
+        ],
+        "highlights": [
+          { "icon": "story", "title": "Story-first curriculum", "text": "Narrative, framing and taste before any tool." },
+          { "icon": "work", "title": "Studio-style projects", "text": "Every module ends in a piece for your portfolio." },
+          { "icon": "eye", "title": "Mentor feedback", "text": "Practising creators review your work, line by line." }
+        ]
+      },
+      "vm": {
+        "eyebrow": "Vision & Mission",
+        "titleLine": "Directors,",
+        "titleAccent": "not operators.",
+        "description": "Where we're heading, and how we plan to get every learner there.",
+        "vision": {
+          "label": "Our Vision",
+          "kicker": "Where we're heading",
+          "points": [
+            { "icon": "clapper", "text": "Creators who direct every shot, not just press record" },
+            { "icon": "sparkles", "text": "AI as the crew that amplifies a clear creative voice" },
+            { "icon": "globe", "text": "Original stories, told at world-class quality" }
+          ]
+        },
+        "mission": {
+          "label": "Our Mission",
+          "kicker": "How we get there",
+          "points": [
+            { "icon": "cap", "text": "Teach the craft first: story, frame, sound, brand" },
+            { "icon": "zap", "text": "Then add AI as a multiplier, never a crutch" },
+            { "icon": "rocket", "text": "Send every learner out with a portfolio that proves it" }
+          ]
+        }
+      },
+      "principles": {
+        "eyebrow": "What We Believe",
+        "titleLine": "The rules we",
+        "titleAccent": "teach by.",
+        "items": [
+          {
+            "icon": "story",
+            "title": "Story before software",
+            "text": "Every project starts with what you’re trying to say, not which tool to open."
+          },
+          {
+            "icon": "craft",
+            "title": "Craft is the multiplier",
+            "text": "Framing, pacing, editing, voice. AI amplifies craft. It can’t replace it."
+          },
+          {
+            "icon": "eye",
+            "title": "Judgment over prompts",
+            "text": "We train the eye that decides what’s good, what’s off, and what comes next."
+          },
+          {
+            "icon": "work",
+            "title": "Show the work",
+            "text": "You leave with real projects in a portfolio, not just a certificate."
+          }
+        ]
+      }
+    },
+    "programs": {
+      "title": "Programs",
+      "hero": {
+        "eyebrow": "Our Programs",
+        "titleLine": "Choose your",
+        "titleAccent": "creative path.",
+        "description": "Six programs, one rule: story and craft come first, AI comes second. Find the path that fits what you want to make."
+      },
+      "learnLabel": "What you’ll learn",
+      "outcomeLabel": "You’ll leave with"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "hero": {
+        "eyebrow": "Contact Us",
+        "titleLine": "Let’s talk about",
+        "titleAccent": "your next move.",
+        "description": "Questions about programs, scholarships or admissions? Reach out and our team will help you find the right path."
+      }
+    },
+    "register": {
+      "title": "Apply Now",
+      "hero": {
+        "eyebrow": "Admissions",
+        "titleLine": "Apply to",
+        "titleAccent": "EDScript.",
+        "description": "Tell us who you are and what you want to make. It takes about five minutes."
+      },
+      "steps": [
+        "About you",
+        "Your program",
+        "Your story"
+      ],
+      "next": {
+        "title": "What happens next",
+        "items": [
+          {
+            "title": "We review your application",
+            "text": "Our admissions team reads every application personally."
+          },
+          {
+            "title": "We get in touch",
+            "text": "We’ll reach out to talk about your goals and the right program."
+          },
+          {
+            "title": "You start creating",
+            "text": "Confirm your seat and join your first session."
+          }
+        ]
+      },
+      "statuses": [
+        "Student",
+        "Working professional",
+        "Freelancer / creator",
+        "Switching careers",
+        "Other"
+      ],
+      "levels": [
+        {
+          "value": "beginner",
+          "label": "Beginner",
+          "hint": "New to this field"
+        },
+        {
+          "value": "some",
+          "label": "Some experience",
+          "hint": "I’ve made a few things"
+        },
+        {
+          "value": "pro",
+          "label": "Professional",
+          "hint": "I do this for work"
+        }
+      ],
+      "sources": [
+        "Instagram",
+        "LinkedIn",
+        "YouTube",
+        "Google search",
+        "A friend or colleague",
+        "Event or workshop",
+        "Other"
+      ],
+      "successTitle": "Application received!",
+      "successText": "Thank you for applying. Our admissions team will review your application and get in touch soon."
+    },
+    "cta": {
+      "titleLine": "Ready to direct,",
+      "titleAccent": "not just operate?",
+      "text": "Pick your path, bring your ideas, and learn to lead the tools.",
+      "primary": {
+        "label": "Apply Now",
+        "href": "/register"
+      },
+      "secondary": {
+        "label": "Talk to Us",
+        "href": "/contact"
+      }
+    }
+  }
+}

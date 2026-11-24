@@ -1,0 +1,67 @@
+/* ==========================================================================
+   Liquid glass
+   --------------------------------------------------------------------------
+   <el class="glass">
+     <span class="glass__fx" />   ← blur + tint (+ SVG refraction in Chromium)
+     ...content
+   </el>
+   The blur lives on the child layer, not the parent, so that the SVG
+   displacement filter can bend it. A parent backdrop-filter would also make
+   any glass nested inside it (e.g. the mobile menu) blur nothing.
+   ========================================================================== */
+.glass {
+  position: relative;
+  isolation: isolate;
+  box-shadow:
+    0 24px 60px -28px rgba(6, 59, 57, 0.35),
+    0 2px 8px rgba(6, 59, 57, 0.05);
+}
+
+.glass__fx {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  overflow: hidden; /* clips the displaced pixels to the rounded shape */
+  pointer-events: none;
+}
+.glass__fx::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.74) 0%, rgba(255, 255, 255, 0.5) 55%, rgba(255, 255, 255, 0.62) 100%);
+  -webkit-backdrop-filter: blur(22px) saturate(185%) brightness(1.04);
+  backdrop-filter: blur(22px) saturate(185%) brightness(1.04);
+}
+
+/* Chromium: add real refraction on top of the frost */
+.has-refraction .glass__fx::before {
+  inset: -12px; /* bleed so the displacement never pulls in empty edges */
+  -webkit-backdrop-filter: blur(20px) saturate(190%) brightness(1.06);
+  backdrop-filter: blur(20px) saturate(190%) brightness(1.06);
+  filter: url(#liquid-glass);
+}
+
+/* rim light + inner glow */
+.glass::before {
+}
+
+/* specular highlight that follows the pointer */
+.glass::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  /* NOTE: no mix-blend-mode here. Blending a child makes Chrome isolate the
+     parent, and that silently turns off the backdrop blur. */
+  background: radial-gradient(260px circle at var(--mx, 20%) var(--my, -20%), rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0) 65%);
+  opacity: 0.5;
+  transition: opacity 0.5s var(--ease-out);
+}
+.glass:hover::after { opacity: 1; }
+
+/* Fallback for browsers with no backdrop-filter */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass__fx::before { background: rgba(244, 252, 251, 0.92); }
+}
