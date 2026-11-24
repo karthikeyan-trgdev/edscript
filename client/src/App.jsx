@@ -12,6 +12,7 @@ import Footer from './components/Footer.jsx';
 import HomePage from './pages/HomePage.jsx';
 import AboutPage from './pages/AboutPage.jsx';
 import ProgramsPage from './pages/ProgramsPage.jsx';
+import CoursePage from './pages/CoursePage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
 import RegisterPage from './pages/RegisterPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
@@ -100,6 +101,7 @@ export default function App() {
           <Route path="/" element={<HomePage ready={revealed} />} />
           <Route path="/about" element={<AboutPage ready={revealed} />} />
           <Route path="/programs" element={<ProgramsPage ready={revealed} />} />
+          <Route path="/programs/:slug" element={<CoursePage ready={revealed} />} />
           <Route path="/contact" element={<ContactPage ready={revealed} />} />
           <Route path="/register" element={<RegisterPage ready={revealed} />} />
           <Route path="*" element={<NotFoundPage ready={revealed} />} />

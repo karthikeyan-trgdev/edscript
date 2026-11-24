@@ -10,7 +10,9 @@ import '../styles/programs.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const { programs } = content;
+const { programs, courses = {} } = content;
+// programs with a full course page link there; the rest jump to their row on /programs
+const hrefFor = (slug) => (courses[slug] ? `/programs/${slug}` : `/programs#${slug}`);
 
 const icons = programIcons;
 
@@ -105,7 +107,7 @@ export default function Programs() {
             const Icon = icons[p.icon] || Video;
             return (
               <li className="program" key={p.slug}>
-                <SmartLink className="program__card glass" to={`/programs#${p.slug}`} aria-label={p.title}>
+                <SmartLink className="program__card glass" to={hrefFor(p.slug)} aria-label={p.title}>
                   <span className="glass__fx" aria-hidden="true" />
                   <span className="program__media">
                     <img src={imageFor(p.image)} alt="" width="1672" height="941" loading="lazy" decoding="async" />

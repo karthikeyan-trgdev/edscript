@@ -12,7 +12,7 @@
       "label": "Programs",
       "href": "/programs"
     },
-        {
+    {
       "label": "About",
       "href": "/about"
     },
@@ -83,11 +83,11 @@
     "description": "Specialized programs to help you learn, create, and lead with story and AI.",
     "items": [
       {
-        "title": "AI Filmmaking & Video Production",
+        "title": "AI Film Making",
         "slug": "ai-filmmaking",
         "icon": "video",
         "image": "AI Filmmaking & Video Production.webp",
-        "summary": "Learn to think like a director. Write, shoot, generate and cut short films where every frame is a decision you made, and AI is the crew that helps you make it.",
+        "summary": "Take one short film from idea to festival-ready cut. AI generates, animates and finishes the work, and you make every creative call.",
         "learn": [
           "Story structure, scripting and shot design",
           "Cinematography, lighting and composition basics",
@@ -97,11 +97,11 @@
         "outcome": "A finished short film and a director’s reel for your portfolio."
       },
       {
-        "title": "Digital Marketing with Generative AI",
+        "title": "AI & Digital Marketing",
         "slug": "digital-marketing",
         "icon": "megaphone",
         "image": "Digital Marketing with Generative AI.webp",
-        "summary": "Plan campaigns that start with an insight, not a tool. Use generative AI to research, write, design and test faster, while you stay in charge of the strategy.",
+        "summary": "Go from brand truth to search, social, content, ads and email, then measure what actually moved the numbers, using generative AI as a working tool throughout.",
         "learn": [
           "Audience research and positioning",
           "Campaign planning across paid, owned and social",
@@ -111,11 +111,11 @@
         "outcome": "A complete campaign plan with live creative you built yourself."
       },
       {
-        "title": "Content Creation & Social Media",
+        "title": "Social Media Content Creation",
         "slug": "content-creation",
         "icon": "smartphone",
         "image": "Content Creation and Social Media.webp",
-        "summary": "Build a voice people come back for. Learn to plan, shoot and edit content for every platform, and use AI to keep a steady output without losing what makes it yours.",
+        "summary": "Plan, shoot, edit and publish content for Instagram, YouTube, LinkedIn and more, with AI speeding up the work and a repeatable system behind it.",
         "learn": [
           "Finding your angle and content pillars",
           "Short-form video: hooks, shooting and editing",
@@ -125,11 +125,11 @@
         "outcome": "A content system and a month of published work."
       },
       {
-        "title": "Brand Storytelling & Creative Strategy",
+        "title": "Brand Storytelling",
         "slug": "brand-storytelling",
         "icon": "pen",
         "image": "Brand Storytelling and Creative Strategy.webp",
-        "summary": "Turn what a brand stands for into stories people remember. Learn the strategy behind great brands and use AI to explore ideas, not to replace them.",
+        "summary": "Take a real brand through positioning, visual identity, voice, content and proof, then launch it live and defend the results.",
         "learn": [
           "Brand strategy, purpose and positioning",
           "Narrative frameworks and messaging",
@@ -139,11 +139,11 @@
         "outcome": "A brand story and creative strategy deck for a real brief."
       },
       {
-        "title": "Podcasting, Hosting & Digital Media",
+        "title": "Podcast Production",
         "slug": "podcasting",
         "icon": "mic",
         "image": "Podcasting, Hosting and Digital Media.webp",
-        "summary": "Find your voice and hold an audience. From the first idea to a published show, learn hosting, interviewing and production with AI tools that handle the heavy lifting.",
+        "summary": "Design a show around a real listener, record a guest interview that sounds professional, edit it honestly, and publish it on every major platform.",
         "learn": [
           "Show format, research and episode planning",
           "Hosting, interviewing and on-mic presence",
@@ -292,20 +292,24 @@
       "title": "Programs",
       "items": [
         {
-          "label": "AI Filmmaking",
-          "href": "/programs#ai-filmmaking"
+          "label": "AI Film Making",
+          "href": "/programs/ai-filmmaking"
         },
         {
-          "label": "Content Creation",
-          "href": "/programs#content-creation"
+          "label": "Podcast Production",
+          "href": "/programs/podcasting"
         },
         {
-          "label": "Digital Marketing",
-          "href": "/programs#digital-marketing"
+          "label": "AI & Digital Marketing",
+          "href": "/programs/digital-marketing"
         },
         {
-          "label": "Creative Strategy",
-          "href": "/programs#brand-storytelling"
+          "label": "Brand Storytelling",
+          "href": "/programs/brand-storytelling"
+        },
+        {
+          "label": "Social Media Content",
+          "href": "/programs/content-creation"
         }
       ]
     },
@@ -345,9 +349,21 @@
           "Our classrooms run like studios. You learn by making real work: short films, brand campaigns, podcast episodes and visual identities, reviewed the way a creative director would review them."
         ],
         "highlights": [
-          { "icon": "story", "title": "Story-first curriculum", "text": "Narrative, framing and taste before any tool." },
-          { "icon": "work", "title": "Studio-style projects", "text": "Every module ends in a piece for your portfolio." },
-          { "icon": "eye", "title": "Mentor feedback", "text": "Practising creators review your work, line by line." }
+          {
+            "icon": "story",
+            "title": "Story-first curriculum",
+            "text": "Narrative, framing and taste before any tool."
+          },
+          {
+            "icon": "work",
+            "title": "Studio-style projects",
+            "text": "Every module ends in a piece for your portfolio."
+          },
+          {
+            "icon": "eye",
+            "title": "Mentor feedback",
+            "text": "Practising creators review your work, line by line."
+          }
         ]
       },
       "vm": {
@@ -359,18 +375,36 @@
           "label": "Our Vision",
           "kicker": "Where we're heading",
           "points": [
-            { "icon": "clapper", "text": "Creators who direct every shot, not just press record" },
-            { "icon": "sparkles", "text": "AI as the crew that amplifies a clear creative voice" },
-            { "icon": "globe", "text": "Original stories, told at world-class quality" }
+            {
+              "icon": "clapper",
+              "text": "Creators who direct every shot, not just press record"
+            },
+            {
+              "icon": "sparkles",
+              "text": "AI as the crew that amplifies a clear creative voice"
+            },
+            {
+              "icon": "globe",
+              "text": "Original stories, told at world-class quality"
+            }
           ]
         },
         "mission": {
           "label": "Our Mission",
           "kicker": "How we get there",
           "points": [
-            { "icon": "cap", "text": "Teach the craft first: story, frame, sound, brand" },
-            { "icon": "zap", "text": "Then add AI as a multiplier, never a crutch" },
-            { "icon": "rocket", "text": "Send every learner out with a portfolio that proves it" }
+            {
+              "icon": "cap",
+              "text": "Teach the craft first: story, frame, sound, brand"
+            },
+            {
+              "icon": "zap",
+              "text": "Then add AI as a multiplier, never a crutch"
+            },
+            {
+              "icon": "rocket",
+              "text": "Send every learner out with a portfolio that proves it"
+            }
           ]
         }
       },
@@ -500,6 +534,614 @@
         "label": "Talk to Us",
         "href": "/contact"
       }
+    }
+  },
+  "courseCommon": {
+    "mode": "Offline, in-centre",
+    "sessionFormat": "3 sessions a week, 2 hours each",
+    "approach": "Project-based: every learner builds one real piece of work across the course and defends it at the end",
+    "rule": "Story and craft come first. AI comes second, always.",
+    "fees": "Enquire for fees",
+    "careersNote": "Outcomes depend on the learner; placement is not guaranteed."
+  },
+  "courses": {
+    "ai-filmmaking": {
+      "name": "AI Film Making",
+      "headline": "Direct a film where every shot is your decision, not the machine’s.",
+      "card": "Take one short film from idea to festival-ready cut. AI generates, animates and finishes the work, and you make every creative call.",
+      "overview": [
+        "Anyone can type a prompt and get a beautiful frame. Very few people can get forty frames that belong to the same film. This program teaches the difference.",
+        "You build one short film across sixteen weeks, the way a director runs a real production: story first, then cast, look, shots, motion, sound and the edit. Each stage is locked before the next one begins, so nothing is generated until the decisions behind it are made.",
+        "AI enters at every stage, always after a human decision. You write the script before the machine sees it, and you design every character and reference before a single shot is generated. That discipline is what keeps an AI film consistent from the first frame to the last."
+      ],
+      "audience": [
+        {
+          "icon": "clapper",
+          "text": "Aspiring filmmakers and video creators who want to make screen work with AI"
+        },
+        {
+          "icon": "pen",
+          "text": "Writers and storytellers moving from page to screen"
+        },
+        {
+          "icon": "palette",
+          "text": "Visual artists, designers and editors adding direction to their skills"
+        },
+        {
+          "icon": "briefcase",
+          "text": "Professionals who want to produce films, ads or explainers in-house"
+        }
+      ],
+      "modules": [
+        {
+          "title": "Before the machine",
+          "covers": "Why story comes first, the five film forms, and a baseline of where you start"
+        },
+        {
+          "title": "Concept, format and script",
+          "covers": "Finding the idea, choosing the form, and writing a script that survives a table read"
+        },
+        {
+          "title": "Character and storyboard",
+          "covers": "Character sheets, locking a cast, and planning coverage shot by shot"
+        },
+        {
+          "title": "References, palette and locations",
+          "covers": "A visual brief so every frame looks like the same world"
+        },
+        {
+          "title": "Generation discipline",
+          "covers": "Layered prompting, reference anchors and version control for consistent shots"
+        },
+        {
+          "title": "Motion and voice",
+          "covers": "Camera moves, performance, AI voice, dubbing and lip-sync, with voice-consent rules"
+        },
+        {
+          "title": "Editing and structure",
+          "covers": "Assembly, rough and fine cut, rhythm, continuity and picture lock"
+        },
+        {
+          "title": "Sound, VFX and grade",
+          "covers": "A five-layer sound mix, scoring, clean-up, colour grading and delivery"
+        },
+        {
+          "title": "Delivery and defence",
+          "covers": "Trailer, platform cuts, pitch deck, honest AI disclosure and the final defence"
+        }
+      ],
+      "create": [
+        {
+          "icon": "film",
+          "text": "A finished short film, built and locked stage by stage"
+        },
+        {
+          "icon": "layers",
+          "text": "A trailer plus festival, vertical and square cuts"
+        },
+        {
+          "icon": "file",
+          "text": "A pitch deck, synopsis and AI-disclosure statement"
+        },
+        {
+          "icon": "award",
+          "text": "A live defence of your creative choices in front of a review panel"
+        }
+      ],
+      "details": {
+        "duration": "16 weeks (13 weeks of chapters + 3-week capstone)",
+        "durationShort": "16 weeks",
+        "sessions": "48 sessions, 3 a week, 2 hours each",
+        "sessionsShort": "48 sessions",
+        "hours": "96 hours",
+        "tools": [
+          "Google Flow (subscription included for the course)",
+          "Text AI for script development",
+          "AI voice and sound tools"
+        ],
+        "level": null,
+        "eligibility": null
+      },
+      "careers": [
+        "AI-assisted filmmaker or director",
+        "Content and ad film producer",
+        "Video editor with AI workflows",
+        "Freelance short-film and explainer production",
+        "In-house video lead for a brand"
+      ],
+      "faqs": [
+        {
+          "q": "Do I need filmmaking experience?",
+          "a": "No. The course starts with story and builds every skill from the ground up."
+        },
+        {
+          "q": "Will AI make the film for me?",
+          "a": "No. AI generates shots once you have locked the script, cast and look. Every creative decision is yours."
+        },
+        {
+          "q": "Do I need my own camera?",
+          "a": "No. The film is made with AI tools; you need a laptop."
+        },
+        {
+          "q": "What do I leave with?",
+          "a": "A finished short film, a trailer, platform cuts and a pitch deck."
+        }
+      ]
+    },
+    "podcasting": {
+      "name": "Podcast Production",
+      "headline": "Plan, record and launch a podcast people actually finish.",
+      "card": "Design a show around a real listener, record a guest interview that sounds professional, edit it honestly, and publish it on every major platform.",
+      "overview": [
+        "Most podcasts stop by episode three because they were started with a microphone, not a listener. This program begins with the person you are making the show for, then works backwards into format, voice, studio and edit.",
+        "Your capstone is a real guest-interview episode. You will learn to choose the right guest, design the conversation, handle it live when it takes an unexpected turn, and edit it so it stays true to what was said.",
+        "AI is used for specific jobs only: rehearsing the interview, checking a script or transcript, and drafting show notes. The judgment calls about what to ask, what to keep and what to cut stay with you."
+      ],
+      "audience": [
+        {
+          "icon": "mic",
+          "text": "Creators who want to start a show in audio, video or both"
+        },
+        {
+          "icon": "cap",
+          "text": "Educators, coaches and experts who want to share what they know"
+        },
+        {
+          "icon": "rocket",
+          "text": "Founders and brands building an owned media channel"
+        },
+        {
+          "icon": "briefcase",
+          "text": "Professionals who want to host or produce interviews"
+        }
+      ],
+      "modules": [
+        {
+          "title": "Before the mic",
+          "covers": "Why the listener comes first, and a recorded baseline of where you start"
+        },
+        {
+          "title": "The listener",
+          "covers": "Who the show is for, when they listen, and the gap your show fills"
+        },
+        {
+          "title": "Voice and script",
+          "covers": "Cold opens and segments that sound like a conversation, not a reading"
+        },
+        {
+          "title": "Studio and sound",
+          "covers": "A room, mic and camera setup that works on a creator budget"
+        },
+        {
+          "title": "The interview",
+          "covers": "Choosing a guest, designing the conversation, consent and release, handling the live turn"
+        },
+        {
+          "title": "Edit and post",
+          "covers": "Cutting a conversation honestly, balancing two voices, mixing to platform loudness, export"
+        },
+        {
+          "title": "Publish and business",
+          "covers": "Hosting and RSS, Spotify, Apple, YouTube and Amazon steps, launch timeline, monetisation, disclosure rules"
+        },
+        {
+          "title": "The defence",
+          "covers": "Presenting your show and its editorial choices to a panel"
+        }
+      ],
+      "create": [
+        {
+          "icon": "mic",
+          "text": "A pilot guest-interview episode, recorded, edited and mixed"
+        },
+        {
+          "icon": "scissors",
+          "text": "Short clips cut for social platforms"
+        },
+        {
+          "icon": "layout",
+          "text": "Show page, cover art, media kit and a launch plan"
+        },
+        {
+          "icon": "award",
+          "text": "A public defence of your show"
+        }
+      ],
+      "details": {
+        "duration": "8 weeks",
+        "durationShort": "8 weeks",
+        "sessions": "24 sessions, 3 a week, 2 hours each",
+        "sessionsShort": "24 sessions",
+        "hours": "48 hours",
+        "tools": [
+          "Recording and editing software",
+          "NotebookLM for interview rehearsal",
+          "AI transcript and show-notes tools"
+        ],
+        "level": null,
+        "eligibility": null
+      },
+      "careers": [
+        "Podcast host or producer",
+        "Audio and video editor",
+        "Branded-podcast producer for companies",
+        "Interview and content lead",
+        "Creator monetising a show through sponsorships and memberships"
+      ],
+      "faqs": [
+        {
+          "q": "Do I need my own equipment?",
+          "a": "No. The course shows you how to set up on a creator budget; you need a laptop."
+        },
+        {
+          "q": "Audio or video podcast?",
+          "a": "Both are covered. You decide which suits your show."
+        },
+        {
+          "q": "Do I have to find a guest?",
+          "a": "Yes. Choosing and inviting the right guest is part of what you learn."
+        },
+        {
+          "q": "Will my episode be published?",
+          "a": "You will publish it on the major platforms as part of the course."
+        }
+      ]
+    },
+    "digital-marketing": {
+      "name": "AI & Digital Marketing",
+      "headline": "Run marketing that can prove it worked, with AI in every part of the workflow.",
+      "card": "Go from brand truth to search, social, content, ads and email, then measure what actually moved the numbers, using generative AI as a working tool throughout.",
+      "overview": [
+        "Most digital marketing courses teach channels one at a time: a week of SEO, a week of ads, a week of social. Real marketing does not work that way. This program follows one campaign from start to finish: what is true about the brand, how people discover it, what proves it works, how customers stay, and how it launches.",
+        "Generative AI is built into every stage, not added at the end. You use it for research, content, ad variations, automation and reporting, and you learn where human judgment still has to make the call.",
+        "The course also covers visibility in AI search tools such as ChatGPT and Gemini, alongside Google. That is where a growing share of discovery now happens."
+      ],
+      "audience": [
+        {
+          "icon": "cap",
+          "text": "Students and graduates starting a career in marketing"
+        },
+        {
+          "icon": "trending",
+          "text": "Working marketers who want to upskill in AI-led marketing"
+        },
+        {
+          "icon": "rocket",
+          "text": "Founders and small-business owners running their own growth"
+        },
+        {
+          "icon": "briefcase",
+          "text": "Freelancers and agency professionals serving clients"
+        }
+      ],
+      "modules": [
+        {
+          "title": "Brand and audience truth",
+          "covers": "Research, positioning and customer insight that every campaign is built on"
+        },
+        {
+          "title": "Discovery",
+          "covers": "SEO, AI-search visibility (GEO), social media and content marketing"
+        },
+        {
+          "title": "Proof",
+          "covers": "Google and Meta ads, landing pages and conversion"
+        },
+        {
+          "title": "Loyalty and automation",
+          "covers": "Email, CRM, retention and AI-powered automation, with responsible-use rules"
+        },
+        {
+          "title": "Analytics",
+          "covers": "Tracking, attribution and reporting that separates real results from vanity metrics"
+        },
+        {
+          "title": "Launch",
+          "covers": "Planning, running and reviewing a full multi-channel campaign"
+        }
+      ],
+      "create": [
+        {
+          "icon": "file",
+          "text": "A full marketing plan for a real brand"
+        },
+        {
+          "icon": "megaphone",
+          "text": "Live content and ad campaigns, with results tracked"
+        },
+        {
+          "icon": "chart",
+          "text": "An analytics dashboard and a results readout"
+        },
+        {
+          "icon": "target",
+          "text": "A capstone in one of three tracks: D2C/e-commerce, B2B/agency, or creator/personal brand"
+        }
+      ],
+      "details": {
+        "duration": "16 weeks",
+        "durationShort": "16 weeks",
+        "sessions": "48 sessions, 3 a week, 2 hours each",
+        "sessionsShort": "48 sessions",
+        "hours": "96 hours",
+        "tools": null,
+        "toolsPending": [
+          "ChatGPT",
+          "Gemini",
+          "Google Ads",
+          "Meta Ads Manager",
+          "Google Analytics",
+          "Search Console",
+          "Email and automation platforms"
+        ],
+        "level": null,
+        "eligibility": null
+      },
+      "careers": [
+        "Digital marketing executive or manager",
+        "Performance marketer",
+        "SEO and content specialist",
+        "Social media manager",
+        "Marketing automation specialist",
+        "Freelance consultant",
+        "Founder running your own brand’s growth"
+      ],
+      "faqs": [
+        {
+          "q": "Do I need a marketing background?",
+          "a": "No. The course starts from brand and audience fundamentals."
+        },
+        {
+          "q": "Will I run real ads?",
+          "a": "Yes. You plan and run live campaigns and track the results."
+        },
+        {
+          "q": "Is AI a separate module?",
+          "a": "No. AI is used at every stage, so you learn it the way it is used at work."
+        },
+        {
+          "q": "Which capstone track should I pick?",
+          "a": "Choose the one closest to the work you want: e-commerce, B2B/agency or personal brand."
+        }
+      ]
+    },
+    "brand-storytelling": {
+      "name": "Brand Storytelling",
+      "headline": "Build a brand from its truth outward, and launch it for real.",
+      "card": "Take a real brand through positioning, visual identity, voice, content and proof, then launch it live and defend the results.",
+      "overview": [
+        "Most branding work starts with a logo. This program starts with the truth: who the customer really is, what problem they have, and what the brand actually competes against. Every later decision about the name, logo, colour, voice and content has to trace back to that truth. If it doesn’t, it’s decoration.",
+        "You work on one real brand throughout the course, usually your own venture or a real local business. You build it in five stages, Truth, Position, Shape, Voice and Signal, then test it in a sixth, Proof. In the final two weeks you launch it live, read the results honestly and defend them before a panel.",
+        "The case studies are Indian brands, including CRED, Zomato, Amul, Paper Boat, Zepto and Groww. AI supports research, visual exploration, copy and content planning, but every shippable logo and line is made by you."
+      ],
+      "audience": [
+        {
+          "icon": "rocket",
+          "text": "Entrepreneurs and side-hustlers building their own brand"
+        },
+        {
+          "icon": "target",
+          "text": "Brand managers and marketers who want strategy, not just execution"
+        },
+        {
+          "icon": "palette",
+          "text": "Designers who want to ground visual work in brand thinking"
+        },
+        {
+          "icon": "pen",
+          "text": "Content leads and copywriters shaping a brand’s voice"
+        }
+      ],
+      "modules": [
+        {
+          "title": "Before the brand",
+          "covers": "Where branding comes from, and a sealed baseline of where you start"
+        },
+        {
+          "title": "The truth",
+          "covers": "The customer as hero, three layers of audience problems, real competitive alternatives"
+        },
+        {
+          "title": "The position",
+          "covers": "Positioning as sacrifice, whitespace mapping, a stress-tested positioning statement"
+        },
+        {
+          "title": "The shape",
+          "covers": "Logo, colour and type derived from strategy; brand book; collateral from visiting card to flex banner; trademark basics"
+        },
+        {
+          "title": "The voice",
+          "covers": "A complete brand story script, tone of voice and message hierarchy"
+        },
+        {
+          "title": "The signal",
+          "covers": "Channels chosen from real buying moments, content pillars, and hooks matched to the problem"
+        },
+        {
+          "title": "The proof",
+          "covers": "Claims tested against real metrics, honest verdicts, advertising-standards (ASCI) basics"
+        },
+        {
+          "title": "Launch and defence",
+          "covers": "A live launch with coached iteration, a results readout and a public defence"
+        }
+      ],
+      "create": [
+        {
+          "icon": "target",
+          "text": "A brand strategy and positioning statement"
+        },
+        {
+          "icon": "palette",
+          "text": "A visual identity system, brand book and full collateral set"
+        },
+        {
+          "icon": "pen",
+          "text": "A brand story script and content plan"
+        },
+        {
+          "icon": "award",
+          "text": "A live launch, a results readout and a public brand defence"
+        }
+      ],
+      "details": {
+        "duration": "8 weeks (6 weeks of teaching + 2-week live capstone)",
+        "durationShort": "8 weeks",
+        "sessions": "24 sessions, 3 a week, 2 hours each",
+        "sessionsShort": "24 sessions",
+        "hours": "48 hours",
+        "tools": [
+          "ChatGPT",
+          "Claude",
+          "Gemini",
+          "Perplexity",
+          "Adobe Firefly",
+          "Canva AI",
+          "CapCut"
+        ],
+        "level": null,
+        "eligibility": null
+      },
+      "careers": [
+        "Brand strategist",
+        "Brand or marketing manager",
+        "Content strategist",
+        "Brand designer",
+        "Freelance brand consultant",
+        "Founder launching and growing your own brand"
+      ],
+      "faqs": [
+        {
+          "q": "Do I need my own business?",
+          "a": "It helps, but it isn’t required. If you don’t have one, we connect you with a real local business or NGO."
+        },
+        {
+          "q": "Will I design a logo?",
+          "a": "Yes. You build a full identity system by hand, with AI used only for exploration."
+        },
+        {
+          "q": "Is this a design course or a marketing course?",
+          "a": "Both. It connects strategy, design, voice and content into one brand."
+        },
+        {
+          "q": "What happens in the last two weeks?",
+          "a": "No new teaching. You launch your brand live, improve it with coaching, and defend the results."
+        }
+      ]
+    },
+    "content-creation": {
+      "name": "Social Media Content Creation",
+      "draft": true,
+      "headline": "Make short-form content people stop for, and build it into a system you can keep up.",
+      "card": "Plan, shoot, edit and publish content for Instagram, YouTube, LinkedIn and more, with AI speeding up the work and a repeatable system behind it.",
+      "overview": [
+        "Going viral once is luck. Showing up every week with content your audience recognises is a skill, and it is the skill this program teaches.",
+        "You start with who you are making content for and what you want them to feel. Then you learn the craft: the hook, the frame, the cut and the caption. Every piece you make is shot on a phone and published to a real account.",
+        "From there you build a content system: pillars, formats, a calendar and a workflow one person can actually keep up with. AI helps with ideas, scripting, editing and repurposing. The point of view, the taste and the final call stay with you."
+      ],
+      "audience": [
+        {
+          "icon": "sparkles",
+          "text": "Aspiring creators building a personal brand"
+        },
+        {
+          "icon": "store",
+          "text": "Small-business owners who need to show up online"
+        },
+        {
+          "icon": "briefcase",
+          "text": "Freelancers offering content services to clients"
+        },
+        {
+          "icon": "users",
+          "text": "In-house team members handling a brand’s social accounts"
+        }
+      ],
+      "modules": [
+        {
+          "title": "Audience and point of view",
+          "covers": "Who you are for, what you stand for, and content pillars that follow from it"
+        },
+        {
+          "title": "Hooks and storytelling",
+          "covers": "Openings, structures and payoffs for short-form video and carousels"
+        },
+        {
+          "title": "Shooting on a phone",
+          "covers": "Framing, light and sound for creator-grade content without a studio"
+        },
+        {
+          "title": "Editing and design",
+          "covers": "Fast editing, captions, thumbnails and templates using AI-assisted tools"
+        },
+        {
+          "title": "Platforms",
+          "covers": "What works on Instagram, YouTube Shorts, LinkedIn and others, and why"
+        },
+        {
+          "title": "Systems and growth",
+          "covers": "Calendars, batching, repurposing, analytics, disclosure rules and working with brands"
+        }
+      ],
+      "create": [
+        {
+          "icon": "target",
+          "text": "A content strategy and pillar plan"
+        },
+        {
+          "icon": "smartphone",
+          "text": "A published series of short-form videos and posts"
+        },
+        {
+          "icon": "layers",
+          "text": "A reusable editing kit and template set"
+        },
+        {
+          "icon": "chart",
+          "text": "A growth review built from your own analytics"
+        }
+      ],
+      "details": {
+        "duration": null,
+        "durationShort": null,
+        "sessions": "3 a week, 2 hours each",
+        "sessionsShort": null,
+        "hours": null,
+        "tools": null,
+        "toolsPending": [
+          "CapCut",
+          "Canva AI",
+          "ChatGPT",
+          "Instagram and YouTube analytics"
+        ],
+        "level": null,
+        "eligibility": null
+      },
+      "careers": [
+        "Content creator",
+        "Social media manager",
+        "Short-form video editor",
+        "Freelance content producer",
+        "Brand-partnership creator"
+      ],
+      "faqs": [
+        {
+          "q": "Do I need a camera?",
+          "a": "No. Everything is shot on a phone."
+        },
+        {
+          "q": "Do I need followers to join?",
+          "a": "No. You build your audience during the course."
+        },
+        {
+          "q": "Which platforms are covered?",
+          "a": "Instagram, YouTube Shorts and LinkedIn, plus how to adapt content for others."
+        },
+        {
+          "q": "Will AI make my content?",
+          "a": "AI speeds up ideas, scripting and editing. Your point of view drives what you make."
+        }
+      ]
     }
   }
 }

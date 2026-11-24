@@ -24,6 +24,7 @@ npm start             # Express serves the API + built site on http://localhost:
 | `/`           | Home: hero, about, programs, the way, FAQ, contact                      |
 | `/about`      | About us: story, vision & mission, principles, the way, CTA             |
 | `/programs`   | All six programs in detail (`/programs#<slug>` jumps to one)            |
+| `/programs/<slug>` | Full course page, from `content.json → courses.<slug>` (5 courses)  |
 | `/contact`    | Contact cards, enquiry form, FAQ                                        |
 | `/register`   | 3-step application form (`/register?program=<slug>` preselects one)    |
 | anything else | 404 page                                                                |
@@ -43,7 +44,7 @@ client/src/
   lib/nav.jsx           useGo() + SmartLink for routes / hashes
   lib/programs.js       program images + icons
   hooks/                useLenis (Lenis ↔ GSAP bridge), usePageTitle
-  pages/                HomePage, AboutPage, ProgramsPage, ContactPage, RegisterPage, NotFoundPage
+  pages/                HomePage, AboutPage, ProgramsPage, CoursePage, ContactPage, RegisterPage, NotFoundPage
   components/
     Preloader.jsx       "Director's viewfinder" intro: countdown → logo → shutter split
     Navbar.jsx          liquid-glass pill, active-page indicator, mobile menu
