@@ -2,7 +2,8 @@ import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight } from 'lucide-react';
-import aboutImg from '@assets/images/about-page-image.jpg';
+import homeImg from '@assets/images/about.jpg'; // home page About section
+import pageImg from '@assets/images/about-page-image.jpg'; // About page
 import content from '@shared/content.json';
 import { SmartLink } from '../lib/nav.jsx';
 import '../styles/about.css';
@@ -63,8 +64,8 @@ export default function About({ showCta = true, extra = null, icons = {} }) {
           <div className="about__img-wrap">
             <img
               className="about__img"
-              src={aboutImg}
-              alt="A young creator looking up, surrounded by glowing panels for AI, audio, film and editing"
+              src={extra ? pageImg : homeImg}
+              alt="A creator looking up, surrounded by glowing panels for AI, audio, film and editing"
               width="2048"
               height="2048"
               loading="lazy"
