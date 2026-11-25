@@ -1,7 +1,7 @@
 {
   "brand": {
     "name": "EDScript",
-    "tagline": "AI Accelerator Academy"
+    "tagline": "Career Accelerator Academy"
   },
   "nav": [
     {
@@ -22,7 +22,7 @@
     }
   ],
   "hero": {
-    "eyebrow": "AI Accelerator Academy",
+    "eyebrow": "Career Accelerator Academy",
     "titleLines": [
       "Turn Creativity",
       "into Creative"
@@ -215,7 +215,7 @@
     "items": [
       {
         "q": "What is EDScript?",
-        "a": "EDScript is an AI accelerator academy that trains creators in filmmaking, design, podcasting, and marketing — with a strong focus on story, craft, and creative judgment."
+        "a": "EDScript is an career accelerator academy that trains creators in filmmaking, design, podcasting, and marketing — with a strong focus on story, craft, and creative judgment."
       },
       {
         "q": "Who can join the programs?",

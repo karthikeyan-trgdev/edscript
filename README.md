@@ -1,4 +1,4 @@
-# EDSCRIPT — AI Accelerator Academy
+# EDSCRIPT — Career Accelerator Academy
 
 React (Vite) frontend + Node (Express) backend.
 Routing: React Router. Motion: GSAP + ScrollTrigger, Lenis smooth scroll, AOS.

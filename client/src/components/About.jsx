@@ -55,7 +55,6 @@ export default function About({ showCta = true, extra = null, icons = {} }) {
     return () => ctx.revert();
   }, []);
 
-
   return (
     <section className={extra ? 'about about--page' : 'about'} id="about" ref={root} aria-labelledby="about-title">
       <div className="about__glow" aria-hidden="true" />
