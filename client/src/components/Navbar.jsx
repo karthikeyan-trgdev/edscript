@@ -1,12 +1,19 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
-import { ArrowUpRight, Menu, X } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, ChevronDown, Menu, Video, X } from 'lucide-react';
 import content from '@shared/content.json';
 import logo from '@assets/images/logo/ed-script-logo.png';
 import { useLocation } from 'react-router-dom';
 import { useLenisInstance } from '../hooks/useLenis.js';
 import { useGo } from '../lib/nav.jsx';
+import { programIcons } from '../lib/programs.js';
 import '../styles/navbar.css';
+
+// the Programs dropdown: every programme with a course page, in line-up order
+const PROGRAMS = content.programs.items
+  .filter((p) => content.courses?.[p.slug])
+  .map((p) => ({ ...p, href: `/programs/${p.slug}`, meta: content.courses[p.slug].details.durationShort }));
+const DROPDOWN_HREF = '/programs';
 
 export default function Navbar({ ready }) {
   const lenis = useLenisInstance();
@@ -21,6 +28,9 @@ export default function Navbar({ ready }) {
     (item.href === '/' ? pathname === '/' : pathname.startsWith(item.href)) ? item.href : best, '');
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [drop, setDrop] = useState(false); // desktop Programs dropdown
+  const [subOpen, setSubOpen] = useState(false); // mobile Programs sub-list
+  const dropTimer = useRef(null);
   const wasOpen = useRef(false);
 
   // Move the underline under the active link
@@ -30,7 +40,8 @@ export default function Navbar({ ready }) {
     if (!indicatorRef.current) return;
     if (!link) { gsap.to(indicatorRef.current, { width: 0, duration: instant ? 0 : 0.4, ease: 'expo.out' }); return; }
     gsap.to(indicatorRef.current, {
-      x: link.offsetLeft,
+      // measured from rects: the dropdown wrapper would otherwise change offsetParent
+      x: link.getBoundingClientRect().left - wrap.getBoundingClientRect().left,
       width: link.offsetWidth,
       duration: instant ? 0 : 0.6,
       ease: 'expo.out',
@@ -98,8 +109,16 @@ export default function Navbar({ ready }) {
     };
   }, []);
 
-  // close the mobile menu whenever the page changes
-  useEffect(() => setOpen(false), [pathname]);
+  // close the menus whenever the page changes
+  useEffect(() => { setOpen(false); setDrop(false); }, [pathname]);
+
+  // the dropdown opens on hover / focus, with a short grace period so it doesn't flicker shut
+  const openDrop = () => { clearTimeout(dropTimer.current); setDrop(true); };
+  const closeDrop = (delay = 160) => {
+    clearTimeout(dropTimer.current);
+    dropTimer.current = setTimeout(() => setDrop(false), delay);
+  };
+  useEffect(() => () => clearTimeout(dropTimer.current), []);
 
   const nav = (e, to) => {
     setOpen(false);
@@ -116,19 +135,82 @@ export default function Navbar({ ready }) {
           </a>
 
           <ul className="nav__links" ref={linksRef}>
-            {content.nav.map((item) => (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  data-href={item.href}
-                  className={`nav__link ${active === item.href ? 'is-active' : ''}`}
-                  aria-current={active === item.href ? 'page' : undefined}
-                  onClick={(e) => nav(e, item.href)}
+            {content.nav.map((item) => {
+              if (item.href !== DROPDOWN_HREF) {
+                return (
+                  <li key={item.href}>
+                    <a
+                      href={item.href}
+                      data-href={item.href}
+                      className={`nav__link ${active === item.href ? 'is-active' : ''}`}
+                      aria-current={active === item.href ? 'page' : undefined}
+                      onClick={(e) => nav(e, item.href)}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                );
+              }
+              return (
+                <li
+                  key={item.href}
+                  className={`nav__item--drop ${drop ? 'is-open' : ''}`}
+                  onMouseEnter={openDrop}
+                  onMouseLeave={() => closeDrop()}
+                  onFocus={openDrop}
+                  onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget)) closeDrop(0); }}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Escape') { setDrop(false); e.currentTarget.querySelector('.nav__link')?.focus(); }
+                  }}
                 >
-                  {item.label}
-                </a>
-              </li>
-            ))}
+                  <a
+                    href={item.href}
+                    data-href={item.href}
+                    className={`nav__link ${active === item.href ? 'is-active' : ''}`}
+                    aria-current={active === item.href ? 'page' : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={drop}
+                    onClick={(e) => nav(e, item.href)}
+                  >
+                    {item.label}
+                    <ChevronDown className="nav__chev" size={15} strokeWidth={2.4} aria-hidden="true" />
+                  </a>
+                  <div className="nav__drop" aria-label="Programmes">
+                    <p className="nav__drop-label">Our programmes</p>
+                    <ul className="nav__drop-list">
+                      {PROGRAMS.map((p) => {
+                        const Icon = programIcons[p.icon] || Video;
+                        return (
+                          <li key={p.slug}>
+                            <a
+                              href={p.href}
+                              tabIndex={drop ? 0 : -1}
+                              className={`nav__drop-item ${pathname === p.href ? 'is-current' : ''}`}
+                              onClick={(e) => { setDrop(false); nav(e, p.href); }}
+                            >
+                              <span className="nav__drop-icon" aria-hidden="true"><Icon size={18} strokeWidth={2} /></span>
+                              <span className="nav__drop-text">
+                                <strong>{p.title}</strong>
+                                {p.meta && <small>{p.meta} · Offline, in-centre</small>}
+                              </span>
+                              <ArrowRight className="nav__drop-arrow" size={16} strokeWidth={2.4} aria-hidden="true" />
+                            </a>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                    <a
+                      href="/programs#fees"
+                      tabIndex={drop ? 0 : -1}
+                      className="nav__drop-all"
+                      onClick={(e) => { setDrop(false); nav(e, '/programs#fees'); }}
+                    >
+                      All programmes, fees &amp; scholarships <ArrowUpRight size={15} strokeWidth={2.4} aria-hidden="true" />
+                    </a>
+                  </div>
+                </li>
+              );
+            })}
             <li className="nav__indicator" ref={indicatorRef} aria-hidden="true" />
           </ul>
 
@@ -155,14 +237,43 @@ export default function Navbar({ ready }) {
           <ul className="nav__menu-list">
             {content.nav.map((item) => (
               <li className="nav__menu-item" key={item.href}>
-                <a
-                  href={item.href}
-                  className={active === item.href ? 'is-active' : ''}
-                  onClick={(e) => nav(e, item.href)}
-                >
-                  {item.label}
-                  <ArrowUpRight size={18} />
-                </a>
+                {item.href === DROPDOWN_HREF ? (
+                  <>
+                    <div className="nav__menu-split">
+                      <a href={item.href} className={active === item.href ? 'is-active' : ''} onClick={(e) => nav(e, item.href)}>
+                        {item.label}
+                      </a>
+                      <button
+                        type="button"
+                        className={`nav__menu-toggle ${subOpen ? 'is-open' : ''}`}
+                        aria-expanded={subOpen}
+                        aria-controls="mobile-programs"
+                        aria-label={subOpen ? 'Hide programmes' : 'Show programmes'}
+                        onClick={() => setSubOpen((v) => !v)}
+                      >
+                        <ChevronDown size={20} strokeWidth={2.2} />
+                      </button>
+                    </div>
+                    <ul className="nav__menu-sub" id="mobile-programs" hidden={!subOpen}>
+                      {PROGRAMS.map((p) => {
+                        const Icon = programIcons[p.icon] || Video;
+                        return (
+                          <li key={p.slug}>
+                            <a href={p.href} className={pathname === p.href ? 'is-active' : ''} onClick={(e) => nav(e, p.href)}>
+                              <Icon size={17} strokeWidth={2} aria-hidden="true" />
+                              {p.title}
+                            </a>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </>
+                ) : (
+                  <a href={item.href} className={active === item.href ? 'is-active' : ''} onClick={(e) => nav(e, item.href)}>
+                    {item.label}
+                    <ArrowUpRight size={18} />
+                  </a>
+                )}
               </li>
             ))}
             <li className="nav__menu-item nav__menu-cta">

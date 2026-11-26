@@ -13,6 +13,10 @@
       "href": "/programs"
     },
     {
+      "label": "Career Paths",
+      "href": "/career-paths"
+    },
+    {
       "label": "About",
       "href": "/about"
     },
@@ -278,15 +282,19 @@
     "socials": [
       {
         "name": "Instagram",
-        "href": "#"
+        "href": "https://www.instagram.com/ed.script/"
       },
       {
         "name": "Facebook",
-        "href": "#"
+        "href": "https://www.facebook.com/profile.php?id=61596905733077"
       },
       {
         "name": "LinkedIn",
-        "href": "#"
+        "href": "https://www.linkedin.com/company/144139891/"
+      },
+      {
+        "name": "YouTube",
+        "href": "https://www.youtube.com/@EDSCRIPT-ACADEMY"
       }
     ],
     "quickLinks": {
@@ -303,6 +311,10 @@
         {
           "label": "Programs",
           "href": "/programs"
+        },
+        {
+          "label": "Career Paths",
+          "href": "/career-paths"
         },
         {
           "label": "The Method",
@@ -347,7 +359,7 @@
       "title": "Get in Touch",
       "email": "hello@edscript.ai",
       "phone": "+91 98765 43210",
-      "location": "Chennai, India"
+      "location": "Mumbai, India"
     },
     "copyright": "EDSCRIPT. All Rights Reserved.",
     "legal": [
@@ -1240,5 +1252,351 @@
         "title": "Review admission and scholarship criteria"
       }
     ]
+  },
+  "careerPaths": {
+    "title": "Career Paths",
+    "hero": {
+      "eyebrow": "Career Paths",
+      "titleLine": "Where your work",
+      "titleAccent": "can take you.",
+      "description": "Every programme ends with real work you can show. Here are the roles a graduate can credibly apply for or start, and the three routes to get there."
+    },
+    "note": "These are roles you can credibly apply for or start. We make no salary or placement promise: outcomes depend on the work you do.",
+    "routes": [
+      {
+        "key": "employed",
+        "label": "Employed",
+        "icon": "building"
+      },
+      {
+        "key": "freelance",
+        "label": "Freelance",
+        "icon": "laptop"
+      },
+      {
+        "key": "venture",
+        "label": "Own venture",
+        "icon": "rocket"
+      }
+    ],
+    "courses": {
+      "ai-filmmaking": {
+        "track": "Filmmakers of Tomorrow",
+        "outcome": "You leave able to direct an AI film from story to screening, and to defend every choice in the room.",
+        "groups": [
+          {
+            "title": "Direction and story",
+            "roles": [
+              {
+                "title": "AI Film Director / Creative Director",
+                "text": "Lead short films and branded pieces"
+              },
+              {
+                "title": "Independent Filmmaker",
+                "text": "Your own festival shorts and web films"
+              },
+              {
+                "title": "Screenwriter / Story Developer",
+                "text": "Scripts and treatments built for AI production"
+              },
+              {
+                "title": "Showrunner for Short-form Series",
+                "text": "Vertical dramas and episodic content for platforms"
+              },
+              {
+                "title": "Music Video Director",
+                "text": "Concept-led videos for artists and labels"
+              }
+            ]
+          },
+          {
+            "title": "Visual craft",
+            "roles": [
+              {
+                "title": "Previsualisation & Storyboard Artist",
+                "text": "Boards and shot plans for film and ad teams"
+              },
+              {
+                "title": "AI Cinematographer / Shot Designer",
+                "text": "Framing, lighting and camera-move design"
+              },
+              {
+                "title": "Generative Video Artist",
+                "text": "Consistent AI shots for studios and agencies"
+              },
+              {
+                "title": "Concept & Visual Development Artist",
+                "text": "Looks, palettes and world design"
+              },
+              {
+                "title": "Character & World Designer",
+                "text": "Characters, locations and props for films and games"
+              },
+              {
+                "title": "Animation & Motion Artist",
+                "text": "Bring stills and designs to life for explainers and ads"
+              }
+            ]
+          },
+          {
+            "title": "Post-production",
+            "roles": [
+              {
+                "title": "Editor",
+                "text": "Cut AI and live footage into one film"
+              },
+              {
+                "title": "Sound Designer & Mixer",
+                "text": "Effects, ambience, score and dialogue"
+              },
+              {
+                "title": "Colourist",
+                "text": "Grade and match footage to a locked look"
+              },
+              {
+                "title": "VFX & Cleanup Artist",
+                "text": "Fix and blend generated shots"
+              },
+              {
+                "title": "Voice & Dubbing Artist",
+                "text": "Voice direction, dubbing and lip-sync work"
+              }
+            ]
+          },
+          {
+            "title": "Production and business",
+            "roles": [
+              {
+                "title": "Ad Film & Branded Content Producer",
+                "text": "Trailers and platform cuts for brands"
+              },
+              {
+                "title": "Explainer & Corporate Video Producer",
+                "text": "Training, product and internal films"
+              },
+              {
+                "title": "AI Production Lead / Workflow Producer",
+                "text": "Run an AI film pipeline for a studio or agency"
+              },
+              {
+                "title": "Festival & Distribution Coordinator",
+                "text": "Submissions, pitch decks and platform delivery"
+              },
+              {
+                "title": "Film Educator / Trainer",
+                "text": "Teach AI filmmaking at institutes and schools"
+              }
+            ]
+          }
+        ],
+        "routes": {
+          "employed": "Studios, ad agencies and production houses adding AI to their pipeline.",
+          "freelance": "Previs, shot generation and short-form edits for agencies and creators.",
+          "venture": "Your own festival short, or a small AI production studio."
+        }
+      },
+      "podcasting": {
+        "track": "Voices of Tomorrow",
+        "outcome": "You leave with a published show, a guest episode you can play to a stranger, and an honest plan to earn from it.",
+        "groups": [
+          {
+            "title": "Roles you can move into",
+            "roles": [
+              {
+                "title": "Podcast Host / Show Creator",
+                "text": "Your own show"
+              },
+              {
+                "title": "Podcast Producer & Editor",
+                "text": "Edit and master for hosts and studios"
+              },
+              {
+                "title": "Interviewer / Segment Producer",
+                "text": "Guest-led shows and media programmes"
+              },
+              {
+                "title": "Branded & Corporate Audio Producer",
+                "text": "Company and founder podcasts"
+              },
+              {
+                "title": "Audio Storyteller / Scriptwriter",
+                "text": "Narrative and documentary audio"
+              },
+              {
+                "title": "Podcast Growth & Monetisation Lead",
+                "text": "Launch, sponsorship and audience growth"
+              }
+            ]
+          }
+        ],
+        "routes": {
+          "employed": "Media houses, audio platforms, agencies and in-house brand content teams.",
+          "freelance": "Editing, show production and launch for independent hosts and brands.",
+          "venture": "Your own show, with a revenue model you chose on purpose."
+        }
+      },
+      "brand-storytelling": {
+        "track": "Storytellers of Tomorrow",
+        "outcome": "You leave having taken one real brand from research to a measured public launch, and having defended it to a panel.",
+        "groups": [
+          {
+            "title": "Roles you can move into",
+            "roles": [
+              {
+                "title": "Junior Brand Strategist",
+                "text": "Positioning and brand strategy at agencies and startups"
+              },
+              {
+                "title": "Brand Identity Designer",
+                "text": "Logos, brand books and collateral"
+              },
+              {
+                "title": "Brand Copywriter",
+                "text": "Brand story, voice and messaging"
+              },
+              {
+                "title": "Content & Social Strategist",
+                "text": "Channel and content planning"
+              },
+              {
+                "title": "Brand Manager (startups and SMEs)",
+                "text": "Run and measure a brand"
+              },
+              {
+                "title": "Founder / Brand Builder",
+                "text": "Launch your own brand"
+              }
+            ]
+          }
+        ],
+        "routes": {
+          "employed": "Brand, design and content teams at startups, agencies and growing businesses.",
+          "freelance": "Identity, copy and launch support for small businesses and NGOs.",
+          "venture": "The brand you build in the course is meant to be your own."
+        }
+      },
+      "digital-marketing": {
+        "track": "Marketers of Tomorrow",
+        "outcome": "You leave able to build a campaign on a real strategy, measure what drove the result, and pitch it like an agency review.",
+        "groups": [
+          {
+            "title": "Roles you can move into",
+            "roles": [
+              {
+                "title": "Digital Marketing Executive",
+                "text": "Organic and paid channels"
+              },
+              {
+                "title": "SEO & GEO Specialist",
+                "text": "Search and AI-answer visibility"
+              },
+              {
+                "title": "Performance Marketer",
+                "text": "Paid media and budgets"
+              },
+              {
+                "title": "Marketing Analyst",
+                "text": "GA4, attribution and reporting"
+              },
+              {
+                "title": "Lifecycle & Automation Marketer",
+                "text": "Email, lead scoring, nurture"
+              },
+              {
+                "title": "AI Marketing Operations",
+                "text": "AI workflows with human review"
+              },
+              {
+                "title": "Growth Marketer (D2C, B2B SaaS, agency)",
+                "text": "Own growth for a brand or client"
+              }
+            ]
+          }
+        ],
+        "routes": {
+          "employed": "In-house marketing teams, D2C brands, SaaS companies and agencies.",
+          "freelance": "SEO, paid media, analytics and email for small businesses.",
+          "venture": "Marketing your own product or personal brand."
+        }
+      },
+      "influencer-creator-marketing": {
+        "track": "Creators of Tomorrow",
+        "outcome": "You leave with a niche you can defend, a hook and a cadence that hold up, and a live campaign you defend in public.",
+        "groups": [
+          {
+            "title": "Roles you can move into",
+            "roles": [
+              {
+                "title": "Independent Creator",
+                "text": "Your own niche channel"
+              },
+              {
+                "title": "Short-form Video Producer",
+                "text": "Reels and shorts for brands and creators"
+              },
+              {
+                "title": "Content Strategist / Social Media Manager",
+                "text": "Run channels for brands"
+              },
+              {
+                "title": "Influencer Marketing Associate",
+                "text": "Creator campaigns at brands and agencies"
+              },
+              {
+                "title": "AI-assisted Content Operations Associate",
+                "text": "Content workflows with human approval"
+              },
+              {
+                "title": "Founder / Personal-brand Builder",
+                "text": "A public voice for you or your business"
+              }
+            ]
+          }
+        ],
+        "routes": {
+          "employed": "Social and content teams at brands, agencies and creator-management companies.",
+          "freelance": "Short-form production, content calendars and channel management for creators and small businesses.",
+          "venture": "Your own channel or personal brand, launched inside the course."
+        }
+      }
+    },
+    "pairs": {
+      "eyebrow": "What next",
+      "titleLine": "Take two courses,",
+      "titleAccent": "open a bigger role.",
+      "description": "Two courses together open roles that neither opens alone. These pairings are suggestions, not credentials the courses define.",
+      "items": [
+        {
+          "a": "ai-filmmaking",
+          "b": "podcasting",
+          "role": "Video podcast or narrative series producer"
+        },
+        {
+          "a": "ai-filmmaking",
+          "b": "brand-storytelling",
+          "role": "Brand film director"
+        },
+        {
+          "a": "brand-storytelling",
+          "b": "digital-marketing",
+          "role": "Brand-to-growth strategist"
+        },
+        {
+          "a": "influencer-creator-marketing",
+          "b": "podcasting",
+          "role": "Creator who runs a show with a business behind it"
+        },
+        {
+          "a": "influencer-creator-marketing",
+          "b": "digital-marketing",
+          "role": "Creator-led growth or influencer marketing lead"
+        },
+        {
+          "a": "podcasting",
+          "b": "digital-marketing",
+          "role": "Branded audio and podcast growth lead"
+        }
+      ]
+    }
   }
 }

@@ -425,6 +425,12 @@ function Course({ course, program, index, ready }) {
             <p className="eyebrow">Career and business applications</p>
             <h2 className="sec-title" id="careers-title">Where this <span className="text-accent">can take you.</span></h2>
             <p className="ccar__note">{common.careersNote}</p>
+            {content.careerPaths?.courses?.[program.slug] && (
+              <SmartLink to={`/career-paths#${program.slug}`} className="btn btn--outline ccar__more">
+                <span>See every role and route</span>
+                <ArrowRight className="btn__arrow" size={18} strokeWidth={2.4} />
+              </SmartLink>
+            )}
           </header>
           <ul className="ccar__list">
             {course.careers.map((c, i) => (

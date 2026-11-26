@@ -25,6 +25,7 @@ npm start             # Express serves the API + built site on http://localhost:
 | `/about`      | About us: story, vision & mission, principles, the way, CTA             |
 | `/programs`   | All five programs in detail (`/programs#<slug>` jumps to one)            |
 | `/programs/<slug>` | Full course page, from `content.json → courses.<slug>` (5 courses)  |
+| `/career-paths` | Roles and routes after each programme, plus two-course pairings |
 | `/contact`    | Contact cards, enquiry form, FAQ                                        |
 | `/register`   | Single-step application form (`/register?program=<slug>` preselects one) |
 | anything else | 404 page                                                                |
@@ -44,7 +45,7 @@ client/src/
   lib/nav.jsx           useGo() + SmartLink for routes / hashes
   lib/programs.js       program images + icons
   hooks/                useLenis (Lenis ↔ GSAP bridge), usePageTitle
-  pages/                HomePage, AboutPage, ProgramsPage, CoursePage, ContactPage, RegisterPage, NotFoundPage
+  pages/                HomePage, AboutPage, ProgramsPage, CoursePage, CareerPathsPage, ContactPage, RegisterPage, NotFoundPage
   components/
     Preloader.jsx       "Director's viewfinder" intro: countdown → logo → shutter split
     Navbar.jsx          liquid-glass pill, active-page indicator, mobile menu
@@ -55,7 +56,8 @@ client/src/
     LiquidGlassFilter.jsx  SVG displacement filter for glass refraction
   styles/               one stylesheet per component/page + global, glass, forms
 server/index.js         /api/health, /api/content[/:section], POST /api/enquiry, POST /api/apply
-server/data/            enquiries.json + applications.json (git-ignored)
+server/mailer.js        emails form submissions to the team (SMTP, see below)
+server/data/            enquiries.json + applications.json (git-ignored, local copy)
 ```
 
 ## Liquid glass
@@ -83,3 +85,11 @@ If an element has a CSS `transition` on `transform`/`opacity` (e.g. for hover), 
 `gsap.fromTo(...)` + `clearProps`, not `gsap.from(...)`. Under React StrictMode the effect runs twice:
 the revert gets animated by the CSS transition, and a second `from()` reads that half-shrunk state as
 its end value, so the element stays frozen at the start.
+
+## Form emails
+
+Contact and application forms are validated in the browser and again on the server, then emailed
+to karthikeyan@, vinod@ and vinoth@toprockglobal.com (override with `MAIL_TO`). The visitor only sees
+"sent" once the email has gone out. Set `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS` in Vercel
+(Project → Settings → Environment Variables) or in a local `.env` (see `.env.example`). Until they are set,
+submissions are only logged and saved (on Vercel that storage is temporary), so set them before relying on the forms.

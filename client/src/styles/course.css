@@ -514,6 +514,7 @@
 .ccar__grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(1.5rem, 4vw, 5rem); align-items: center; }
 .ccar__head { margin-bottom: 0; }
 .ccar__note { margin-top: 1rem; font-size: 0.95rem; font-style: italic; color: var(--muted); }
+.ccar__more { margin-top: 1.4rem; }
 .ccar__list { display: flex; flex-wrap: wrap; gap: 0.6rem; }
 .ccar__chip {
   display: inline-flex;

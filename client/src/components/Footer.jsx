@@ -18,6 +18,11 @@ const SOCIAL_ICONS = {
       <circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" />
     </svg>
   ),
+  YouTube: (
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4a2.5 2.5 0 0 0-1.8 1.8C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8ZM10 15V9l5.2 3L10 15Z" />
+    </svg>
+  ),
   Facebook: (
     <svg viewBox="0 0 24 24" fill="currentColor">
       <path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.6-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.9v3h2.6V21h3Z" />

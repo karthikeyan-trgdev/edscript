@@ -5,9 +5,12 @@ import { readFileSync, existsSync } from 'node:fs';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { mailConfigured, sendSubmission } from './mailer.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
+// local secrets (SMTP login) live in the git-ignored .env; on Vercel they come from project settings
+try { process.loadEnvFile(path.join(ROOT, '.env')); } catch { /* no .env */ }
 const CLIENT_DIST = path.join(ROOT, 'client', 'dist');
 const PORT = process.env.PORT || 5000;
 // Vercel's filesystem is read-only except /tmp (which is not persistent): see README
@@ -37,6 +40,24 @@ app.get('/api/content/:section', (req, res) => {
 // ---- Form helpers -----------------------------------------------------------
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const PHONE_RE = /^[+\d][\d\s()-]{6,19}$/;
+const NAME_RE = /^\p{L}[\p{L}\s.'-]*$/u; // letters, spaces, . ' -
+const digits = (v) => v.replace(/\D/g, '').length;
+const validPhone = (v) => PHONE_RE.test(v) && digits(v) >= 10 && digits(v) <= 15;
+const validName = (v) => v.length >= 2 && NAME_RE.test(v);
+const istTime = (ms) => new Date(ms).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+
+// After validation: email the team (the real delivery), then keep a local copy (best effort).
+// Until the SMTP settings exist the submission is only logged + saved (on Vercel /tmp is
+// temporary), so forms keep working; once they're set, every submission is emailed and a
+// failed send is reported to the visitor.
+async function deliver({ file, record, mail, tag }) {
+  if (mailConfigured()) {
+    await sendSubmission(mail);
+  } else {
+    console.warn(`[${tag}] SMTP not configured: NOT emailed`, JSON.stringify(record));
+  }
+  try { await appendRecord(file, record); } catch (err) { console.error(`[${tag}] local save failed`, err); }
+}
 const clean = (v, max) => String(v ?? '').trim().slice(0, max);
 
 // simple in-memory rate limit: max N submissions per IP per window, per form
@@ -90,23 +111,42 @@ app.post('/api/enquiry', async (req, res) => {
   };
 
   const errors = {};
-  if (enquiry.name.length < 2) errors.name = 'Please enter your name.';
+  if (!validName(enquiry.name)) errors.name = 'Please enter your name (letters only).';
   if (!EMAIL_RE.test(enquiry.email)) errors.email = 'Please enter a valid email address.';
-  if (enquiry.phone && !PHONE_RE.test(enquiry.phone)) errors.phone = 'Please enter a valid phone number.';
+  if (enquiry.phone && !validPhone(enquiry.phone)) errors.phone = 'Please enter a valid phone number (10–15 digits).';
   const interests = [...loadContent().programs.items.map((p) => p.slug), 'not-sure'];
   if (!interests.includes(enquiry.interest)) errors.interest = 'Please choose an option.';
-  if (enquiry.message.length < 5) errors.message = 'Please write a short message.';
+  if (enquiry.message.length < 10) errors.message = 'Please write a short message (at least 10 characters).';
   if (Object.keys(errors).length) return res.status(400).json({ error: 'Please check the form.', errors });
 
-  enquiryLimit.record(ip, now);
+  const { programs, contact } = loadContent();
+  const interest = programs.items.find((p) => p.slug === enquiry.interest)?.title || contact.notSure;
   const record = { id: makeId(now), createdAt: new Date(now).toISOString(), ...enquiry };
   try {
-    await appendRecord(ENQUIRIES_FILE, record);
+    await deliver({
+      file: ENQUIRIES_FILE,
+      record,
+      tag: 'enquiry',
+      mail: {
+        subject: `New enquiry: ${enquiry.name} (${interest})`,
+        heading: 'New enquiry from the EDSCRIPT website',
+        replyTo: { name: enquiry.name, address: enquiry.email },
+        rows: [
+          ['Name', enquiry.name],
+          ['Email', enquiry.email],
+          ['Phone', enquiry.phone],
+          ['Interested in', interest],
+          ['Message', enquiry.message],
+          ['Received', istTime(now)],
+        ],
+      },
+    });
+    enquiryLimit.record(ip, now);
     console.log('[enquiry]', record.id, record.email);
     res.status(201).json({ ok: true });
   } catch (err) {
-    console.error('[enquiry] failed to save', err);
-    res.status(500).json({ error: 'Something went wrong. Please try again.' });
+    console.error('[enquiry] delivery failed', err);
+    res.status(502).json({ error: 'Sorry, we couldn’t send your message just now. Please try again, or email us directly.' });
   }
 });
 
@@ -136,22 +176,43 @@ app.post('/api/apply', async (req, res) => {
   };
 
   const errors = {};
-  if (app_.name.length < 2) errors.name = 'Please enter your full name.';
+  if (!validName(app_.name)) errors.name = 'Please enter your full name (letters only).';
   if (!EMAIL_RE.test(app_.email)) errors.email = 'Please enter a valid email address.';
-  if (!PHONE_RE.test(app_.phone)) errors.phone = 'Please enter a valid phone number.';
+  if (!validPhone(app_.phone)) errors.phone = 'Please enter a valid phone number (10–15 digits).';
   if (!reg.statuses.includes(app_.status)) errors.status = 'Please choose one.';
   if (!programs.items.some((p) => p.slug === app_.program)) errors.program = 'Please choose a programme.';
   if (Object.keys(errors).length) return res.status(400).json({ error: 'Please check the highlighted fields.', errors });
 
-  applyLimit.record(ip, now);
+  const programme = programs.items.find((p) => p.slug === app_.program).title;
   const record = { id: makeId(now), createdAt: new Date(now).toISOString(), ...app_ };
   try {
-    await appendRecord(APPLICATIONS_FILE, record);
+    await deliver({
+      file: APPLICATIONS_FILE,
+      record,
+      tag: 'apply',
+      mail: {
+        subject: `New application: ${app_.name} (${programme})`,
+        heading: `New application: ${programme}`,
+        replyTo: { name: app_.name, address: app_.email },
+        rows: [
+          ['Reference', record.id.toUpperCase()],
+          ['Programme', programme],
+          ['Name', app_.name],
+          ['Email', app_.email],
+          ['Phone', app_.phone],
+          ['Describes them', app_.status],
+          ['Scholarship', app_.scholarship ? 'Yes, wants to be considered' : 'No'],
+          ['Message', app_.message],
+          ['Received', istTime(now)],
+        ],
+      },
+    });
+    applyLimit.record(ip, now);
     console.log('[apply]', record.id, record.email, record.program);
     res.status(201).json({ ok: true, id: record.id });
   } catch (err) {
-    console.error('[apply] failed to save', err);
-    res.status(500).json({ error: 'Something went wrong. Please try again.' });
+    console.error('[apply] delivery failed', err);
+    res.status(502).json({ error: 'Sorry, we couldn’t send your application just now. Please try again, or email us directly.' });
   }
 });
 

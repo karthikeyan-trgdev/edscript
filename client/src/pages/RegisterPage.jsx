@@ -24,13 +24,16 @@ const EMPTY = {
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const PHONE_RE = /^[+\d][\d\s()-]{6,19}$/;
 
-// the order here is the focus order when several fields are wrong
+const NAME_RE = /^\p{L}[\p{L}\s.'-]*$/u; // letters, spaces, . ' -
+const validPhone = (v) => PHONE_RE.test(v) && v.replace(/\D/g, '').length >= 10 && v.replace(/\D/g, '').length <= 15;
+
+// mirrors the server's checks (server/index.js); the order here is the focus order
 function validate(v) {
   const e = {};
   if (!PROGRAM_SLUGS.includes(v.program)) e.program = 'Please choose a programme.';
-  if (v.name.trim().length < 2) e.name = 'Please enter your full name.';
+  if (v.name.trim().length < 2 || !NAME_RE.test(v.name.trim())) e.name = 'Please enter your full name (letters only).';
   if (!EMAIL_RE.test(v.email.trim())) e.email = 'Please enter a valid email address.';
-  if (!PHONE_RE.test(v.phone.trim())) e.phone = 'Please enter a valid phone number.';
+  if (!validPhone(v.phone.trim())) e.phone = 'Please enter a valid phone number (10–15 digits).';
   if (!v.status) e.status = 'Please choose one.';
   return e;
 }

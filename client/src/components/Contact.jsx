@@ -19,13 +19,17 @@ const EMPTY = { name: '', email: '', phone: '', interest: '', message: '', websi
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const PHONE_RE = /^[+\d][\d\s()-]{6,19}$/;
 
+const NAME_RE = /^\p{L}[\p{L}\s.'-]*$/u; // letters, spaces, . ' -
+const validPhone = (v) => PHONE_RE.test(v) && v.replace(/\D/g, '').length >= 10 && v.replace(/\D/g, '').length <= 15;
+
+// mirrors the server's checks (server/index.js)
 function validate(v) {
   const e = {};
-  if (v.name.trim().length < 2) e.name = 'Please enter your name.';
+  if (v.name.trim().length < 2 || !NAME_RE.test(v.name.trim())) e.name = 'Please enter your name (letters only).';
   if (!EMAIL_RE.test(v.email.trim())) e.email = 'Please enter a valid email address.';
-  if (v.phone.trim() && !PHONE_RE.test(v.phone.trim())) e.phone = 'Please enter a valid phone number.';
+  if (v.phone.trim() && !validPhone(v.phone.trim())) e.phone = 'Please enter a valid phone number (10–15 digits).';
   if (!INTERESTS.some(([slug]) => slug === v.interest)) e.interest = 'Please choose an option.';
-  if (v.message.trim().length < 5) e.message = 'Please write a short message.';
+  if (v.message.trim().length < 10) e.message = 'Please write a short message (at least 10 characters).';
   return e;
 }
 
