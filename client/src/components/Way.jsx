@@ -1,14 +1,17 @@
 import { Fragment, useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight, GraduationCap, Layers, Sparkles } from 'lucide-react';
+import { BarChart3, Compass, Layers, Lightbulb, PenTool, Presentation, Rocket, Sparkles, Users } from 'lucide-react';
 import content from '@shared/content.json';
 import '../styles/way.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const { way } = content;
-const icons = { learn: GraduationCap, create: Layers, lead: Sparkles };
+const icons = {
+  compass: Compass, layers: Layers, create: PenTool, present: Presentation, rocket: Rocket,
+  sparkles: Sparkles, bulb: Lightbulb, users: Users, chart: BarChart3,
+};
 
 export default function Way() {
   const root = useRef(null);
@@ -24,12 +27,10 @@ export default function Way() {
         tl.from('.way__eyebrow', { opacity: 0, y: 14, duration: 0.8 })
           // the three words land one after another: learn → create → lead
           .from('.way__word-inner', { yPercent: 115, rotate: 3, duration: 1.1, stagger: 0.14 }, 0.1)
-          // then the path: card, arrow, card, arrow, card
-          .fromTo('.way__step', { opacity: 0, y: 50, scale: 0.95 }, { opacity: 1, y: 0, scale: 1, duration: 1.1, stagger: 0.22, clearProps: 'transform,opacity' }, 0.45)
-          .from('.way__arrow', { opacity: 0, duration: 0.8, stagger: 0.22, clearProps: 'opacity' }, 0.75)
-          .fromTo('.way__icon',
-            { scale: 0.4, rotate: -20, opacity: 0 },
-            { scale: 1, rotate: 0, opacity: 1, duration: 0.9, stagger: 0.22, ease: 'back.out(2)', clearProps: 'transform,opacity' }, 0.65);
+          // then the path draws across and the five steps land along it
+          .fromTo('.way__line-fill', { scaleX: 0 }, { scaleX: 1, duration: 1.8, ease: 'power2.inOut', clearProps: 'transform' }, 0.4)
+          .fromTo('.way__step', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1, stagger: 0.16, clearProps: 'transform,opacity' }, 0.45)
+          .fromTo('.way__chip', { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.7, stagger: 0.07, clearProps: 'transform,opacity' }, 1.2);
       });
     }, root);
     return () => ctx.revert();
@@ -62,29 +63,38 @@ export default function Way() {
         </header>
 
         <ol className="way__steps">
+          <li className="way__line" aria-hidden="true"><span className="way__line-fill" /></li>
           {way.steps.map((s, i) => {
             const Icon = icons[s.icon] || Sparkles;
             return (
-              <Fragment key={s.title}>
-                <li className="way__step glass">
+              <li className="way__step" key={s.title}>
+                <span className="way__node" aria-hidden="true">
+                  <Icon size={26} strokeWidth={1.8} />
+                </span>
+                <div className="way__card glass">
                   <span className="glass__fx" aria-hidden="true" />
-                  <span className="way__icon" aria-hidden="true">
-                    <Icon size={34} strokeWidth={1.7} />
-                  </span>
-                  <div>
-                    <h3 className="way__step-title">{s.title}</h3>
-                    <p className="way__step-text">{s.text}</p>
-                  </div>
-                </li>
-                {i < way.steps.length - 1 && (
-                  <li className="way__arrow" aria-hidden="true">
-                    <ArrowRight size={26} strokeWidth={1.8} />
-                  </li>
-                )}
-              </Fragment>
+                  <span className="way__num">Step {String(i + 1).padStart(2, '0')}</span>
+                  <h3 className="way__step-title">{s.title}</h3>
+                </div>
+              </li>
             );
           })}
         </ol>
+
+        <div className="way__built">
+          <p className="way__built-label">{way.builtIn.label}</p>
+          <ul className="way__chips">
+            {way.builtIn.items.map(({ icon, text }) => {
+              const Icon = icons[icon] || Sparkles;
+              return (
+                <li className="way__chip" key={text}>
+                  <Icon size={17} strokeWidth={2} aria-hidden="true" />
+                  {text}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     </section>
   );

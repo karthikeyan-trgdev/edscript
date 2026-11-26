@@ -2,7 +2,10 @@ import { useEffect, useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight, Play } from 'lucide-react';
-import heroBg from '@assets/images/hero-bg.webp';
+import heroBg1 from '@assets/images/hero-bg.webp';
+import heroBg2 from '@assets/images/hero-bg-2.webp';
+import heroBg3 from '@assets/images/hero-bg-3.webp';
+import heroBg4 from '@assets/images/hero-bg-4.webp';
 import content from '@shared/content.json';
 import { FeatureIcon } from './Icons.jsx';
 import { useLenisInstance } from '../hooks/useLenis.js';
@@ -11,6 +14,15 @@ import '../styles/hero.css';
 gsap.registerPlugin(ScrollTrigger);
 
 const { hero, features } = content;
+
+// x = horizontal crop anchor: the people in images 2-4 sit at the far right edge
+const SLIDES = [
+  { src: heroBg1, x: '40%' },
+  { src: heroBg2, x: '100%', fade: '34%' },
+  { src: heroBg3, x: '100%', fade: '34%' },
+  { src: heroBg4, x: '100%', fade: '34%' },
+];
+const HOLD = 6; // seconds each background stays before the next one opens
 
 export default function Hero({ ready }) {
   const root = useRef(null);
@@ -22,7 +34,7 @@ export default function Hero({ ready }) {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ paused: true, defaults: { ease: 'expo.out' } });
 
-      tl.fromTo('.hero__img', { scale: 1.22, filter: 'blur(10px) saturate(0.6)' }, { scale: 1, filter: 'blur(0px) saturate(1)', duration: 2.2 }, 0)
+      tl.fromTo('.hero__slide:first-child .hero__img', { scale: 1.22, filter: 'blur(10px) saturate(0.6)' }, { scale: 1, filter: 'blur(0px) saturate(1)', duration: 2.2, clearProps: 'filter' }, 0)
         .from('.hero__swoosh', { opacity: 0, x: 80, duration: 1.8, stagger: 0.15 }, 0.2)
         .from('.hero__eyebrow-char', { opacity: 0, y: 14, stagger: 0.025, duration: 0.7, ease: 'power3.out' }, 0.45)
         .from('.hero__line-inner', { yPercent: 118, rotate: 2.5, duration: 1.25, stagger: 0.12 }, 0.5)
@@ -54,6 +66,78 @@ export default function Hero({ ready }) {
 
   useEffect(() => {
     if (ready) intro.current?.play();
+  }, [ready]);
+
+  // Background slideshow. The next image dissolves in over the current one while one slow
+  // zoom carries it from a slight push-in to rest, so an image always covers the hero.
+  // Kept cheap on purpose so the hand-over never stutters:
+  //  - every slide stays painted (opacity only, never visibility/display) and all images are
+  //    decoded up front, so the first frame of a fade has nothing new to prepare
+  //  - one transform tween per slide, no CSS filters (a blurred full-screen layer went black)
+  //  - the 01-04 tracker is updated straight in the DOM, so React doesn't re-render the hero
+  const goTo = useRef(() => {});
+  useEffect(() => {
+    if (!ready) return undefined;
+    const slides = gsap.utils.toArray('.hero__slide', root.current);
+    const dots = gsap.utils.toArray('.hero__dot', root.current);
+    const count = root.current.querySelector('.hero__dots-count');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let current = 0;
+    let timer;
+    let busy = false;
+
+    slides.forEach((sl) => sl.querySelector('.hero__img').decode?.().catch(() => {}));
+
+    const mark = (i) => {
+      dots.forEach((d, j) => {
+        d.classList.toggle('is-active', j === i);
+        d.setAttribute('aria-pressed', String(j === i));
+      });
+      if (count) count.textContent = String(i + 1).padStart(2, '0');
+    };
+    const zoom = (slide, from) => {
+      if (reduce) return;
+      gsap.fromTo(slide, { scale: from }, { scale: 1, duration: HOLD + 2.5, ease: 'power1.out', overwrite: 'auto' });
+    };
+    const schedule = () => {
+      timer?.kill();
+      timer = gsap.delayedCall(HOLD, () => go((current + 1) % slides.length));
+    };
+
+    const go = (next) => {
+      if (busy || next === current) return;
+      busy = true;
+      const prev = slides[current];
+      const incoming = slides[next];
+      current = next;
+      mark(next);
+      schedule();
+      gsap.set(slides, { zIndex: 0 });
+      gsap.set(prev, { zIndex: 1 });
+      gsap.set(incoming, { zIndex: 2 });
+      zoom(incoming, 1.1);
+      gsap.fromTo(incoming, { opacity: 0 }, {
+        opacity: 1,
+        duration: reduce ? 1.2 : 1.8,
+        ease: 'sine.inOut',
+        onComplete: () => {
+          gsap.set(prev, { opacity: 0 }); // only once it's fully covered
+          busy = false;
+        },
+      });
+    };
+
+    gsap.set(slides, { opacity: 0, zIndex: 0 });
+    gsap.set(slides[0], { opacity: 1, zIndex: 1 });
+    zoom(slides[0], 1.07);
+    schedule();
+    goTo.current = go;
+
+    return () => {
+      timer?.kill();
+      goTo.current = () => {};
+      gsap.killTweensOf(slides);
+    };
   }, [ready]);
 
   // Pointer parallax on the background (pointer devices only)
@@ -112,18 +196,39 @@ export default function Hero({ ready }) {
       {/* Background */}
       <div className="hero__media" aria-hidden="true">
         <div className="hero__media-parallax">
-          <img
-            className="hero__img"
-            src={heroBg}
-            alt=""
-            width="2025"
-            height="941"
-            fetchPriority="high"
-            decoding="async"
-          />
+          {SLIDES.map(({ src, x, fade }, i) => (
+            <div className="hero__slide" key={src} style={{ '--pos-x': x, '--fade': fade }}>
+              <img
+                className="hero__img"
+                src={src}
+                alt=""
+                width="2025"
+                height="941"
+                fetchPriority={i === 0 ? 'high' : 'low'}
+                decoding="async"
+              />
+            </div>
+          ))}
         </div>
       </div>
-      <div className="hero__veil" aria-hidden="true" />
+
+      {/* slideshow tracker: 01-04, the active bar fills over HOLD seconds */}
+      <div className="hero__dots" style={{ '--hold': `${HOLD}s` }}>
+        <span className="hero__dots-count" aria-hidden="true">01</span>
+        {SLIDES.map(({ src }, i) => (
+          <button
+            type="button"
+            key={src}
+            className={`hero__dot ${i === 0 ? 'is-active' : ''}`}
+            aria-label={`Show background ${i + 1} of ${SLIDES.length}`}
+            aria-pressed={i === 0}
+            onClick={() => goTo.current(i)}
+          >
+            <span className="hero__dot-fill" />
+          </button>
+        ))}
+        <span className="hero__dots-count hero__dots-count--total" aria-hidden="true">{String(SLIDES.length).padStart(2, '0')}</span>
+      </div>
 
       {/* Decorative liquid-glass ribbons */}
       <div className="hero__swooshes" aria-hidden="true">

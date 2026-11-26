@@ -6,8 +6,8 @@ import '../styles/cta-banner.css';
 
 const { cta } = content.pages;
 
-// Dark teal "Ready to direct?" band shown near the end of inner pages
-export default function CtaBanner() {
+// Dark teal closing band near the end of inner pages; course pages pass their own heading
+export default function CtaBanner({ titleLine = cta.titleLine, titleAccent = cta.titleAccent }) {
   return (
     <section className="cta-band" aria-labelledby="cta-title">
       <div className="container">
@@ -17,7 +17,7 @@ export default function CtaBanner() {
           <span className="cta-band__ring cta-band__ring--b" aria-hidden="true" />
           <div className="cta-band__copy">
             <h2 className="cta-band__title" id="cta-title">
-              {cta.titleLine} <span>{cta.titleAccent}</span>
+              {titleLine} <span>{titleAccent}</span>
             </h2>
             <p className="cta-band__text">{cta.text}</p>
           </div>

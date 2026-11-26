@@ -37,7 +37,6 @@ app.get('/api/content/:section', (req, res) => {
 // ---- Form helpers -----------------------------------------------------------
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const PHONE_RE = /^[+\d][\d\s()-]{6,19}$/;
-const URL_RE = /^(https?:\/\/)?[\w-]+(\.[\w-]+)+(\/\S*)?$/i;
 const clean = (v, max) => String(v ?? '').trim().slice(0, max);
 
 // simple in-memory rate limit: max N submissions per IP per window, per form
@@ -86,6 +85,7 @@ app.post('/api/enquiry', async (req, res) => {
     name: clean(body.name, 100),
     email: clean(body.email, 200).toLowerCase(),
     phone: clean(body.phone, 20),
+    interest: clean(body.interest, 60),
     message: clean(body.message, 2000),
   };
 
@@ -93,6 +93,8 @@ app.post('/api/enquiry', async (req, res) => {
   if (enquiry.name.length < 2) errors.name = 'Please enter your name.';
   if (!EMAIL_RE.test(enquiry.email)) errors.email = 'Please enter a valid email address.';
   if (enquiry.phone && !PHONE_RE.test(enquiry.phone)) errors.phone = 'Please enter a valid phone number.';
+  const interests = [...loadContent().programs.items.map((p) => p.slug), 'not-sure'];
+  if (!interests.includes(enquiry.interest)) errors.interest = 'Please choose an option.';
   if (enquiry.message.length < 5) errors.message = 'Please write a short message.';
   if (Object.keys(errors).length) return res.status(400).json({ error: 'Please check the form.', errors });
 
@@ -110,7 +112,6 @@ app.post('/api/enquiry', async (req, res) => {
 
 // ---- Registration / application form -------------------------------------------
 const applyLimit = rateLimiter(3, 10 * 60 * 1000);
-const LEVELS = ['beginner', 'some', 'pro'];
 
 app.post('/api/apply', async (req, res) => {
   const ip = req.ip || 'unknown';
@@ -128,29 +129,18 @@ app.post('/api/apply', async (req, res) => {
     name: clean(body.name, 100),
     email: clean(body.email, 200).toLowerCase(),
     phone: clean(body.phone, 20),
-    city: clean(body.city, 80),
     status: clean(body.status, 60),
     program: clean(body.program, 60),
-    level: clean(body.level, 20),
-    portfolio: clean(body.portfolio, 300),
-    motivation: clean(body.motivation, 3000),
-    source: clean(body.source, 60),
+    message: clean(body.message, 3000),
     scholarship: body.scholarship === true,
-    consent: body.consent === true,
   };
 
   const errors = {};
   if (app_.name.length < 2) errors.name = 'Please enter your full name.';
   if (!EMAIL_RE.test(app_.email)) errors.email = 'Please enter a valid email address.';
   if (!PHONE_RE.test(app_.phone)) errors.phone = 'Please enter a valid phone number.';
-  if (app_.city.length < 2) errors.city = 'Please enter your city.';
   if (!reg.statuses.includes(app_.status)) errors.status = 'Please choose one.';
-  if (!programs.items.some((p) => p.slug === app_.program)) errors.program = 'Please choose a program.';
-  if (!LEVELS.includes(app_.level)) errors.level = 'Please choose your experience level.';
-  if (app_.portfolio && !URL_RE.test(app_.portfolio)) errors.portfolio = 'Please enter a valid link.';
-  if (app_.motivation.length < 20) errors.motivation = 'Tell us a little more (at least 20 characters).';
-  if (app_.source && !reg.sources.includes(app_.source)) app_.source = '';
-  if (!app_.consent) errors.consent = 'Please confirm so we can contact you.';
+  if (!programs.items.some((p) => p.slug === app_.program)) errors.program = 'Please choose a programme.';
   if (Object.keys(errors).length) return res.status(400).json({ error: 'Please check the highlighted fields.', errors });
 
   applyLimit.record(ip, now);

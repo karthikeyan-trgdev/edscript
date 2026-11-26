@@ -2,7 +2,7 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react
 import { gsap } from 'gsap';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
 import content from '@shared/content.json';
-import { LogoMark } from './Icons.jsx';
+import logo from '@assets/images/logo/ed-script-logo.png';
 import { useLocation } from 'react-router-dom';
 import { useLenisInstance } from '../hooks/useLenis.js';
 import { useGo } from '../lib/nav.jsx';
@@ -111,9 +111,8 @@ export default function Navbar({ ready }) {
       <div className="container">
         <nav className="nav__bar glass" aria-label="Primary">
           <span className="glass__fx" aria-hidden="true" />
-          <a href="/" className="nav__brand" onClick={(e) => nav(e, '/')} aria-label="EDScript home">
-            <LogoMark className="nav__logo" />
-            <span className="nav__brand-name">{content.brand.name}</span>
+          <a href="/" className="nav__brand" onClick={(e) => nav(e, '/')} aria-label={`${content.brand.name} home`}>
+            <img className="nav__logo" src={logo} alt={`${content.brand.name} - ${content.brand.tagline}`} width="1000" height="298" />
           </a>
 
           <ul className="nav__links" ref={linksRef}>

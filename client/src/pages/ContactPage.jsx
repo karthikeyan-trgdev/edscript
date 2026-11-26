@@ -3,6 +3,7 @@ import content from '@shared/content.json';
 import heroBg from '@assets/images/lets-talk-bg.jpg';
 import PageHero from '../components/PageHero.jsx';
 import Contact from '../components/Contact.jsx';
+import Admissions from '../components/Admissions.jsx';
 import Faq from '../components/Faq.jsx';
 import usePageTitle from '../hooks/usePageTitle.js';
 import '../styles/contact-page.css';
@@ -54,6 +55,7 @@ export default function ContactPage({ ready }) {
       </section>
 
       <Contact />
+      <Admissions />
       <Faq />
     </>
   );

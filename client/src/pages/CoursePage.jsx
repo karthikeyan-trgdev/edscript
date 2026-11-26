@@ -4,7 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   ArrowRight, ArrowUpRight, Award, BarChart3, Briefcase, CalendarDays, ChevronDown, ChevronRight,
-  Clapperboard, Clock, FileText, Film, GraduationCap, Layers, LayoutTemplate, MapPin, Megaphone,
+  Clapperboard, Clock, IndianRupee, FileText, Film, GraduationCap, Layers, LayoutTemplate, MapPin, Megaphone,
   MessageCircle, Mic, Palette, PenLine, Quote, Rocket, Scissors, ShieldCheck, Smartphone, Sparkles,
   Store, Target, TrendingUp, Users, Video, Wrench,
 } from 'lucide-react';
@@ -12,6 +12,7 @@ import content from '@shared/content.json';
 import CtaBanner from '../components/CtaBanner.jsx';
 import NotFoundPage from './NotFoundPage.jsx';
 import { SmartLink } from '../lib/nav.jsx';
+import { inr, afterScholarship, scholarships } from '../lib/fees.js';
 import { imageFor, programIcons } from '../lib/programs.js';
 import { useLenisInstance } from '../hooks/useLenis.js';
 import usePageTitle from '../hooks/usePageTitle.js';
@@ -55,6 +56,8 @@ function Course({ course, program, index, ready }) {
   const d = course.details;
   const ProgramIcon = programIcons[program.icon] || Video;
   const num = String(index + 1).padStart(2, '0');
+  const rule = course.rule || common.rule;
+  const [audLead, audAccent] = course.audienceHeading || ['Built for people who', 'make things.'];
 
   // split the name so its last word takes the accent colour
   const words = course.name.split(' ');
@@ -190,11 +193,11 @@ function Course({ course, program, index, ready }) {
                 <span>Apply for this course</span>
                 <ArrowUpRight className="btn__arrow" size={18} strokeWidth={2.4} />
               </SmartLink>
-              <SmartLink to="/contact" className="btn btn--glass glass btn--lg">
+              <a href="#details" className="btn btn--glass glass btn--lg" onClick={(e) => jump(e, 'details')}>
                 <span className="glass__fx" aria-hidden="true" />
-                <MessageCircle size={17} strokeWidth={2.2} aria-hidden="true" />
-                <span>{common.fees}</span>
-              </SmartLink>
+                <IndianRupee size={17} strokeWidth={2.2} aria-hidden="true" />
+                <span>View fee details</span>
+              </a>
             </div>
 
             <ul className="chero__facts">
@@ -215,11 +218,11 @@ function Course({ course, program, index, ready }) {
             <span className="chero__corner chero__corner--tr" aria-hidden="true" />
             <span className="chero__corner chero__corner--bl" aria-hidden="true" />
             <span className="chero__corner chero__corner--br" aria-hidden="true" />
-            <span className="chero__rec" aria-hidden="true"><i /> REC</span>
+            {program.slug === 'ai-filmmaking' && <span className="chero__rec" aria-hidden="true"><i /> REC</span>}
             <figcaption className="chero__badge glass">
               <span className="glass__fx" aria-hidden="true" />
               <span className="chero__badge-icon" aria-hidden="true"><ProgramIcon size={22} strokeWidth={1.9} /></span>
-              <span><small>The EDSCRIPT rule</small>{common.rule}</span>
+              <span><small>The EDSCRIPT rule</small>{rule}</span>
             </figcaption>
           </figure>
         </div>
@@ -256,7 +259,7 @@ function Course({ course, program, index, ready }) {
         <div className="container cover__grid">
           <div className="cover__lead" data-aos="fade-up">
             <p className="eyebrow">Overview</p>
-            <h2 className="sec-title" id="overview-title">Why this <span className="text-accent">program.</span></h2>
+            <h2 className="sec-title" id="overview-title">{course.motto ? <>{course.motto[0]} <span className="text-accent">{course.motto[1]}</span></> : <>Why this <span className="text-accent">program.</span></>}</h2>
             <blockquote className="cover__quote">
               <Quote className="cover__quote-mark" size={44} strokeWidth={1.4} aria-hidden="true" />
               <p>{course.overview[0]}</p>
@@ -268,7 +271,7 @@ function Course({ course, program, index, ready }) {
             ))}
             <div className="cover__rule" data-aos="fade-up" data-aos-delay="240">
               <ShieldCheck size={26} strokeWidth={1.8} aria-hidden="true" />
-              <p><strong>The EDSCRIPT rule</strong>{common.rule}</p>
+              <p><strong>The EDSCRIPT rule</strong>{rule}</p>
             </div>
           </div>
         </div>
@@ -279,7 +282,7 @@ function Course({ course, program, index, ready }) {
         <div className="container">
           <header className="sec-head" data-aos="fade-up">
             <p className="eyebrow">Who it’s for</p>
-            <h2 className="sec-title" id="audience-title">Built for people who <span className="text-accent">make things.</span></h2>
+            <h2 className="sec-title" id="audience-title">{audLead} <span className="text-accent">{audAccent}</span></h2>
           </header>
           <ul className="caud__grid">
             {course.audience.map((a, i) => {
@@ -389,8 +392,17 @@ function Course({ course, program, index, ready }) {
             <aside className="cdet__cta" data-aos="fade-up" data-aos-delay="120">
               <span className="cdet__cta-icon" aria-hidden="true"><ProgramIcon size={26} strokeWidth={1.8} /></span>
               <p className="cdet__cta-label">Fees</p>
-              <p className="cdet__cta-fee">{common.fees}</p>
-              <p className="cdet__cta-text">Talk to us about fees, batches and whether {course.name} is the right fit for you.</p>
+              <p className="cdet__cta-fee">{inr(course.fee)} <small>+ GST</small></p>
+              <p className="cdet__cta-sub">Scholarships for selected learners</p>
+              <ul className="cdet__tiers">
+                {scholarships.tiers.map((t) => (
+                  <li key={t.name}>
+                    <span className="cdet__tier-name">{t.name}<small>{t.pct}% off</small></span>
+                    <strong>{inr(afterScholarship(course.fee, t.pct))}</strong>
+                  </li>
+                ))}
+              </ul>
+              <p className="cdet__cta-note">{common.feeDisclaimer}</p>
               <div className="cdet__cta-actions">
                 <SmartLink to={`/register?program=${program.slug}`} className="btn btn--light">
                   <span>Apply now</span>
@@ -472,7 +484,7 @@ function Course({ course, program, index, ready }) {
         </div>
       </section>
 
-      <CtaBanner />
+      <CtaBanner titleLine={course.cta?.[0]} titleAccent={course.cta?.[1]} />
     </div>
   );
 }

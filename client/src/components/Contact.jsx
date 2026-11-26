@@ -5,7 +5,8 @@ import content from '@shared/content.json';
 import Field from './Field.jsx';
 import '../styles/contact.css';
 
-const { contact } = content;
+const { contact, programs } = content;
+const INTERESTS = [...programs.items.map((p) => [p.slug, p.title]), ['not-sure', contact.notSure]];
 
 // What people usually write in about (mirrors the description copy)
 const TOPICS = [
@@ -14,7 +15,7 @@ const TOPICS = [
   { icon: ClipboardCheck, label: 'Admissions', text: 'Intakes, process and next steps.' },
 ];
 
-const EMPTY = { name: '', email: '', phone: '', message: '', website: '' };
+const EMPTY = { name: '', email: '', phone: '', interest: '', message: '', website: '' };
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const PHONE_RE = /^[+\d][\d\s()-]{6,19}$/;
 
@@ -23,6 +24,7 @@ function validate(v) {
   if (v.name.trim().length < 2) e.name = 'Please enter your name.';
   if (!EMAIL_RE.test(v.email.trim())) e.email = 'Please enter a valid email address.';
   if (v.phone.trim() && !PHONE_RE.test(v.phone.trim())) e.phone = 'Please enter a valid phone number.';
+  if (!INTERESTS.some(([slug]) => slug === v.interest)) e.interest = 'Please choose an option.';
   if (v.message.trim().length < 5) e.message = 'Please write a short message.';
   return e;
 }
@@ -127,7 +129,13 @@ export default function Contact() {
             <Field id="name" label="Your Name" autoComplete="name" value={values.name} onChange={update} error={errors.name} />
             <Field id="email" label="Your Email" type="email" autoComplete="email" value={values.email} onChange={update} error={errors.email} />
           </div>
-          <Field id="phone" label="Phone Number (optional)" type="tel" autoComplete="tel" value={values.phone} onChange={update} error={errors.phone} />
+          <div className="contact__row">
+            <Field id="phone" label="Phone Number (optional)" type="tel" autoComplete="tel" value={values.phone} onChange={update} error={errors.phone} />
+            <Field id="interest" label={contact.interestLabel} as="select" value={values.interest} onChange={update} error={errors.interest}>
+              <option value="" disabled>Choose one</option>
+              {INTERESTS.map(([slug, title]) => <option key={slug} value={slug}>{title}</option>)}
+            </Field>
+          </div>
           <Field id="message" label="Your Message" as="textarea" rows={4} value={values.message} onChange={update} error={errors.message} />
 
           {/* honeypot: hidden from people, bots fill it in */}

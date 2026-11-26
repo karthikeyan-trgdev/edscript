@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import heroBg from '@assets/images/hero-bg.webp';
 import preloaderBg from '@assets/images/preloader-bg.jpg';
-import { LogoMark } from './Icons.jsx';
+import logoLight from '@assets/images/logo/ed-script-logo-light.png';
 import '../styles/preloader.css';
 
 // The brand rule, told as a countdown: story and craft first, AI after.
@@ -96,8 +96,8 @@ export default function Preloader({ onReveal, onDone }) {
         .to(q('.pl__ring, .pl__sweep, .pl__cross'), { opacity: 0, scale: 0.6, duration: 0.5, ease: 'power3.in' }, '<0.05')
         // logo "slate" moment
         .fromTo(q('.pl__logo'), { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(2)' }, '>-0.1')
-        .fromTo(q('.logo-mark__outer'), { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.6, ease: 'power2.out' }, '<')
-        .from(q('.pl__logo-char'), { opacity: 0, yPercent: 60, stagger: 0.035, duration: 0.5, ease: 'power3.out' }, '<0.15')
+        // the logo wipes in left to right, like a slate being revealed
+        .fromTo(q('.pl__logo-img'), { clipPath: 'inset(0 100% 0 0)' }, { clipPath: 'inset(0 0% 0 0)', duration: 0.7, ease: 'power3.out' }, '<0.05')
         .to(q('.pl__hud, .pl__meter, .pl__corner'), { opacity: 0, duration: 0.4 }, '<0.3')
         .to(q('.pl__logo'), { opacity: 0, scale: 1.08, filter: 'blur(6px)', duration: 0.45, ease: 'power2.in' }, '+=0.25')
         // shutter: a line of light, then the frame splits open
@@ -166,12 +166,7 @@ export default function Preloader({ onReveal, onDone }) {
         </div>
 
         <div className="pl__logo">
-          <LogoMark className="pl__logo-mark" />
-          <span className="pl__logo-word">
-            {'EDSCRIPT'.split('').map((c, i) => (
-              <span className="pl__logo-char" key={i}>{c}</span>
-            ))}
-          </span>
+          <img className="pl__logo-img" src={logoLight} alt="" width="1000" height="298" />
         </div>
       </div>
 

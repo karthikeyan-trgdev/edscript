@@ -71,7 +71,7 @@ export default function AboutPage({ ready }) {
           <header className="sec-head sec-head--center" data-aos="fade-up">
             <p className="eyebrow">{page.vm.eyebrow}</p>
             <h2 className="sec-title" id="vm-title">
-              {page.vm.titleLine} <span className="text-accent">{page.vm.titleAccent}</span>
+              {page.vm.titleLine}<br /><span className="text-accent">{page.vm.titleAccent}</span>
             </h2>
             {page.vm.description && <p className="sec-sub">{page.vm.description}</p>}
           </header>

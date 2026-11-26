@@ -200,16 +200,7 @@
   gap: clamp(0.6rem, 1.4vw, 1rem);
   opacity: 0;
 }
-.pl__logo-mark { width: clamp(44px, 7vw, 72px); height: auto; }
-.pl__logo-word {
-  display: inline-flex;
-  overflow: hidden;
-  font-size: clamp(2rem, 1.2rem + 4vw, 4.2rem);
-  font-weight: 800;
-  letter-spacing: -0.035em;
-  color: #fff;
-}
-.pl__logo-char { display: inline-block; }
+.pl__logo-img { width: clamp(240px, 34vw, 460px); height: auto; filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.45)); }
 
 /* ---- Meter ------------------------------------------------------------ */
 .pl__meter {

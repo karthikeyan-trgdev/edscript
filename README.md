@@ -23,10 +23,10 @@ npm start             # Express serves the API + built site on http://localhost:
 |---------------|-------------------------------------------------------------------------|
 | `/`           | Home: hero, about, programs, the way, FAQ, contact                      |
 | `/about`      | About us: story, vision & mission, principles, the way, CTA             |
-| `/programs`   | All six programs in detail (`/programs#<slug>` jumps to one)            |
+| `/programs`   | All five programs in detail (`/programs#<slug>` jumps to one)            |
 | `/programs/<slug>` | Full course page, from `content.json → courses.<slug>` (5 courses)  |
 | `/contact`    | Contact cards, enquiry form, FAQ                                        |
-| `/register`   | 3-step application form (`/register?program=<slug>` preselects one)    |
+| `/register`   | Single-step application form (`/register?program=<slug>` preselects one) |
 | anything else | 404 page                                                                |
 
 Internal links go through `SmartLink` / `useGo()` (src/lib/nav.jsx): same-page `#hash` links

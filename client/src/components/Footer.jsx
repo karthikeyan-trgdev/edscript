@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import content from '@shared/content.json';
 import footerBg from '@assets/images/footer-bg.webp';
-import { LogoMark } from './Icons.jsx';
+import logoLight from '@assets/images/logo/ed-script-logo-light.png';
 import { useGo } from '../lib/nav.jsx';
 import '../styles/footer.css';
 
@@ -70,10 +70,8 @@ export default function Footer() {
         <div className="footer__grid">
           <div className="footer__brand" data-aos="fade-up">
             <a href="/" className="footer__logo" onClick={(e) => go(e, '/')} aria-label={`${brand.name} home`}>
-              <LogoMark className="footer__mark" />
-              <span>{brand.name}</span>
+              <img className="footer__mark" src={logoLight} alt={`${brand.name} - ${brand.tagline}`} width="1000" height="298" loading="lazy" />
             </a>
-            <p className="footer__tagline-top">{brand.tagline}</p>
             <p className="footer__tagline">{footer.tagline}</p>
             <ul className="footer__socials">
               {footer.socials.map((s) => (
