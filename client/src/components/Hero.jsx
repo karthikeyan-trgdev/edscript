@@ -2,10 +2,11 @@ import { useEffect, useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight, Play } from 'lucide-react';
-import heroBg1 from '@assets/images/hero-bg.webp';
-import heroBg2 from '@assets/images/hero-bg-2.webp';
-import heroBg3 from '@assets/images/hero-bg-3.webp';
-import heroBg4 from '@assets/images/hero-bg-4.webp';
+import heroFilm from '@assets/images/hero-bg-1.webp';
+import heroPodcast from '@assets/images/hero-bg-2.webp';
+import heroBrand from '@assets/images/hero-bg-3.webp';
+import heroInfluencer from '@assets/images/hero-bg-4.webp';
+import heroMarketing from '@assets/images/hero-bg-5.webp';
 import content from '@shared/content.json';
 import { FeatureIcon } from './Icons.jsx';
 import { useLenisInstance } from '../hooks/useLenis.js';
@@ -15,12 +16,15 @@ gsap.registerPlugin(ScrollTrigger);
 
 const { hero, features } = content;
 
-// x = horizontal crop anchor: the people in images 2-4 sit at the far right edge
+// One image per programme, in line-up order.
+// x = horizontal crop anchor; in images 2-5 the person sits at the right edge, so anchor there.
+// fade = where the image starts fading in behind the copy (later on the busier images).
 const SLIDES = [
-  { src: heroBg1, x: '40%' },
-  { src: heroBg2, x: '100%', fade: '34%' },
-  { src: heroBg3, x: '100%', fade: '34%' },
-  { src: heroBg4, x: '100%', fade: '34%' },
+  { src: heroFilm, x: '40%' },
+  { src: heroPodcast, x: '100%', fade: '34%' },
+  { src: heroBrand, x: '100%', fade: '34%' },
+  { src: heroMarketing, x: '100%', fade: '34%' },
+  { src: heroInfluencer, x: '100%', fade: '34%' },
 ];
 const HOLD = 6; // seconds each background stays before the next one opens
 
@@ -240,7 +244,6 @@ export default function Hero({ ready }) {
               <stop offset="1" stopColor="#fff" stopOpacity="0.35" />
             </linearGradient>
           </defs>
-          <path d="M600 40C500 80 420 170 392 300l34 8C452 196 520 120 600 86Z" fill="url(#sw-a)" stroke="rgba(255,255,255,.7)" strokeWidth="1.2" />
           <path d="M600 600C470 640 370 740 330 900h80c40-130 110-210 190-246Z" fill="url(#sw-a)" stroke="rgba(255,255,255,.6)" strokeWidth="1.2" />
         </svg>
         <svg className="hero__swoosh hero__swoosh--left" viewBox="0 0 700 320" preserveAspectRatio="xMinYMax slice">

@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import heroBg from '@assets/images/hero-bg.webp';
+import heroBg from '@assets/images/hero-bg-1.webp';
 import preloaderBg from '@assets/images/preloader-bg.jpg';
 import logoLight from '@assets/images/logo/ed-script-logo-light.png';
 import '../styles/preloader.css';
