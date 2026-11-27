@@ -483,11 +483,9 @@
   color: #063f3c;
   background: linear-gradient(160deg, #a5ece3, #3fcfbe);
 }
+.cdet__cta-title { margin-top: 0.4rem; font-size: clamp(1.4rem, 1.1rem + 0.9vw, 1.85rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.035em; }
 .cdet__cta-label { margin-top: 1.6rem; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.24em; text-transform: uppercase; color: var(--teal-300); }
-.cdet__cta-fee { margin-top: 0.35rem; font-size: clamp(1.7rem, 1.3rem + 1.2vw, 2.3rem); font-weight: 800; letter-spacing: -0.04em; }
-.cdet__cta-fee small { font-size: 0.42em; font-weight: 600; letter-spacing: 0; color: rgba(255, 255, 255, 0.7); }
-.cdet__cta-sub { margin-top: 1.1rem; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal-300); }
-.cdet__tiers { list-style: none; margin-top: 0.6rem; display: grid; gap: 0.4rem; }
+.cdet__tiers { list-style: none; margin-top: 1.1rem; display: grid; gap: 0.4rem; }
 .cdet__tiers li {
   display: flex;
   align-items: center;

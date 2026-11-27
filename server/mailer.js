@@ -7,12 +7,11 @@
 //   SMTP_USER     the mailbox that sends, e.g. website@toprockglobal.com
 //   SMTP_PASS     its password / app password
 //   MAIL_FROM     optional display sender, default "EDSCRIPT Website <SMTP_USER>"
-//   MAIL_TO       optional comma-separated recipients, default the three below
+//   MAIL_TO       optional comma-separated recipients, default the two below
 import nodemailer from 'nodemailer';
 
 const DEFAULT_TO = [
   'karthikeyan@toprockglobal.com',
-  'vinod@toprockglobal.com',
   'vinoth@toprockglobal.com',
 ];
 

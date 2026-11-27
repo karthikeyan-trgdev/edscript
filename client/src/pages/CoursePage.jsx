@@ -4,7 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   ArrowRight, ArrowUpRight, Award, BarChart3, Briefcase, CalendarDays, ChevronDown, ChevronRight,
-  Clapperboard, Clock, IndianRupee, FileText, Film, GraduationCap, Layers, LayoutTemplate, MapPin, Megaphone,
+  Clapperboard, Clock, FileText, Film, GraduationCap, Layers, LayoutTemplate, MapPin, Megaphone,
   MessageCircle, Mic, Palette, PenLine, Quote, Rocket, Scissors, ShieldCheck, Smartphone, Sparkles,
   Store, Target, TrendingUp, Users, Video, Wrench,
 } from 'lucide-react';
@@ -12,7 +12,6 @@ import content from '@shared/content.json';
 import CtaBanner from '../components/CtaBanner.jsx';
 import NotFoundPage from './NotFoundPage.jsx';
 import { SmartLink } from '../lib/nav.jsx';
-import { inr, afterScholarship, scholarships } from '../lib/fees.js';
 import { imageFor, programIcons } from '../lib/programs.js';
 import { useLenisInstance } from '../hooks/useLenis.js';
 import usePageTitle from '../hooks/usePageTitle.js';
@@ -20,7 +19,7 @@ import '../styles/course.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const { programs, courses = {}, courseCommon: common } = content;
+const { programs, courses = {}, courseCommon: common, scholarships } = content;
 
 const ICONS = {
   clapper: Clapperboard, pen: PenLine, palette: Palette, briefcase: Briefcase, mic: Mic, cap: GraduationCap,
@@ -193,11 +192,11 @@ function Course({ course, program, index, ready }) {
                 <span>Apply for this course</span>
                 <ArrowUpRight className="btn__arrow" size={18} strokeWidth={2.4} />
               </SmartLink>
-              <a href="#details" className="btn btn--glass glass btn--lg" onClick={(e) => jump(e, 'details')}>
+              <SmartLink to="/contact" className="btn btn--glass glass btn--lg">
                 <span className="glass__fx" aria-hidden="true" />
-                <IndianRupee size={17} strokeWidth={2.2} aria-hidden="true" />
-                <span>View fee details</span>
-              </a>
+                <MessageCircle size={17} strokeWidth={2.2} aria-hidden="true" />
+                <span>Talk to us</span>
+              </SmartLink>
             </div>
 
             <ul className="chero__facts">
@@ -391,18 +390,18 @@ function Course({ course, program, index, ready }) {
 
             <aside className="cdet__cta" data-aos="fade-up" data-aos-delay="120">
               <span className="cdet__cta-icon" aria-hidden="true"><ProgramIcon size={26} strokeWidth={1.8} /></span>
-              <p className="cdet__cta-label">Fees</p>
-              <p className="cdet__cta-fee">{inr(course.fee)} <small>+ GST</small></p>
-              <p className="cdet__cta-sub">Scholarships for selected learners</p>
+              <p className="cdet__cta-label">{scholarships.eyebrow}</p>
+              <p className="cdet__cta-title">{scholarships.title}</p>
               <ul className="cdet__tiers">
                 {scholarships.tiers.map((t) => (
                   <li key={t.name}>
-                    <span className="cdet__tier-name">{t.name}<small>{t.pct}% off</small></span>
-                    <strong>{inr(afterScholarship(course.fee, t.pct))}</strong>
+                    <span className="cdet__tier-name">{t.name}</span>
+                    <strong>{t.pct}%</strong>
                   </li>
                 ))}
               </ul>
-              <p className="cdet__cta-note">{common.feeDisclaimer}</p>
+              <p className="cdet__cta-text">Talk to us about batches, scholarships and whether {course.name} is the right fit for you.</p>
+              <p className="cdet__cta-note">{scholarships.note}</p>
               <div className="cdet__cta-actions">
                 <SmartLink to={`/register?program=${program.slug}`} className="btn btn--light">
                   <span>Apply now</span>

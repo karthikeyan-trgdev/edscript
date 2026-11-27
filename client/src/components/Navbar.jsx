@@ -200,12 +200,12 @@ export default function Navbar({ ready }) {
                       })}
                     </ul>
                     <a
-                      href="/programs#fees"
+                      href="/programs"
                       tabIndex={drop ? 0 : -1}
                       className="nav__drop-all"
-                      onClick={(e) => { setDrop(false); nav(e, '/programs#fees'); }}
+                      onClick={(e) => { setDrop(false); nav(e, '/programs'); }}
                     >
-                      All programmes, fees &amp; scholarships <ArrowUpRight size={15} strokeWidth={2.4} aria-hidden="true" />
+                      View all programmes <ArrowUpRight size={15} strokeWidth={2.4} aria-hidden="true" />
                     </a>
                   </div>
                 </li>

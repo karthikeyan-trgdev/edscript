@@ -89,7 +89,7 @@ its end value, so the element stays frozen at the start.
 ## Form emails
 
 Contact and application forms are validated in the browser and again on the server, then emailed
-to karthikeyan@, vinod@ and vinoth@toprockglobal.com (override with `MAIL_TO`). The visitor only sees
+to karthikeyan@ and vinoth@toprockglobal.com (override with `MAIL_TO`). The visitor only sees
 "sent" once the email has gone out. Set `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS` in Vercel
 (Project → Settings → Environment Variables) or in a local `.env` (see `.env.example`). Until they are set,
 submissions are only logged and saved (on Vercel that storage is temporary), so set them before relying on the forms.

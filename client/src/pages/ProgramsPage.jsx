@@ -9,7 +9,6 @@ import Faq from '../components/Faq.jsx';
 import Admissions from '../components/Admissions.jsx';
 import CtaBanner from '../components/CtaBanner.jsx';
 import { SmartLink } from '../lib/nav.jsx';
-import { inr, afterScholarship, scholarships, topPct } from '../lib/fees.js';
 import { imageFor, programIcons } from '../lib/programs.js';
 import usePageTitle from '../hooks/usePageTitle.js';
 import '../styles/programs-page.css';
@@ -17,7 +16,7 @@ import '../styles/programs-page.css';
 gsap.registerPlugin(ScrollTrigger);
 
 const page = content.pages.programs;
-const { programs, courses = {}, courseCommon } = content;
+const { programs, courses = {}, courseCommon, scholarships } = content;
 
 /** One-line format for the row's callout, from whatever course details are confirmed. */
 const formatLine = (d) => [d.durationShort, d.hours && `${d.hours} live`, courseCommon.mode].filter(Boolean).join(' · ');
@@ -94,12 +93,7 @@ export default function ProgramsPage({ ready }) {
                     <span className="glass__fx" aria-hidden="true" />
                     {course ? <CalendarDays size={22} strokeWidth={1.9} aria-hidden="true" /> : <Award size={22} strokeWidth={1.9} aria-hidden="true" />}
                     {course
-                      ? (
-                        <div>
-                          <p><strong>Format</strong>{formatLine(course.details)}</p>
-                          <p className="prog__fee"><strong>Fee</strong>{inr(course.fee)} + GST · {inr(afterScholarship(course.fee, topPct))} with a {topPct}% scholarship</p>
-                        </div>
-                      )
+                      ? <p><strong>Format</strong>{formatLine(course.details)}</p>
                       : <p><strong>{page.outcomeLabel}</strong>{p.outcome}</p>}
                   </div>
 
@@ -135,39 +129,9 @@ export default function ProgramsPage({ ready }) {
         </div>
       </section>
 
-      <section className="pfees" id="fees" aria-labelledby="fees-title">
+      <section className="pfees" id="scholarships" aria-label="Scholarships">
         <div className="container">
-          <header className="sec-head" data-aos="fade-up">
-            <p className="eyebrow">Fees &amp; scholarships</p>
-            <h2 className="sec-title" id="fees-title">Clear fees. <span className="text-accent">Real support.</span></h2>
-          </header>
-
-          <div className="pfees__table glass" role="table" aria-label="Programme fees" data-aos="fade-up">
-            <span className="glass__fx" aria-hidden="true" />
-            <div className="pfees__row pfees__row--head" role="row">
-              <span role="columnheader">#</span>
-              <span role="columnheader">Programme</span>
-              <span role="columnheader">Duration</span>
-              <span role="columnheader">Fee*</span>
-              <span role="columnheader">With {topPct}% scholarship</span>
-            </div>
-            {programs.items.map((p, i) => {
-              const c = courses[p.slug];
-              const d = c.details;
-              return (
-                <SmartLink to={`/programs/${p.slug}`} className="pfees__row" role="row" key={p.slug}>
-                  <span className="pfees__num" role="cell">{String(i + 1).padStart(2, '0')}</span>
-                  <span className="pfees__name" role="cell">{c.name}</span>
-                  <span className="pfees__dur" role="cell" data-label="Duration">{[d.durationShort, d.hours && d.hours.replace(' hours', ' hrs')].filter(Boolean).join(' · ')}</span>
-                  <span className="pfees__fee" role="cell" data-label="Fee*">{inr(c.fee)}</span>
-                  <span className="pfees__sch" role="cell" data-label={`With ${topPct}% scholarship`}>{inr(afterScholarship(c.fee, topPct))}</span>
-                </SmartLink>
-              );
-            })}
-          </div>
-          <p className="pfees__foot" data-aos="fade-up">*{courseCommon.feeNote}</p>
-
-          <div className="pfees__sch-block" id="scholarships">
+          <div className="pfees__sch-block">
             <div className="pfees__sch-copy" data-aos="fade-up">
               <span className="pfees__sch-icon" aria-hidden="true"><BadgePercent size={26} strokeWidth={1.8} /></span>
               <p className="eyebrow">{scholarships.eyebrow}</p>
@@ -184,7 +148,7 @@ export default function ProgramsPage({ ready }) {
               ))}
             </ul>
           </div>
-          <p className="pfees__note" data-aos="fade-up">{scholarships.note} {courseCommon.feeDisclaimer}</p>
+          <p className="pfees__note" data-aos="fade-up">{scholarships.note}</p>
         </div>
       </section>
 

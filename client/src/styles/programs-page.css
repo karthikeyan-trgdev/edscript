@@ -122,62 +122,19 @@
 .prog__outcome p { font-size: 0.95rem; line-height: 1.5; color: var(--ink-2); }
 .prog__outcome strong { display: block; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--teal-700); }
 
-.prog__outcome .prog__fee { margin-top: 0.6rem; padding-top: 0.6rem; border-top: 1px solid rgba(13, 107, 101, 0.12); }
 
-/* ---- fees & scholarships ---- */
+/* ---- scholarships ---- */
 .pfees {
   position: relative;
   padding-block: clamp(56px, 9vh, 110px);
   background: linear-gradient(180deg, #f4fbfa, #eaf7f5);
   scroll-margin-top: 90px;
 }
-.pfees__table {
-  margin-top: clamp(1.6rem, 3vw, 2.4rem);
-  padding: 0.5rem;
-  border-radius: 26px;
-}
-.pfees__table .glass__fx::before { background: rgba(255, 255, 255, 0.78); }
-.pfees__row {
-  position: relative;
-  display: grid;
-  grid-template-columns: 3.2rem minmax(0, 2.2fr) minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1.1fr);
-  align-items: center;
-  gap: 1rem;
-  padding: 1.05rem 1.3rem;
-  border-radius: 18px;
-  font-size: 1rem;
-  color: var(--ink-2);
-  transition: background 0.3s;
-}
-a.pfees__row + a.pfees__row::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 1.3rem;
-  right: 1.3rem;
-  border-top: 1px solid rgba(13, 107, 101, 0.1);
-}
-a.pfees__row:hover { background: rgba(127, 214, 204, 0.16); }
-.pfees__row--head {
-  padding-block: 0.8rem;
-  font-size: 0.74rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--teal-700);
-}
-.pfees__num { font-weight: 800; color: var(--teal-500); }
-.pfees__name { font-weight: 700; color: var(--ink); }
-.pfees__fee { font-size: 1.12rem; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); }
-.pfees__sch { font-weight: 700; color: var(--teal-700); }
-.pfees__foot { margin-top: 0.9rem; font-size: 0.88rem; color: var(--ink-2); }
-
 .pfees__sch-block {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
   align-items: center;
   gap: clamp(1.6rem, 4vw, 4rem);
-  margin-top: clamp(3rem, 7vh, 5rem);
   padding: clamp(1.8rem, 3.5vw, 3rem);
   border-radius: clamp(24px, 3vw, 34px);
   color: #fff;
@@ -216,23 +173,6 @@ a.pfees__row:hover { background: rgba(127, 214, 204, 0.16); }
 
 @media (max-width: 960px) {
   .pfees__sch-block { grid-template-columns: 1fr; }
-}
-@media (max-width: 760px) {
-  /* table rows become cards */
-  .pfees__row--head { display: none; }
-  .pfees__row { grid-template-columns: 2.4rem minmax(0, 1fr); gap: 0.3rem 0.8rem; padding: 1rem; }
-  .pfees__num { grid-row: span 4; align-self: start; }
-  .pfees__dur, .pfees__fee, .pfees__sch { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.95rem; }
-  .pfees__dur::before, .pfees__fee::before, .pfees__sch::before {
-    content: attr(data-label);
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--teal-700);
-    align-self: center;
-  }
-  a.pfees__row + a.pfees__row::before { left: 1rem; right: 1rem; }
 }
 @media (max-width: 560px) {
   .pfees__tiers { grid-template-columns: 1fr; }

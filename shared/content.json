@@ -250,10 +250,6 @@
         "a": "Offline, at our Chennai centre: three 2-hour sessions a week, in small cohorts. Classes run like a studio: you learn by making real work, and practising mentors review it."
       },
       {
-        "q": "How much do the programmes cost?",
-        "a": "Fees range from ₹72,000 to ₹1,44,000 depending on the programme, before GST. The full table is on the Programmes page."
-      },
-      {
         "q": "Are scholarships available?",
         "a": "Yes. Merit- and need-based scholarships of 10%, 15% and 20% are offered to selected learners. They are not automatic. Ask us about eligibility during admissions."
       },
@@ -358,7 +354,7 @@
     "contact": {
       "title": "Get in Touch",
       "email": "hello@edscript.ai",
-      "phone": "+91 98765 43210",
+      "phone": "+91 12345 67890",
       "location": "Mumbai, India"
     },
     "copyright": "EDSCRIPT. All Rights Reserved.",
@@ -554,9 +550,7 @@
     "sessionFormat": "3 sessions a week, 2 hours each",
     "approach": "Project-based: every learner builds one real piece of work across the course and defends it at the end",
     "rule": "Story and craft come first. AI comes second, always.",
-    "careersNote": "Outcomes depend on the learner; placement is not guaranteed.",
-    "feeNote": "Indicative base fees, exclusive of GST.",
-    "feeDisclaimer": "Indicative base fees. Tax treatment and final programme terms to be confirmed. Scholarships are selective and not guaranteed."
+    "careersNote": "Outcomes depend on the learner; placement is not guaranteed."
   },
   "courses": {
     "ai-filmmaking": {
@@ -686,7 +680,6 @@
         "Ready to direct,",
         "not just operate?"
       ],
-      "fee": 144000,
       "motto": [
         "Directors,",
         "not operators."
@@ -818,7 +811,6 @@
         "Ready to be heard,",
         "not just recorded?"
       ],
-      "fee": 72000,
       "motto": [
         "Voices,",
         "not echoes."
@@ -954,7 +946,6 @@
         "Ready to build the idea,",
         "not just the asset?"
       ],
-      "fee": 72000,
       "motto": [
         "Strategists,",
         "not template-fillers."
@@ -1082,7 +1073,6 @@
         "Ready to prove it,",
         "not just post it?"
       ],
-      "fee": 144000,
       "motto": [
         "Marketers who prove it,",
         "not just post it."
@@ -1210,7 +1200,6 @@
         "Ready to grow with purpose,",
         "not just followers?"
       ],
-      "fee": 72000,
       "motto": [
         "Creators with a strategy,",
         "not just a feed."
