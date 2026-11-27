@@ -9,16 +9,16 @@
       "href": "/"
     },
     {
+      "label": "About",
+      "href": "/about"
+    },
+    {
       "label": "Programs",
       "href": "/programs"
     },
     {
       "label": "Career Paths",
       "href": "/career-paths"
-    },
-    {
-      "label": "About",
-      "href": "/about"
     },
     {
       "label": "Contact",
@@ -32,7 +32,7 @@
       "into a"
     ],
     "titleAccent": "Career.",
-    "description": "Industry-focused programs in AI Filmmaking, Podcast Production & Hosting, Brand Storytelling & Creative Strategy, AI & Digital Marketing, and Influencer & Creator Marketing - built on story, craft, and AI.",
+    "description": "Industry-focused programs in AI Filmmaking, Podcast Production & Hosting, Brand Storytelling & Creative Strategy, AI & Digital Marketing, and Social Media Content Creation - built on story, craft, and AI.",
     "primaryCta": {
       "label": "Explore Programs",
       "href": "#programs"
@@ -71,7 +71,7 @@
     "lead": "Anyone can open an AI tool. Almost no one knows what to do with it.",
     "paragraphs": [
       "That’s the gap we built EDSCRIPT to close. We take people who can press buttons and turn them into people who make the calls - the story decision, the frame, the cut, the brand move - that no model makes for you.",
-      "We don’t teach prompts. We teach the eye behind them. Every course we run, AI Filmmaking, Podcast Production & Hosting, Brand Storytelling & Creative Strategy, AI & Digital Marketing, and Influencer & Creator Marketing, is built on one rule: story and craft come first, AI comes second, always."
+      "We don’t teach prompts. We teach the eye behind them. Every course we run, AI Filmmaking, Podcast Production & Hosting, Brand Storytelling & Creative Strategy, AI & Digital Marketing, and Social Media Content Creation, is built on one rule: story and craft come first, AI comes second, always."
     ],
     "cta": {
       "label": "Know More",
@@ -143,8 +143,8 @@
         "outcome": "A complete campaign plan with live creative you built yourself."
       },
       {
-        "title": "Influencer & Creator Marketing",
-        "slug": "influencer-creator-marketing",
+        "title": "Social Media Content Creation",
+        "slug": "social-media-content-creation",
         "icon": "smartphone",
         "image": "Content Creation and Social Media.webp",
         "summary": "Plan, shoot, edit and publish content for Instagram, YouTube, LinkedIn and more, with AI speeding up the work and a repeatable system behind it.",
@@ -235,7 +235,7 @@
     "items": [
       {
         "q": "What is EDSCRIPT?",
-        "a": "EDSCRIPT is a Career Accelerator Academy in Mumbai. We train people in filmmaking, podcasting, brand storytelling, digital marketing and influencer marketing, with story and craft first and AI as the accelerator."
+        "a": "EDSCRIPT is a Career Accelerator Academy in Mumbai. We train people in filmmaking, podcasting, brand storytelling, digital marketing and social media content creation, with story and craft first and AI as the accelerator."
       },
       {
         "q": "Who can join the programmes?",
@@ -278,19 +278,23 @@
     "socials": [
       {
         "name": "Instagram",
-        "href": "https://www.instagram.com/ed.script/"
+        "href": "https://www.instagram.com/ed.script/",
+        "handle": "@ed.script"
       },
       {
         "name": "Facebook",
-        "href": "https://www.facebook.com/profile.php?id=61596905733077"
+        "href": "https://www.facebook.com/profile.php?id=61596905733077",
+        "handle": "EDSCRIPT"
       },
       {
         "name": "LinkedIn",
-        "href": "https://www.linkedin.com/company/144139891/"
+        "href": "https://www.linkedin.com/company/144139891/",
+        "handle": "EDSCRIPT"
       },
       {
         "name": "YouTube",
-        "href": "https://www.youtube.com/@EDSCRIPT-ACADEMY"
+        "href": "https://www.youtube.com/@EDSCRIPT-ACADEMY",
+        "handle": "@EDSCRIPT-ACADEMY"
       }
     ],
     "quickLinks": {
@@ -346,8 +350,8 @@
           "href": "/programs/digital-marketing"
         },
         {
-          "label": "Influencer & Creator Marketing",
-          "href": "/programs/influencer-creator-marketing"
+          "label": "Social Media Content Creation",
+          "href": "/programs/social-media-content-creation"
         }
       ]
     },
@@ -355,7 +359,10 @@
       "title": "Get in Touch",
       "email": "hello@edscript.ai",
       "phone": "+91 12345 67890",
-      "location": "Mumbai, India"
+      "location": "Mumbai, India",
+      "whatsapp": "+91 12345 67890",
+      "whatsappMessage": "Hi EDSCRIPT, I would like to know more about your programmes.",
+      "mapQuery": "Mumbai, Maharashtra, India"
     },
     "copyright": "EDSCRIPT. All Rights Reserved.",
     "legal": [
@@ -378,29 +385,46 @@
       "title": "About Us",
       "hero": {
         "eyebrow": "About Us",
-        "titleLine": "Story first.",
+        "titleLine": "Ideas first.",
         "titleAccent": "AI second.",
-        "description": "We train creators to lead AI with judgment, taste and craft, not follow it."
+        "description": "We help creators, marketers and storytellers use AI with judgment, taste and craft, so the ideas stay theirs."
       },
       "story": {
+        "eyebrow": "About EDSCRIPT",
+        "titleLine": "We make",
+        "titleAccent": "directors.",
+        "lead": "Anyone can open an AI tool. Very few people know what to do with it. The tools do what they’re told. Someone still has to decide what’s worth making, and that person is the director.",
         "paragraphs": [
-          "Our classrooms run like studios. You learn by making real work: short films, brand campaigns, podcast episodes and visual identities, reviewed the way a creative director would review them."
+          "**EDSCRIPT is a career accelerator for the creative economy.** We train directors: people who lead their own work, whatever the medium, and who can tell any tool what good looks like. That’s true whether the work is a story, a show, a brand or a campaign.",
+          "Our intention is simple. Tools will keep changing every few months, so we teach what doesn’t change: storytelling, taste, craft and judgment. Learn those, and every new tool makes you faster instead of making you replaceable.",
+          "We’re built to move careers forward, quickly and for real. Our classrooms run like creative studios. You learn by making real work, get honest feedback from people who do this for a living, and leave with proof of what you can do. That’s true whether you’re starting out, switching careers, growing a business or simply following a passion."
         ],
-        "highlights": [
+        "whyTitle": "Why learn with us",
+        "why": [
           {
-            "icon": "story",
-            "title": "Story-first curriculum",
-            "text": "Narrative, framing and taste before any tool."
+            "icon": "rocket",
+            "title": "Career-first.",
+            "text": "Every program is designed to get you working, earning or building faster."
           },
           {
             "icon": "work",
-            "title": "Studio-style projects",
-            "text": "Every module ends in a piece for your portfolio."
+            "title": "Made, not memorised.",
+            "text": "You learn by creating real work, studio-style, from day one."
           },
           {
             "icon": "eye",
-            "title": "Mentor feedback",
-            "text": "Practising creators review your work, line by line."
+            "title": "Mentored by practitioners.",
+            "text": "Working creators and industry professionals review your work in detail."
+          },
+          {
+            "icon": "folder",
+            "title": "A portfolio that speaks for you.",
+            "text": "You leave with proof, not just a certificate."
+          },
+          {
+            "icon": "shield",
+            "title": "Future-proof skills.",
+            "text": "Judgment and craft that outlast any tool update."
           }
         ]
       },
@@ -408,68 +432,70 @@
         "eyebrow": "Vision & Mission",
         "titleLine": "Lead the tools.",
         "titleAccent": "Don’t follow them.",
-        "description": "Where we're heading, and how we plan to get every learner there.",
+        "description": "Where we’re headed, and how we help every learner get there.",
         "vision": {
           "label": "Our Vision",
-          "kicker": "Where we're heading",
+          "kicker": "Where we’re headed",
+          "text": "A generation of creators who use AI with confidence and keep their own voice, whether they’re making films, shows, brands or campaigns.",
           "points": [
             {
               "icon": "clapper",
-              "text": "Creators who direct every shot, not just press record"
+              "text": "Creators who know what they want to say before they open a tool"
             },
             {
               "icon": "sparkles",
-              "text": "AI as the crew that amplifies a clear creative voice"
+              "text": "AI as a creative partner that speeds up great ideas, not a substitute for them"
             },
             {
               "icon": "globe",
-              "text": "Original stories, told at world-class quality"
+              "text": "Original work from India, made to a world-class standard"
             }
           ]
         },
         "mission": {
           "label": "Our Mission",
           "kicker": "How we get there",
+          "text": "To train creative decision-makers, not tool operators. We give every learner the skills and judgment to lead AI instead of depending on it.",
           "points": [
             {
               "icon": "cap",
-              "text": "Teach the craft first: story, frame, sound, brand"
+              "text": "Teach the fundamentals first: storytelling, design, sound, strategy and audience"
             },
             {
               "icon": "zap",
-              "text": "Then add AI as a multiplier, never a crutch"
+              "text": "Bring in AI to make good work faster and bigger, never as a shortcut"
             },
             {
               "icon": "rocket",
-              "text": "Send every learner out with a portfolio that proves it"
+              "text": "Send every learner out with a portfolio that shows what they can do"
             }
           ]
         }
       },
       "principles": {
         "eyebrow": "What We Believe",
-        "titleLine": "The rules we",
-        "titleAccent": "teach by.",
+        "titleLine": "The principles behind",
+        "titleAccent": "everything we teach.",
         "items": [
           {
             "icon": "story",
             "title": "Story before software",
-            "text": "Every project starts with what you’re trying to say, not which tool to open."
+            "text": "Every project starts with what you want to say and who you’re saying it to, not with which tool to open."
           },
           {
             "icon": "craft",
-            "title": "Craft is the multiplier",
-            "text": "Framing, pacing, editing, voice. AI amplifies craft. It can’t replace it."
+            "title": "Craft makes the difference",
+            "text": "Writing, design, editing, voice, strategy: AI makes good craft go further, but it can’t replace it."
           },
           {
             "icon": "eye",
             "title": "Judgment over prompts",
-            "text": "We train the eye that decides what’s good, what’s off, and what comes next."
+            "text": "We help you build the instinct to know what’s working, what isn’t, and what to do next."
           },
           {
             "icon": "work",
-            "title": "Show the work",
-            "text": "You leave with real projects in a portfolio, not just a certificate."
+            "title": "Show, don’t tell",
+            "text": "You leave with real work in your portfolio, not just a certificate."
           }
         ]
       }
@@ -492,6 +518,13 @@
         "titleLine": "Let’s talk about",
         "titleAccent": "your next move.",
         "description": "Questions about programs, scholarships or admissions? Reach out and our team will help you find the right path."
+      },
+      "connect": {
+        "eyebrow": "Find us",
+        "titleLine": "Visit the",
+        "titleAccent": "studio.",
+        "socialTitle": "Follow EDSCRIPT",
+        "socialText": "Behind-the-scenes, learner work and new batches, first on our channels."
       }
     },
     "register": {
@@ -643,9 +676,9 @@
         "sessionsShort": "48 sessions",
         "hours": "96 hours",
         "tools": [
-          "Google Flow (subscription included for the course)",
-          "Text AI for script development",
-          "AI voice and sound tools"
+          "Next-gen AI video generation (access included)",
+          "AI script development",
+          "Advanced AI voice and sound design"
         ],
         "level": null,
         "eligibility": null
@@ -659,19 +692,22 @@
       ],
       "faqs": [
         {
+          "q": "Do I need filmmaking experience?",
+          "a": "No. The course starts with story and builds every skill from the ground up."
+        },
+        {
           "q": "Will AI make the film for me?",
-          "a": "No. You write the script, design the characters and plan every shot before anything is generated. AI carries out your decisions. It does not make them."
+          "a": "No. AI generates shots once you have locked the script, cast and look. Every creative decision is yours."
         },
         {
           "q": "Do I need my own camera?",
-          "a": "No. The course is built around AI generation tools, and the Google Flow subscription is included. Bring a laptop."
+          "a": "No. The film is made with AI tools; you need a laptop."
         },
         {
           "q": "What do I leave with?",
-          "a": "A finished short film, a trailer with festival, vertical and square cuts, a pitch deck, an AI-disclosure statement, and the experience of defending your work in front of a panel."
+          "a": "A finished short film, a trailer, platform cuts and a pitch deck."
         }
       ],
-      "rule": "Story and craft come first. AI comes second, always.",
       "audienceHeading": [
         "Built for people who",
         "want to tell stories on screen."
@@ -687,7 +723,7 @@
     },
     "podcasting": {
       "name": "Podcast Production & Hosting",
-      "headline": "Find your voice, shape a show, and make people want the next episode.",
+      "headline": "Plan, record and launch a podcast people actually finish.",
       "card": "Design a show around a real listener, record a guest interview that sounds professional, edit it honestly, and publish it on every major platform.",
       "overview": [
         "Most podcasts stop by episode three because they were started with a microphone, not a listener. This program begins with the person you are making the show for, then works backwards into format, voice, studio and edit.",
@@ -697,19 +733,19 @@
       "audience": [
         {
           "icon": "mic",
-          "text": "Aspiring hosts and interviewers"
+          "text": "Creators who want to start a show in audio, video or both"
         },
         {
-          "icon": "pen",
-          "text": "Journalists and writers moving to audio and video"
+          "icon": "cap",
+          "text": "Educators, coaches and experts who want to share what they know"
         },
         {
           "icon": "store",
-          "text": "Brands building their own show"
+          "text": "Founders and brands building an owned media channel"
         },
         {
-          "icon": "sparkles",
-          "text": "Creators adding long-form content"
+          "icon": "briefcase",
+          "text": "Professionals who want to host or produce interviews"
         }
       ],
       "modules": [
@@ -749,19 +785,19 @@
       "create": [
         {
           "icon": "mic",
-          "text": "An edited video podcast episode"
+          "text": "A pilot guest-interview episode, recorded, edited and mixed"
         },
         {
           "icon": "scissors",
-          "text": "Promotional cuts for social"
+          "text": "Short clips cut for social platforms"
         },
         {
           "icon": "file",
-          "text": "A show bible: format, segments and audience"
+          "text": "Show page, cover art, media kit and a launch plan"
         },
         {
           "icon": "award",
-          "text": "A live review of your show"
+          "text": "A public defence of your show"
         }
       ],
       "details": {
@@ -771,9 +807,9 @@
         "sessionsShort": "24 sessions",
         "hours": "48 hours",
         "tools": [
-          "Recording and editing software",
-          "NotebookLM for interview rehearsal",
-          "AI transcript and show-notes tools"
+          "Professional recording and editing tools",
+          "AI interview rehearsal",
+          "Smart AI transcription and show notes"
         ],
         "level": null,
         "eligibility": null
@@ -781,8 +817,9 @@
       "careers": [
         "Podcast host or producer",
         "Audio and video editor",
-        "Brand podcast lead",
-        "Freelance show producer"
+        "Branded-podcast producer for companies",
+        "Interview and content lead",
+        "Creator monetising a show through sponsorships and memberships"
       ],
       "faqs": [
         {
@@ -802,7 +839,6 @@
           "a": "You will publish it on the major platforms as part of the course."
         }
       ],
-      "rule": "The conversation comes first. AI comes second, always.",
       "audienceHeading": [
         "Built for people",
         "with something to say."
@@ -818,7 +854,7 @@
     },
     "brand-storytelling": {
       "name": "Brand Storytelling & Creative Strategy",
-      "headline": "Turn insight into ideas people remember.",
+      "headline": "Build a brand from its truth outward, and launch it for real.",
       "card": "Take a real brand through positioning, visual identity, voice, content and proof, then launch it live and defend the results.",
       "overview": [
         "Most branding work starts with a logo. This program starts with the truth: who the customer really is, what problem they have, and what the brand actually competes against. Every later decision about the name, logo, colour, voice and content has to trace back to that truth. If it doesn’t, it’s decoration.",
@@ -827,20 +863,20 @@
       ],
       "audience": [
         {
-          "icon": "pen",
-          "text": "Copywriters and content writers"
+          "icon": "rocket",
+          "text": "Entrepreneurs and side-hustlers building their own brand"
         },
         {
           "icon": "target",
-          "text": "Junior strategists and account executives"
+          "text": "Brand managers and marketers who want strategy, not just execution"
         },
         {
           "icon": "palette",
-          "text": "Designers moving into concept work"
+          "text": "Designers who want to ground visual work in brand thinking"
         },
         {
-          "icon": "rocket",
-          "text": "Founders building their own brand"
+          "icon": "pen",
+          "text": "Content leads and copywriters shaping a brand’s voice"
         }
       ],
       "modules": [
@@ -879,20 +915,20 @@
       ],
       "create": [
         {
-          "icon": "layers",
-          "text": "A brand narrative system"
+          "icon": "target",
+          "text": "A brand strategy and positioning statement"
+        },
+        {
+          "icon": "palette",
+          "text": "A visual identity system, brand book and full collateral set"
         },
         {
           "icon": "file",
-          "text": "Creative briefs"
-        },
-        {
-          "icon": "sparkles",
-          "text": "Two campaign concepts"
+          "text": "A brand story script and content plan"
         },
         {
           "icon": "award",
-          "text": "A pitch presented to a panel"
+          "text": "A live launch, a results readout and a public brand defence"
         }
       ],
       "details": {
@@ -902,22 +938,20 @@
         "sessionsShort": "24 sessions",
         "hours": "48 hours",
         "tools": [
-          "ChatGPT",
-          "Claude",
-          "Gemini",
-          "Perplexity",
-          "Adobe Firefly",
-          "Canva AI",
-          "CapCut"
+          "AI research and strategy assistants",
+          "Generative AI design tools",
+          "AI-assisted copy and content creation"
         ],
         "level": null,
         "eligibility": null
       },
       "careers": [
-        "Brand or creative strategist",
-        "Copywriter or concept writer",
-        "Content lead",
-        "Freelance brand consultant"
+        "Brand strategist",
+        "Brand or marketing manager",
+        "Content strategist",
+        "Brand designer",
+        "Freelance brand consultant",
+        "Founder launching and growing your own brand"
       ],
       "faqs": [
         {
@@ -937,7 +971,6 @@
           "a": "No new teaching. You launch your brand live, improve it with coaching, and defend the results."
         }
       ],
-      "rule": "The insight comes first. AI comes second, always.",
       "audienceHeading": [
         "Built for people who",
         "shape how brands are seen."
@@ -1028,15 +1061,11 @@
         "sessions": "48 sessions, 3 a week, 2 hours each",
         "sessionsShort": "48 sessions",
         "hours": "96 hours",
-        "tools": null,
-        "toolsPending": [
-          "ChatGPT",
-          "Gemini",
-          "Google Ads",
-          "Meta Ads Manager",
-          "Google Analytics",
-          "Search Console",
-          "Email and automation platforms"
+        "tools": [
+          "Generative AI assistants",
+          "Leading ad platforms",
+          "Modern analytics and tracking",
+          "AI-powered marketing automation"
         ],
         "level": null,
         "eligibility": null
@@ -1052,19 +1081,22 @@
       ],
       "faqs": [
         {
+          "q": "Do I need a marketing background?",
+          "a": "No. The course starts from brand and audience fundamentals."
+        },
+        {
           "q": "Will I run real ads?",
-          "a": "Yes. You plan and run live content and ad campaigns, and track the results."
+          "a": "Yes. You plan and run live campaigns and track the results."
         },
         {
           "q": "Is AI a separate module?",
-          "a": "No. AI is part of every module: research, content, ad variations, automation and reporting."
+          "a": "No. AI is used at every stage, so you learn it the way it is used at work."
         },
         {
           "q": "Which capstone track should I pick?",
-          "a": "D2C/e-commerce if you want to work in brands or online retail. B2B/agency if you want to serve clients. Creator/personal brand if you are growing your own audience. Your mentor helps you decide."
+          "a": "Choose the one closest to the work you want: e-commerce, B2B/agency or personal brand."
         }
       ],
-      "rule": "The customer comes first. AI comes second, always.",
       "audienceHeading": [
         "Built for people who",
         "grow brands."
@@ -1078,10 +1110,10 @@
         "not just post it."
       ]
     },
-    "influencer-creator-marketing": {
-      "name": "Influencer & Creator Marketing",
+    "social-media-content-creation": {
+      "name": "Social Media Content Creation",
       "draft": true,
-      "headline": "Build an audience that trusts you, and partnerships that pay.",
+      "headline": "Make short-form content people stop for, and build it into a system you can keep up.",
       "card": "Plan, shoot, edit and publish content for Instagram, YouTube, LinkedIn and more, with AI speeding up the work and a repeatable system behind it.",
       "overview": [
         "Going viral once is luck. Showing up every week with content your audience recognises is a skill, and it is the skill this program teaches.",
@@ -1091,19 +1123,19 @@
       "audience": [
         {
           "icon": "sparkles",
-          "text": "Aspiring creators and influencers"
-        },
-        {
-          "icon": "megaphone",
-          "text": "Brand and social media managers running creator campaigns"
+          "text": "Aspiring creators building a personal brand"
         },
         {
           "icon": "store",
-          "text": "Small businesses working with creators"
+          "text": "Small-business owners who need to show up online"
         },
         {
-          "icon": "cap",
-          "text": "Students building a personal brand"
+          "icon": "briefcase",
+          "text": "Freelancers offering content services to clients"
+        },
+        {
+          "icon": "megaphone",
+          "text": "In-house team members handling a brand’s social accounts"
         }
       ],
       "modules": [
@@ -1135,43 +1167,41 @@
       "create": [
         {
           "icon": "target",
-          "text": "A content strategy and publishing calendar"
+          "text": "A content strategy and pillar plan"
         },
         {
           "icon": "smartphone",
-          "text": "A set of short-form videos"
+          "text": "A published series of short-form videos and posts"
         },
         {
-          "icon": "file",
-          "text": "A media kit"
+          "icon": "layers",
+          "text": "A reusable editing kit and template set"
         },
         {
           "icon": "chart",
-          "text": "A mock brand-collaboration pitch with campaign metrics"
+          "text": "A growth review built from your own analytics"
         }
       ],
       "details": {
-        "duration": "8 weeks",
-        "durationShort": "8 weeks",
-        "sessions": "24 sessions, 3 a week, 2 hours each",
-        "sessionsShort": "24 sessions",
-        "hours": "48 hours",
-        "tools": null,
-        "toolsPending": [
-          "CapCut",
-          "Canva AI",
-          "ChatGPT",
-          "Instagram and YouTube analytics"
+        "duration": null,
+        "durationShort": null,
+        "sessions": "3 a week, 2 hours each",
+        "sessionsShort": null,
+        "hours": null,
+        "tools": [
+          "Modern mobile editing apps",
+          "AI design and caption tools",
+          "Built-in platform analytics"
         ],
         "level": null,
         "eligibility": null
       },
       "careers": [
-        "Content creator or influencer",
-        "Influencer marketing executive",
-        "Creator partnerships manager",
+        "Content creator",
         "Social media manager",
-        "Talent and brand-deal coordinator"
+        "Short-form video editor",
+        "Freelance content producer",
+        "Brand-partnership creator"
       ],
       "faqs": [
         {
@@ -1191,17 +1221,16 @@
           "a": "AI speeds up ideas, scripting and editing. Your point of view drives what you make."
         }
       ],
-      "rule": "The audience comes first. AI comes second, always.",
       "audienceHeading": [
-        "Built for people who want to create,",
-        "and get paid for it."
+        "Built for people who",
+        "want to show up online."
       ],
       "cta": [
-        "Ready to grow with purpose,",
-        "not just followers?"
+        "Ready to post with a plan,",
+        "not just a feed?"
       ],
       "motto": [
-        "Creators with a strategy,",
+        "Creators with a system,",
         "not just a feed."
       ]
     }
@@ -1250,7 +1279,6 @@
       "titleAccent": "can take you.",
       "description": "Every programme ends with real work you can show. Here are the roles a graduate can credibly apply for or start, and the three routes to get there."
     },
-    "note": "These are roles you can credibly apply for or start. We make no salary or placement promise: outcomes depend on the work you do.",
     "routes": [
       {
         "key": "employed",
@@ -1508,7 +1536,7 @@
           "venture": "Marketing your own product or personal brand."
         }
       },
-      "influencer-creator-marketing": {
+      "social-media-content-creation": {
         "track": "Creators of Tomorrow",
         "outcome": "You leave with a niche you can defend, a hook and a cadence that hold up, and a live campaign you defend in public.",
         "groups": [
@@ -1571,12 +1599,12 @@
           "role": "Brand-to-growth strategist"
         },
         {
-          "a": "influencer-creator-marketing",
+          "a": "social-media-content-creation",
           "b": "podcasting",
           "role": "Creator who runs a show with a business behind it"
         },
         {
-          "a": "influencer-creator-marketing",
+          "a": "social-media-content-creation",
           "b": "digital-marketing",
           "role": "Creator-led growth or influencer marketing lead"
         },

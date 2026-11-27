@@ -4,7 +4,7 @@
 .cinfo { position: relative; padding-block: 0 clamp(16px, 3vh, 40px); background: #f4fbfa; }
 .cinfo__grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: clamp(0.9rem, 1.8vw, 1.5rem);
 }
 .cinfo__card {
@@ -66,4 +66,136 @@
   .cinfo__label { margin-top: 0; }
   .cinfo__value { margin-top: 0.2rem; }
   .cinfo__action { margin-top: 0; padding-top: 0.5rem; }
+}
+
+/* WhatsApp card icon in brand green */
+.cinfo__icon--wa { background: linear-gradient(150deg, #2fe07a, #128c4a); box-shadow: 0 14px 26px -14px rgba(18, 140, 74, 0.8); }
+.cinfo__icon--wa svg { width: 26px; height: 26px; }
+
+/* ==========================================================================
+   Contact page: map + social channels
+   ========================================================================== */
+.cfind { padding-block: clamp(24px, 5vh, 60px); background: #f4fbfa; }
+.cfind__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: clamp(1.2rem, 3vw, 2.6rem);
+  align-items: stretch;
+}
+.cfind__map {
+  position: relative;
+  min-height: 460px;
+  padding: 0.55rem;
+  border-radius: 30px;
+}
+.cfind__map .glass__fx::before { background: linear-gradient(150deg, rgba(255, 255, 255, 0.9), rgba(232, 248, 245, 0.7)); }
+.cfind__map iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 446px;
+  border: 0;
+  border-radius: 24px;
+  filter: saturate(0.85) hue-rotate(-8deg);
+}
+.cfind__pin {
+  position: absolute;
+  left: 1.6rem;
+  bottom: 1.6rem;
+  right: 1.6rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem 0.9rem;
+  max-width: 460px;
+  padding: 0.8rem 0.9rem;
+  border-radius: 20px;
+}
+.cfind__pin .glass__fx::before { background: rgba(255, 255, 255, 0.92); }
+.cfind__pin-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border-radius: 14px;
+  color: #fff;
+  background: linear-gradient(160deg, #15a797, #0b6f68);
+}
+.cfind__pin-text { display: grid; flex: 1; min-width: 120px; }
+.cfind__pin-text small { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal-700); }
+.cfind__pin-text strong { font-size: 1.05rem; color: var(--ink); }
+.cfind__pin-go {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 0.95rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--teal-600);
+  transition: background 0.25s;
+}
+.cfind__pin-go:hover { background: var(--teal-700); }
+
+.cfind__social {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.6rem, 3vw, 2.4rem);
+  border-radius: 30px;
+  color: #fff;
+  background:
+    radial-gradient(70% 60% at 100% 0%, rgba(63, 207, 190, 0.32), rgba(63, 207, 190, 0) 70%),
+    linear-gradient(155deg, #0a3f3c, #0d6b65);
+  box-shadow: 0 34px 60px -36px rgba(5, 54, 52, 0.8);
+}
+.cfind__social .eyebrow { color: #7fe3d6; }
+.cfind__title { margin-top: 0.5rem; font-size: clamp(1.9rem, 1.3rem + 1.8vw, 2.8rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.04em; }
+.cfind__title .text-accent { color: #7fe3d6; }
+.cfind__social-title { margin-top: 1.6rem; font-size: 1.05rem; font-weight: 700; }
+.cfind__social-text { margin-top: 0.35rem; font-size: 0.92rem; line-height: 1.55; color: rgba(255, 255, 255, 0.75); }
+.cfind__list { list-style: none; display: grid; gap: 0.55rem; margin-top: 1.2rem; }
+.cfind__link {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.7rem 0.85rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: background 0.3s, border-color 0.3s, transform 0.4s var(--ease-out);
+}
+.cfind__link:hover { background: rgba(255, 255, 255, 0.14); border-color: rgba(255, 255, 255, 0.25); transform: translateX(4px); }
+.cfind__link-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex: none;
+  border-radius: 12px;
+  color: #fff;
+}
+.cfind__link-icon svg { width: 20px; height: 20px; }
+.cfind__link--instagram .cfind__link-icon { background: linear-gradient(45deg, #f9ce34, #ee2a7b 50%, #6228d7); }
+.cfind__link--facebook .cfind__link-icon { background: #1877f2; }
+.cfind__link--linkedin .cfind__link-icon { background: #0a66c2; }
+.cfind__link--youtube .cfind__link-icon { background: #ff0000; }
+.cfind__link-text { display: grid; min-width: 0; }
+.cfind__link-text strong { font-size: 0.98rem; }
+.cfind__link-text small { font-size: 0.8rem; color: rgba(255, 255, 255, 0.65); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cfind__link-arrow { margin-left: auto; flex: none; color: #7fe3d6; transition: transform 0.4s var(--ease-out); }
+.cfind__link:hover .cfind__link-arrow { transform: translate(3px, -3px); }
+
+@media (min-width: 861px) and (max-width: 1100px) {
+  .cinfo__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 960px) {
+  .cfind__grid { grid-template-columns: 1fr; }
+  .cfind__map { min-height: 380px; }
+  .cfind__map iframe { min-height: 366px; }
+}
+@media (max-width: 560px) {
+  .cfind__pin { left: 1rem; right: 1rem; bottom: 1rem; }
+  .cfind__pin-go { width: 100%; justify-content: center; }
 }

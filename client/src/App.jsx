@@ -9,6 +9,7 @@ import LiquidGlassFilter from './components/LiquidGlassFilter.jsx';
 import Preloader from './components/Preloader.jsx';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
+import WhatsAppButton from './components/WhatsAppButton.jsx';
 import HomePage from './pages/HomePage.jsx';
 import AboutPage from './pages/AboutPage.jsx';
 import ProgramsPage from './pages/ProgramsPage.jsx';
@@ -110,6 +111,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+      <WhatsAppButton ready={revealed} />
     </LenisContext.Provider>
   );
 }

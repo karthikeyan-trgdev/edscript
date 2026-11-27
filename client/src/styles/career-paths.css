@@ -33,21 +33,6 @@
     radial-gradient(40% 30% at 0% 60%, rgba(127, 214, 204, 0.16), rgba(127, 214, 204, 0) 70%),
     #f4fbfa;
 }
-.cpaths__note {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.7rem;
-  max-width: 860px;
-  padding: 0.95rem 1.2rem;
-  border-radius: 16px;
-  font-size: 0.95rem;
-  line-height: 1.55;
-  color: var(--ink-2);
-  background: rgba(226, 246, 243, 0.8);
-  border: 1px solid rgba(13, 107, 101, 0.12);
-}
-.cpaths__note svg { flex: none; margin-top: 2px; color: var(--teal-600); }
-
 .cpath { padding-block: clamp(3rem, 7vh, 5.5rem); scroll-margin-top: 100px; }
 .cpath + .cpath { border-top: 1px solid rgba(13, 107, 101, 0.1); }
 .cpath__grid {

@@ -1,6 +1,6 @@
 import {
   ArrowRight, BookOpen, Clapperboard, Compass, Eye, FolderOpen, Gem, Globe,
-  GraduationCap, Rocket, Sparkles, Telescope, Zap,
+  GraduationCap, Rocket, ShieldCheck, Sparkles, Telescope, Zap,
 } from 'lucide-react';
 import content from '@shared/content.json';
 import heroBg from '@assets/images/preloader-bg.jpg';
@@ -14,6 +14,7 @@ import '../styles/about-page.css';
 const page = content.pages.about;
 const { about } = content;
 const PRINCIPLE_ICONS = { story: BookOpen, craft: Gem, eye: Eye, work: FolderOpen };
+const WHY_ICONS = { rocket: Rocket, work: Clapperboard, eye: Eye, folder: FolderOpen, shield: ShieldCheck };
 const POINT_ICONS = { clapper: Clapperboard, sparkles: Sparkles, globe: Globe, cap: GraduationCap, zap: Zap, rocket: Rocket };
 
 /** Vision / Mission card: icon badge with orbit ring, statement, three supporting points. */
@@ -63,7 +64,7 @@ export default function AboutPage({ ready }) {
     <>
       <PageHero ready={ready} image={heroBg} scene="02" crumb={page.title} {...page.hero} />
 
-      <About showCta={false} extra={content.pages.about.story} icons={PRINCIPLE_ICONS} />
+      <About showCta={false} extra={content.pages.about.story} icons={WHY_ICONS} />
 
       {/* ---- vision & mission ---- */}
       <section className="vm" id="vision" aria-labelledby="vm-title">
@@ -82,7 +83,7 @@ export default function AboutPage({ ready }) {
               num="01"
               Icon={Telescope}
               data={page.vm.vision}
-              text={about.vision}
+              text={page.vm.vision.text || about.vision}
             />
             <span className="vm__link" aria-hidden="true" data-aos="zoom-in" data-aos-delay="200">
               <ArrowRight size={20} strokeWidth={2.2} />
@@ -92,7 +93,7 @@ export default function AboutPage({ ready }) {
               num="02"
               Icon={Compass}
               data={page.vm.mission}
-              text={about.mission}
+              text={page.vm.mission.text || about.mission}
               delay={140}
             />
           </div>

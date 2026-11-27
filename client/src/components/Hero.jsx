@@ -2,9 +2,9 @@ import { useEffect, useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight, Play } from 'lucide-react';
-import heroFilm from '@assets/images/hero-bg-1.webp';
-import heroPodcast from '@assets/images/hero-bg-2.webp';
-import heroBrand from '@assets/images/hero-bg-3.webp';
+import heroFilm from '@assets/images/new-images/hero-bg.webp';
+import heroPodcast from '@assets/images/new-images/hero-bg-2.webp';
+import heroBrand from '@assets/images/new-images/hero-bg-3.webp';
 import heroInfluencer from '@assets/images/hero-bg-4.webp';
 import heroMarketing from '@assets/images/hero-bg-5.webp';
 import content from '@shared/content.json';
@@ -20,7 +20,7 @@ const { hero, features } = content;
 // x = horizontal crop anchor; in images 2-5 the person sits at the right edge, so anchor there.
 // fade = where the image starts fading in behind the copy (later on the busier images).
 const SLIDES = [
-  { src: heroFilm, x: '40%' },
+  { src: heroFilm, x: '100%', fade: '30%' },
   { src: heroPodcast, x: '100%', fade: '34%' },
   { src: heroBrand, x: '100%', fade: '34%' },
   { src: heroMarketing, x: '100%', fade: '34%' },
@@ -216,6 +216,9 @@ export default function Hero({ ready }) {
         </div>
       </div>
 
+      {/* white wash from the left, over every slide, so the copy always reads cleanly */}
+      <div className="hero__wash" aria-hidden="true" />
+
       {/* slideshow tracker: 01-04, the active bar fills over HOLD seconds */}
       <div className="hero__dots" style={{ '--hold': `${HOLD}s` }}>
         <span className="hero__dots-count" aria-hidden="true">01</span>
@@ -263,14 +266,15 @@ export default function Hero({ ready }) {
           </p>
 
           <h1 className="hero__title" id="hero-title">
-            {hero.titleLines.map((line) => (
+            {/* the accent word shares the last line: "Turn Creativity / into a Career." */}
+            {hero.titleLines.map((line, i) => (
               <span className="hero__line" key={line}>
-                <span className="hero__line-inner">{line}</span>
+                <span className="hero__line-inner">
+                  {line}
+                  {i === hero.titleLines.length - 1 && <> <span className="hero__accent">{hero.titleAccent}</span></>}
+                </span>
               </span>
             ))}
-            <span className="hero__line">
-              <span className="hero__line-inner hero__accent">{hero.titleAccent}</span>
-            </span>
           </h1>
 
           <p className="hero__desc">{hero.description}</p>

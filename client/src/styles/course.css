@@ -397,8 +397,9 @@
   line-height: 1.05;
   font-weight: 800;
   letter-spacing: -0.045em;
+  color: var(--teal-300); /* "You leave with" in the brand teal */
 }
-.ccreate__title span { color: var(--teal-300); }
+.ccreate__title span { color: #fff; } /* "work, not notes." in white */
 .ccreate__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(0.8rem, 1.6vw, 1.2rem); margin-top: clamp(2rem, 4vw, 3.2rem); }
 .ccreate__item {
   position: relative;

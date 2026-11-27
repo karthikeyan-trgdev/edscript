@@ -12,6 +12,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 const { about } = content;
 
+// "**bold** rest" -> <strong>bold</strong> rest
+const rich = (text) => text.split(/\*\*(.+?)\*\*/).map((part, i) => (i % 2 ? <strong key={i}>{part}</strong> : part));
+
 /**
  * @param extra  optional { paragraphs, highlights } shown on the About page (taller copy column,
  *               so the image card can grow to show the full square image)
@@ -19,6 +22,9 @@ const { about } = content;
  */
 export default function About({ showCta = true, extra = null, icons = {} }) {
   const root = useRef(null);
+  // the About page can bring its own heading + copy; the home page uses content.about
+  const copy = extra?.paragraphs && extra?.lead ? extra : about;
+  const extraParas = copy === extra ? [] : extra?.paragraphs || [];
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -75,27 +81,27 @@ export default function About({ showCta = true, extra = null, icons = {} }) {
         </figure>
 
         <div className="about__content">
-          <p className="eyebrow" data-aos="fade-up">{about.eyebrow}</p>
+          <p className="eyebrow" data-aos="fade-up">{copy.eyebrow}</p>
 
           <h2 className="about__title" id="about-title">
             <span className="about__line">
-              <span className="about__line-inner">{about.titleLine}</span>
+              <span className="about__line-inner">{copy.titleLine}</span>
             </span>
             <span className="about__line">
-              <span className="about__line-inner text-accent">{about.titleAccent}</span>
+              <span className="about__line-inner text-accent">{copy.titleAccent}</span>
             </span>
           </h2>
 
-          <p className="about__lead" data-aos="fade-up" data-aos-delay="100">{about.lead}</p>
-          {about.paragraphs.map((p, i) => (
+          <p className="about__lead" data-aos="fade-up" data-aos-delay="100">{copy.lead}</p>
+          {copy.paragraphs.map((p, i) => (
             <p className="about__text" key={i} data-aos="fade-up" data-aos-delay={180 + i * 80}>
-              {p}
+              {rich(p)}
             </p>
           ))}
 
-          {extra?.paragraphs?.map((p, i) => (
+          {extraParas.map((p, i) => (
             <p className="about__text" key={`x${i}`} data-aos="fade-up" data-aos-delay={340 + i * 80}>
-              {p}
+              {rich(p)}
             </p>
           ))}
 
@@ -130,6 +136,26 @@ export default function About({ showCta = true, extra = null, icons = {} }) {
           )}
         </div>
       </div>
+
+      {extra?.why?.length > 0 && (
+        <div className="container about__why">
+          <h3 className="about__why-title" data-aos="fade-up">{extra.whyTitle}</h3>
+          <ul className="about__why-grid">
+            {extra.why.map((w, i) => {
+              const Icon = icons[w.icon];
+              return (
+                <li className="about__why-card glass" key={w.title} data-aos="fade-up" data-aos-delay={i * 80}>
+                  <span className="glass__fx" aria-hidden="true" />
+                  <span className="about__why-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                  {Icon && <span className="about__hl-icon" aria-hidden="true"><Icon size={20} strokeWidth={1.9} /></span>}
+                  <strong>{w.title}</strong>
+                  <span>{w.text}</span>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
     </section>
   );
 }

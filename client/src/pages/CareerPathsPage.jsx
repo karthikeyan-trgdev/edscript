@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, Building2, Info, Laptop, Plus, Rocket, Video } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Building2, Laptop, Plus, Rocket, Video } from 'lucide-react';
 import content from '@shared/content.json';
 import heroBg from '@assets/images/about-bg.jpg';
 import PageHero from '../components/PageHero.jsx';
@@ -44,11 +44,6 @@ export default function CareerPathsPage({ ready }) {
 
       <section className="cpaths" aria-label="Career paths by programme">
         <div className="container">
-          <p className="cpaths__note" data-aos="fade-up">
-            <Info size={18} strokeWidth={2} aria-hidden="true" />
-            {page.note}
-          </p>
-
           {PATHS.map((p, i) => {
             const Icon = programIcons[p.icon] || Video;
             const [lead, accent] = splitName(p.name);

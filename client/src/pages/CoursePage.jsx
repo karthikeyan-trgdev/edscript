@@ -1,5 +1,5 @@
 import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
@@ -38,9 +38,12 @@ const SECTIONS = [
   ['faqs', 'FAQs'],
 ];
 const SUBNAV_OFFSET = -170; // fixed navbar + sticky section nav
+// old course URLs that still get shared around
+const RENAMED = { 'influencer-creator-marketing': 'social-media-content-creation' };
 
 export default function CoursePage({ ready }) {
   const { slug } = useParams();
+  if (RENAMED[slug]) return <Navigate to={`/programs/${RENAMED[slug]}`} replace />;
   const course = courses[slug];
   const index = programs.items.findIndex((p) => p.slug === slug);
   if (!course || index < 0) return <NotFoundPage ready={ready} />;
