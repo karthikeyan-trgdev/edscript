@@ -5,8 +5,8 @@ import { ArrowUpRight, Play } from 'lucide-react';
 import heroFilm from '@assets/images/new-images/hero-bg.webp';
 import heroPodcast from '@assets/images/new-images/hero-bg-2.webp';
 import heroBrand from '@assets/images/new-images/hero-bg-3.webp';
-import heroInfluencer from '@assets/images/hero-bg-4.webp';
-import heroMarketing from '@assets/images/hero-bg-5.webp';
+import heroMarketing from '@assets/images/new-images/hero-bg-4.webp';
+import heroSocial from '@assets/images/new-images/hero-bg-5.webp';
 import content from '@shared/content.json';
 import { FeatureIcon } from './Icons.jsx';
 import { useLenisInstance } from '../hooks/useLenis.js';
@@ -24,7 +24,7 @@ const SLIDES = [
   { src: heroPodcast, x: '100%', fade: '34%' },
   { src: heroBrand, x: '100%', fade: '34%' },
   { src: heroMarketing, x: '100%', fade: '34%' },
-  { src: heroInfluencer, x: '100%', fade: '34%' },
+  { src: heroSocial, x: '100%', fade: '34%' },
 ];
 const HOLD = 6; // seconds each background stays before the next one opens
 

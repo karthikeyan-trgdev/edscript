@@ -81,7 +81,7 @@
   height: 2.5px;
   width: 0;
   border-radius: 2px;
-  background: linear-gradient(90deg, var(--teal-500), var(--teal-700));
+  background: var(--red);
   pointer-events: none;
 }
 

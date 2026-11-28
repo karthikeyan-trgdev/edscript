@@ -12,6 +12,7 @@
   --teal-500: #14a596;
   --teal-300: #7fd6cc;
   --mint-50: #eef9f8;
+  --red: #c32027; /* brand red (logo) - small highlights only */
 
   --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --container: 1600px;
@@ -37,7 +38,7 @@ img, svg { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
 ul { list-style: none; }
-::selection { background: var(--teal-500); color: #fff; }
+::selection { background: var(--red); color: #fff; }
 :focus-visible { outline: 2px solid var(--teal-500); outline-offset: 3px; border-radius: 6px; }
 
 .container {
@@ -63,7 +64,7 @@ ul { list-style: none; }
   font-weight: 800;
   letter-spacing: 0.38em;
   text-transform: uppercase;
-  color: var(--teal-700);
+  color: var(--red);
 }
 .text-accent {
   background: linear-gradient(100deg, #0d8a80 0%, #17b8a6 30%, #0c766e 55%, #15a998 80%, #0d8a80 100%);

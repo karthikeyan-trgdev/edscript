@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight } from 'lucide-react';
-import homeImg from '@assets/images/about.jpg'; // home page About section
+import homeImg from '@assets/images/about-new.webp'; // home page About section
 import pageImg from '@assets/images/about-page-image.jpg'; // About page
 import content from '@shared/content.json';
 import { SmartLink } from '../lib/nav.jsx';
@@ -38,10 +38,10 @@ export default function About({ showCta = true, extra = null, icons = {} }) {
           .fromTo('.about__media',
             { clipPath: 'inset(14% 10% 14% 10% round 32px)' },
             { clipPath: 'inset(0% 0% 0% 0% round 28px)', duration: 1.6, clearProps: 'clipPath' })
-          .fromTo('.about__img', { scale: 1.18 }, { scale: 1.04, duration: 1.8 }, 0);
+          .fromTo('.about__img', { scale: 1.18 }, { scale: extra ? 1.04 : 1, duration: 1.8 }, 0);
 
-        // Slow parallax inside the card
-        gsap.fromTo('.about__img-wrap', { yPercent: -4 }, {
+        // Slow parallax inside the card (About page only; the home image is shown in full)
+        if (extra) gsap.fromTo('.about__img-wrap', { yPercent: -4 }, {
           yPercent: 4,
           ease: 'none',
           scrollTrigger: { trigger: root.current, start: 'top bottom', end: 'bottom top', scrub: true },
@@ -66,13 +66,14 @@ export default function About({ showCta = true, extra = null, icons = {} }) {
       <div className="about__glow" aria-hidden="true" />
       <div className="container about__grid">
         <figure className="about__media">
+          {!extra && <span className="about__box" aria-hidden="true" />}
           <div className="about__img-wrap">
             <img
               className="about__img"
               src={extra ? pageImg : homeImg}
               alt="A creator looking up, surrounded by glowing panels for AI, audio, film and editing"
-              width="2048"
-              height="2048"
+              width={extra ? 2048 : 1448}
+              height={extra ? 2048 : 1086}
               loading="lazy"
               decoding="async"
             />

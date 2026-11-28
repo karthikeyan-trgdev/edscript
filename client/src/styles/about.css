@@ -241,3 +241,51 @@
 @media (max-width: 480px) {
   .about__why-grid { grid-template-columns: 1fr; }
 }
+
+/* ---- Home page: content left, image right ---- */
+@media (min-width: 961px) {
+  .about:not(.about--page) .about__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); }
+  .about:not(.about--page) .about__media { order: 2; }
+}
+.about:not(.about--page) .about__media { aspect-ratio: 1448 / 1086; }
+.about:not(.about--page) .about__img { object-position: 50% 50%; }
+/* home image shown in full: no parallax overscan, no zoom, centred */
+.about:not(.about--page) .about__img-wrap { inset: 0; }
+.about:not(.about--page) .about__img { transform: none; transform-origin: 50% 50%; }
+/* home image shown in full: no parallax overscan, no zoom, centred */
+.about:not(.about--page) .about__img-wrap { inset: 0; }
+.about:not(.about--page) .about__img { transform: none; transform-origin: 50% 50%; }
+/* home: nudge the artwork left so the person sits nearer the centre; the freed strip on the
+   right is filled with the artwork's own dark teal and the image edge fades into it */
+.about:not(.about--page) .about__media { background: #0a2a2a; }
+.about:not(.about--page) .about__img-wrap {
+  transform: translateX(-12%);
+  -webkit-mask-image: linear-gradient(90deg, #000 97.5%, transparent 100%);
+  mask-image: linear-gradient(90deg, #000 97.5%, transparent 100%);
+}
+/* home: the person breaks out of the top of the frame. The dark box starts lower than the
+   (transparent) artwork; only the head side of the artwork is allowed above the box. */
+.about:not(.about--page) .about__media {
+  --pop: 17%;
+  overflow: visible;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+.about__box {
+  position: absolute;
+  inset: var(--pop) 0 0 0;
+  border-radius: 28px;
+  background: #0a2a2a;
+  box-shadow:
+    0 50px 90px -45px rgba(6, 59, 57, 0.6),
+    0 18px 36px -24px rgba(6, 59, 57, 0.35);
+}
+.about:not(.about--page) .about__img {
+  clip-path: polygon(0 var(--pop), 50% var(--pop), 50% 0, 100% 0, 100% 100%, 0 100%);
+}
+.about:not(.about--page) .about__shade { inset: var(--pop) 0 0 0; }
+@media (max-width: 560px) { .about__box { border-radius: 22px; } }
+.about:not(.about--page) .about__shade { border-radius: 28px; }
+.about:not(.about--page) .about__img-wrap { z-index: 1; } /* artwork above the frame's rim line */
+@media (max-width: 560px) { .about:not(.about--page) .about__shade { border-radius: 22px; } }

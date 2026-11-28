@@ -5,6 +5,20 @@ import { ArrowRight, Video } from 'lucide-react';
 import content from '@shared/content.json';
 import programsBg from '@assets/images/about-bg.jpg';
 import { imageFor, programIcons } from '../lib/programs.js';
+import cardFilm from '@assets/images/program-new-1.webp';
+import cardPodcast from '@assets/images/program-new-2.webp';
+import cardBrand from '@assets/images/program-new-3.webp';
+import cardMarketing from '@assets/images/program-new-4.webp';
+import cardSocial from '@assets/images/program-new-5.webp';
+
+// home page course cards use their own images (other pages keep content.json's programs.items[].image)
+const HOME_CARD_IMAGES = {
+  'ai-filmmaking': cardFilm,
+  podcasting: cardPodcast,
+  'brand-storytelling': cardBrand,
+  'digital-marketing': cardMarketing,
+  'social-media-content-creation': cardSocial,
+};
 import { SmartLink } from '../lib/nav.jsx';
 import '../styles/programs.css';
 
@@ -110,7 +124,7 @@ export default function Programs() {
                 <SmartLink className="program__card glass" to={hrefFor(p.slug)} aria-label={p.title}>
                   <span className="glass__fx" aria-hidden="true" />
                   <span className="program__media">
-                    <img src={imageFor(p.image)} alt="" width="1672" height="941" loading="lazy" decoding="async" />
+                    <img src={HOME_CARD_IMAGES[p.slug] || imageFor(p.image)} alt="" width="1672" height="941" loading="lazy" decoding="async" />
                     <span className="program__shade" aria-hidden="true" />
                     <span className="program__icon" aria-hidden="true">
                       <Icon size={24} strokeWidth={1.8} />
