@@ -6,7 +6,7 @@ import {
   ArrowRight, ArrowUpRight, Award, BarChart3, Briefcase, CalendarDays, ChevronDown, ChevronRight,
   Clapperboard, Clock, FileText, Film, GraduationCap, Layers, LayoutTemplate, MapPin, Megaphone,
   MessageCircle, Mic, Palette, PenLine, Quote, Rocket, Scissors, ShieldCheck, Smartphone, Sparkles,
-  Store, Target, TrendingUp, Users, Video, Wrench,
+  Building2, Store, Target, TrendingUp, Users, Video, Wrench,
 } from 'lucide-react';
 import content from '@shared/content.json';
 import CtaBanner from '../components/CtaBanner.jsx';
@@ -16,6 +16,31 @@ import { imageFor, programIcons } from '../lib/programs.js';
 import { useLenisInstance } from '../hooks/useLenis.js';
 import usePageTitle from '../hooks/usePageTitle.js';
 import '../styles/course.css';
+import filmCreate from '@assets/images/directors/ai-filmmaking/ai-film-1.webp';
+import filmEdit from '@assets/images/directors/ai-filmmaking/ai-film-2.webp';
+import filmOutput from '@assets/images/directors/ai-filmmaking/ai-film-3.webp';
+
+// Overview picture strip (course slug -> steps)
+const OVERVIEW_STEPS = {
+  'ai-filmmaking': [
+    { src: filmCreate, label: 'Create', alt: 'A director planning a storyboard' },
+    { src: filmEdit, label: 'Edit', alt: 'A director cutting the film on an editing timeline' },
+    { src: filmOutput, label: 'Output', alt: 'A director exporting the finished film' },
+  ],
+};
+
+// Career role pictures: assets/images/directors/<course-slug>/<file>, in the same order as course.careers
+const careerImgs = import.meta.glob('@assets/images/directors/*/*.webp', { eager: true, import: 'default' });
+const careerImg = (slug, file) => careerImgs[Object.keys(careerImgs).find((k) => k.endsWith(`/directors/${slug}/${file}`))];
+const CAREER_IMAGES = {
+  'ai-filmmaking': [
+    { file: 'AI-assisted filmmaker.webp', icon: Clapperboard },
+    { file: 'Content and ad film producer.webp', icon: Megaphone },
+    { file: 'Video editor with AI workflows.webp', icon: Scissors },
+    { file: 'Freelance short-film.webp', icon: Film },
+    { file: 'In-house video lead.webp', icon: Building2 },
+  ],
+};
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -277,6 +302,21 @@ function Course({ course, program, index, ready }) {
             </div>
           </div>
         </div>
+        {OVERVIEW_STEPS[program.slug] && (
+          <ol className="container cover__steps">
+            {OVERVIEW_STEPS[program.slug].map((st, i) => (
+              <li className="cover__step" key={st.label} data-aos="fade-up" data-aos-delay={i * 100}>
+                <figure className="cover__step-media">
+                  <img src={st.src} alt={st.alt} width="1448" height="1086" loading="lazy" decoding="async" />
+                </figure>
+                <p className="cover__step-label">
+                  <span className="cover__step-num">{String(i + 1).padStart(2, '0')}</span>
+                  {st.label}
+                </p>
+              </li>
+            ))}
+          </ol>
+        )}
       </section>
 
       {/* ================= audience ================= */}
@@ -421,7 +461,7 @@ function Course({ course, program, index, ready }) {
       </section>
 
       {/* ================= careers ================= */}
-      <section className="csec ccar" id="careers" aria-labelledby="careers-title">
+      <section className={CAREER_IMAGES[program.slug] ? 'csec ccar ccar--media' : 'csec ccar'} id="careers" aria-labelledby="careers-title">
         <div className="container ccar__grid">
           <header className="sec-head ccar__head" data-aos="fade-up">
             <p className="eyebrow">Career and business applications</p>
@@ -434,6 +474,25 @@ function Course({ course, program, index, ready }) {
               </SmartLink>
             )}
           </header>
+          {CAREER_IMAGES[program.slug] ? (
+          <ul className="ccar__cards">
+            {course.careers.map((c, i) => {
+              const role = CAREER_IMAGES[program.slug][i] || {};
+              const RoleIcon = role.icon || Briefcase;
+              return (
+              <li className="ccar__card" key={c} data-aos="fade-up" data-aos-delay={i * 70}>
+                <figure className="ccar__card-media">
+                  <img src={careerImg(program.slug, role.file)} alt="" width="1672" height="941" loading="lazy" decoding="async" />
+                </figure>
+                <p className="ccar__card-title">
+                  <RoleIcon size={16} strokeWidth={2} aria-hidden="true" />
+                  {c}
+                </p>
+              </li>
+              );
+            })}
+          </ul>
+          ) : (
           <ul className="ccar__list">
             {course.careers.map((c, i) => (
               <li className="ccar__chip glass" key={c} data-aos="fade-up" data-aos-delay={i * 60}>
@@ -443,6 +502,7 @@ function Course({ course, program, index, ready }) {
               </li>
             ))}
           </ul>
+          )}
         </div>
       </section>
 

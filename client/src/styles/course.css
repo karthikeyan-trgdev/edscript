@@ -632,3 +632,93 @@
   .cmods__line { left: 19px; }
   .cmore__head { flex-wrap: wrap; }
 }
+
+/* ---- Overview picture strip: Create -> Edit -> Output ---- */
+.cover__steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2.2vw, 2rem);
+  margin-top: clamp(2.6rem, 5vw, 4.4rem);
+}
+.cover__step { position: relative; }
+.cover__step-media {
+  aspect-ratio: 1448 / 1086;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #0a2a2a;
+  box-shadow: 0 30px 60px -36px rgba(6, 59, 57, 0.55), 0 12px 24px -18px rgba(6, 59, 57, 0.3);
+}
+.cover__step-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.8s var(--ease-out); filter:saturate(0.8) }
+.cover__step:hover .cover__step-media img { transform: scale(1.04); }
+.cover__step-label {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  font-size: clamp(1.1rem, 1rem + 0.4vw, 1.4rem);
+  font-weight: 700;
+  color: var(--ink);
+}
+.cover__step-num { font-size: 0.78rem; font-weight: 800; letter-spacing: 0.18em; color: var(--red); }
+/* arrow between steps */
+.cover__step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: calc(50% - 1.4rem);
+  right: calc(clamp(1rem, 2.2vw, 2rem) / -2);
+  width: 12px;
+  height: 12px;
+  border-top: 2.5px solid var(--teal-600);
+  border-right: 2.5px solid var(--teal-600);
+  transform: translate(50%, -50%) rotate(45deg);
+}
+@media (max-width: 760px) {
+  .cover__steps { grid-template-columns: 1fr; }
+  .cover__step:not(:last-child)::after { display: none; }
+}
+
+/* ---- Careers with role pictures (courses that have images) ---- */
+.ccar--media .ccar__grid { grid-template-columns: 1fr; gap: clamp(1.8rem, 3.5vw, 3rem); }
+.ccar--media .ccar__head {
+  max-width: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  column-gap: 2rem;
+}
+.ccar--media .ccar__head > :not(.ccar__more) { grid-column: 1; }
+.ccar--media .ccar__more { grid-column: 2; grid-row: 1 / span 3; align-self: end; margin-top: 0; }
+.ccar__cards {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(0.9rem, 1.6vw, 1.5rem);
+}
+.ccar__card-media {
+  aspect-ratio: 16 / 9;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #0a2a2a;
+  box-shadow: 0 26px 50px -32px rgba(6, 59, 57, 0.55), 0 10px 20px -16px rgba(6, 59, 57, 0.3);
+}
+.ccar__card-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.8s var(--ease-out); }
+.ccar__card:hover .ccar__card-media img { transform: scale(1.05); }
+.ccar__card-title {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  margin-top: 0.85rem;
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--ink);
+}
+.ccar__card-title svg { flex: none; margin-top: 0.15rem; color: var(--teal-600); }
+@media (max-width: 1180px) { .ccar__cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 760px) {
+  .ccar__cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ccar--media .ccar__head { display: block; }
+  .ccar--media .ccar__more { margin-top: 1.4rem; }
+}
+@media (max-width: 480px) { .ccar__cards { grid-template-columns: 1fr; } }

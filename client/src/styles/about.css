@@ -134,7 +134,7 @@
 
 /* ---- About page variant: more copy, square card that shows the whole image ---- */
 .about--page .about__grid { grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); }
-.about--page .about__media { aspect-ratio: 1 / 1; }
+.about--page .about__media { aspect-ratio: 1086 / 1448; }
 .about--page .about__img-wrap { inset: -3% 0; }
 .about--page .about__img { object-position: 50% 50%; }
 
@@ -289,3 +289,10 @@
 .about:not(.about--page) .about__shade { border-radius: 28px; }
 .about:not(.about--page) .about__img-wrap { z-index: 1; } /* artwork above the frame's rim line */
 @media (max-width: 560px) { .about:not(.about--page) .about__shade { border-radius: 22px; } }
+
+/* ---- About page: portrait image shown in full, narrower image column ---- */
+@media (min-width: 961px) {
+  .about--page .about__grid { grid-template-columns: minmax(0, 0.78fr) minmax(0, 1fr); }
+}
+.about--page .about__img-wrap { inset: 0; }
+.about--page .about__img { transform: none; object-position: 50% 50%; }

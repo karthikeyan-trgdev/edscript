@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight } from 'lucide-react';
 import homeImg from '@assets/images/about-new.webp'; // home page About section
-import pageImg from '@assets/images/about-page-image.jpg'; // About page
+import pageImg from '@assets/images/about-page.webp'; // About page
 import content from '@shared/content.json';
 import { SmartLink } from '../lib/nav.jsx';
 import '../styles/about.css';
@@ -38,14 +38,8 @@ export default function About({ showCta = true, extra = null, icons = {} }) {
           .fromTo('.about__media',
             { clipPath: 'inset(14% 10% 14% 10% round 32px)' },
             { clipPath: 'inset(0% 0% 0% 0% round 28px)', duration: 1.6, clearProps: 'clipPath' })
-          .fromTo('.about__img', { scale: 1.18 }, { scale: extra ? 1.04 : 1, duration: 1.8 }, 0);
-
-        // Slow parallax inside the card (About page only; the home image is shown in full)
-        if (extra) gsap.fromTo('.about__img-wrap', { yPercent: -4 }, {
-          yPercent: 4,
-          ease: 'none',
-          scrollTrigger: { trigger: root.current, start: 'top bottom', end: 'bottom top', scrub: true },
-        });
+          .fromTo('.about__img', { scale: 1.18 }, { scale: 1, duration: 1.8 }, 0);
+        // no scroll parallax: both images are shown in full
 
         // Headline lines slide up from a mask
         gsap.from('.about__line-inner', {
@@ -72,8 +66,8 @@ export default function About({ showCta = true, extra = null, icons = {} }) {
               className="about__img"
               src={extra ? pageImg : homeImg}
               alt="A creator looking up, surrounded by glowing panels for AI, audio, film and editing"
-              width={extra ? 2048 : 1448}
-              height={extra ? 2048 : 1086}
+              width={extra ? 1086 : 1448}
+              height={extra ? 1448 : 1086}
               loading="lazy"
               decoding="async"
             />
